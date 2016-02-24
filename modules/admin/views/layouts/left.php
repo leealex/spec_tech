@@ -19,10 +19,12 @@
             'items' => [
                 ['label' => 'Меню', 'options' => ['class' => 'header']],
                 ['label' => 'Главная', 'icon' => 'fa fa-home', 'url' => ['/admin/dashboard']],
-                ['label' => 'Разделы сайта', 'icon' => 'fa fa-sitemap', 'url' => ['/admin/article']],
+                ['label' => 'Разделы сайта', 'icon' => 'fa fa-sitemap', 'url' => ['/admin/widget-menu']],
                 ['label' => 'Материалы', 'icon' => 'fa fa-file-text', 'url' => '#', 'items' => [
-                    ['label' => 'Статичные', 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
-                    ['label' => 'Статьи', 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']]
+                    ['label' => 'Категории', 'icon' => 'fa fa-list', 'url' => ['/admin/article-category']],
+                    ['label' => 'Статичные', 'icon' => 'fa fa-file-text', 'url' => ['/admin/page']],
+                    ['label' => 'Статьи', 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
+                    ['label' => 'Текстовые блоки', 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
                 ]],
                 ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/admin/user']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
