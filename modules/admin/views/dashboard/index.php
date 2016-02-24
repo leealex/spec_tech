@@ -9,5 +9,12 @@
         You may customize this page by editing the following file:<br>
         <code><?= __FILE__ ?></code>
     </p>
-    <p>dfgdsf</p>
+    <div class="info-box">
+        <!-- Apply any bg-* class to to the icon to color it -->
+        <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+        <div class="info-box-content">
+            <span class="info-box-text">Likes</span>
+            <span class="info-box-number">93,139</span>
+        </div><!-- /.info-box-content -->
+    </div><!-- /.info-box -->
 </div>
