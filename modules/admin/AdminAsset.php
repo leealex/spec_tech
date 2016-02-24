@@ -17,7 +17,7 @@ class AdminAsset extends AssetBundle
 {
     public $sourcePath = '@app/modules/admin/assets';
     public $css = [
-
+        'css/site.css'
     ];
     public $depends = [
         'yii\web\YiiAsset',

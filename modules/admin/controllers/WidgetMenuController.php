@@ -2,9 +2,11 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\WidgetMenuItem;
 use Yii;
 use app\modules\admin\models\WidgetMenu;
 use app\modules\admin\models\WidgetMenuSearch;
+use yii\base\Model;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -61,12 +63,23 @@ class WidgetMenuController extends Controller
     public function actionCreate()
     {
         $model = new WidgetMenu();
-
+        $count = count(Yii::$app->request->post('WidgetMenuItem', []));
+        $items = [new WidgetMenuItem()];
+        for ($i = 1; $i < $count; $i++) {
+            $items[] = new WidgetMenuItem();
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if (Model::loadMultiple($items, Yii::$app->request->post()) && Model::validateMultiple($items)) {
+                foreach ($items as $item) {
+                    $item->parent_id = $model->id;
+                    $item->save(false);
+                }
+            }
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'items' => $items
             ]);
         }
     }
@@ -80,12 +93,22 @@ class WidgetMenuController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        $items = WidgetMenuItem::find()->where(['parent_id' => $id])->indexBy('id')->all();
+        $items[] = new WidgetMenuItem();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            if (Model::loadMultiple($items, Yii::$app->request->post()) && Model::validateMultiple($items)) {
+                foreach ($items as $item) {
+                    if (!empty($item->key) && !empty($item->title)) {
+                        $item->parent_id = $id;
+                        $item->save(false);
+                    }
+                }
+            }
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'items' => $items
             ]);
         }
     }
@@ -101,6 +124,20 @@ class WidgetMenuController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * Deletes an existing WidgetMenu model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeleteItem($id)
+    {
+        if ($item = WidgetMenuItem::findOne($id)) {
+            $item->delete();
+            return $this->redirect(['update', 'id' => $item->parent_id]);
+        }
     }
 
     /**

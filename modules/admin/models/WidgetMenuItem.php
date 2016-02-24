@@ -2,25 +2,29 @@
 
 namespace app\modules\admin\models;
 
-use app\modules\admin\Module;
 use Yii;
 
 /**
- * This is the model class for table "widget_menu".
+ * This is the model class for table "widget_menu_item".
  *
  * @property integer $id
+ * @property integer $parent_id
  * @property string $key
  * @property string $title
+ * @property string $url
+ * @property string $options
  * @property integer $status
+ *
+ * @property WidgetMenu $parent
  */
-class WidgetMenu extends \yii\db\ActiveRecord
+class WidgetMenuItem extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'widget_menu';
+        return 'widget_menu_item';
     }
 
     /**
@@ -29,10 +33,10 @@ class WidgetMenu extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['key', 'title'], 'required'],
-            [['status'], 'integer'],
+            [['parent_id', 'status'], 'integer'],
             [['key'], 'string', 'max' => 32],
-            [['title'], 'string', 'max' => 255]
+            [['title', 'url'], 'string', 'max' => 255],
+            ['options', 'string', 'max' => 500]
         ];
     }
 
@@ -45,6 +49,8 @@ class WidgetMenu extends \yii\db\ActiveRecord
             'id' => 'ID',
             'key' => 'Код',
             'title' => 'Название',
+            'url' => 'Ссылка',
+            'options' => 'Опции',
             'status' => 'Активно',
         ];
     }
@@ -52,8 +58,8 @@ class WidgetMenu extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItems()
+    public function getParent()
     {
-        return $this->hasMany(WidgetMenuItem::className(), ['parent_id' => 'id']);
+        return $this->hasOne(WidgetMenu::className(), ['id' => 'parent_id']);
     }
 }

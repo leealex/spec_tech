@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var $user \app\modules\admin\models\User
+ * @var $adminImg string
+ */
+?>
 <aside class="main-sidebar">
 
     <section class="sidebar">
@@ -9,8 +15,8 @@
             </div>
             <div class="pull-left info">
                 <p><?= $user->username ?></p>
+                <p><?= $user->email ?></p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
 
