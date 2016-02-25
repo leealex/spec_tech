@@ -66,17 +66,15 @@ class DashboardController extends Controller
     {
         if ($action->id === 'image-upload' || $action->id === 'file-upload') {
             $fileName = substr($result['filelink'], strrpos($result['filelink'], '/') + 1);
-            if ($action->id === 'image-upload') {
-                if ($file = $_FILES['file']) {
-                    $storage = new FileStorage();
-                    $storage->path = $action->path . $fileName;
-                    $storage->base_url = $result['filelink'];
-                    $storage->name = $fileName;
-                    $storage->size = $file['size'];
-                    $storage->type = $file['type'];
-                    $storage->created_at = time();
-                    $storage->save();
-                }
+            if ($file = $_FILES['file']) {
+                $storage = new FileStorage();
+                $storage->path = $action->path . $fileName;
+                $storage->base_url = $result['filelink'];
+                $storage->name = $fileName;
+                $storage->size = $file['size'];
+                $storage->type = $file['type'];
+                $storage->created_at = time();
+                $storage->save();
             }
         }
         return parent::afterAction($action, $result);
@@ -103,6 +101,7 @@ class DashboardController extends Controller
                 'class' => 'vova07\imperavi\actions\UploadAction',
                 'url' => '/uploads/files/',
                 'path' => '@app/web/uploads/files',
+                'uploadOnlyImage' => false
             ],
             'files-get' => [
                 'class' => 'vova07\imperavi\actions\GetAction',

@@ -8,6 +8,7 @@
 
 namespace app\modules\admin\models;
 
+use Yii;
 use yii\base\Model;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
@@ -45,17 +46,21 @@ class UploadForm extends Model
             $name = str_replace(' ', '_', $this->file->baseName);
             $type = explode('/', $this->file->type);
             if ($type[0] === 'image') {
-                $path = 'uploads/images/';
+                $path = Yii::getAlias('@app/web/uploads/images/');
+                $url = '/uploads/images/';
             } else {
-                $path = 'uploads/files/';
+                $path = Yii::getAlias('@app/web/uploads/files/');
+                $url = '/uploads/files/';
             }
             if (file_exists($path . $name . '.' . $this->file->extension)) {
-                $name .= '_' . time();
+                $name .= '_' . time() . '.' . $this->file->extension;
+            } else {
+                $name .= '.' . $this->file->extension;
             }
-            $this->file->saveAs($path . $name . '.' . $this->file->extension);
+            $this->file->saveAs($path . $name);
             $storage = new FileStorage();
-            $storage->path = $path . $name . '.' . $this->file->extension;
-            $storage->base_url = Url::base() . '/' . $path . $name . '.' . $this->file->extension;
+            $storage->path = $path . $name;
+            $storage->base_url = $url . $name;
             $storage->name = $name;
             $storage->size = $this->file->size;
             $storage->type = $this->file->type;
