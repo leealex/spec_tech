@@ -4,16 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\ArticleCategorySearch */
+/* @var $searchModel app\modules\admin\models\FileStorageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Категории';
+$this->title = 'File Storages';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="article-category-index">
+<div class="file-storage-index">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create File Storage', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -23,13 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'slug',
-            'title',
-            'body:ntext',
-            'parent_id',
-            // 'status',
+            'base_url:url',
+            'path',
+            'type',
+            'size',
+            // 'name',
             // 'created_at',
-            // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

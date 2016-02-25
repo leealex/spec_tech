@@ -2,10 +2,13 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\FileStorage;
 use app\modules\admin\models\LoginForm;
+use vova07\imperavi\actions\GetAction;
 use Yii;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 use yii\web\Controller;
 
 /**
@@ -54,6 +57,60 @@ class DashboardController extends Controller
         } else {
             return false;
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function afterAction($action, $result)
+    {
+        if ($action->id === 'image-upload' || $action->id === 'file-upload') {
+            $fileName = substr($result['filelink'], strrpos($result['filelink'], '/') + 1);
+            if ($action->id === 'image-upload') {
+                if ($file = $_FILES['file']) {
+                    $storage = new FileStorage();
+                    $storage->path = $action->path . $fileName;
+                    $storage->base_url = $result['filelink'];
+                    $storage->name = $fileName;
+                    $storage->size = $file['size'];
+                    $storage->type = $file['type'];
+                    $storage->created_at = time();
+                    $storage->save();
+                }
+            }
+        }
+        return parent::afterAction($action, $result);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'image-upload' => [
+                'class' => 'vova07\imperavi\actions\UploadAction',
+                'url' => '/uploads/images/',
+                'path' => '@app/web/uploads/images'
+            ],
+            'images-get' => [
+                'class' => 'vova07\imperavi\actions\GetAction',
+                'url' => '/uploads/images/',
+                'path' => '@app/web/uploads/images',
+                'type' => GetAction::TYPE_IMAGES,
+            ],
+            'file-upload' => [
+                'class' => 'vova07\imperavi\actions\UploadAction',
+                'url' => '/uploads/files/',
+                'path' => '@app/web/uploads/files',
+            ],
+            'files-get' => [
+                'class' => 'vova07\imperavi\actions\GetAction',
+                'url' => '/uploads/files/',
+                'path' => '@app/web/uploads/files',
+                'type' => GetAction::TYPE_FILES,
+            ]
+        ];
     }
 
     /**

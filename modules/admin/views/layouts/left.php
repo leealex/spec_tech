@@ -30,6 +30,7 @@
                     ['label' => 'Категории', 'icon' => 'fa fa-list', 'url' => ['/admin/article-category']],
                     ['label' => 'Статичные', 'icon' => 'fa fa-file-text', 'url' => ['/admin/page']],
                     ['label' => 'Статьи', 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
+                    ['label' => 'Менеджер файлов', 'icon' => 'fa fa-file-image-o', 'url' => ['/admin/file-manager']],
                     ['label' => 'Текстовые блоки', 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
                 ]],
                 ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/admin/user']],

@@ -51,13 +51,13 @@ class ArticleCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'slug' => Yii::t('app', 'Slug'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
-            'parent_id' => Yii::t('app', 'Parent ID'),
-            'status' => Yii::t('app', 'Status'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'slug' => 'Псевдоним',
+            'title' => 'Заголовок',
+            'body' => 'Текст',
+            'parent_id' => 'Родитель',
+            'status' => 'Активно',
+            'created_at' => 'Создано',
+            'updated_at' => 'Обновлено',
         ];
     }
 
