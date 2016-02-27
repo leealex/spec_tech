@@ -20,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'key',
             'title',
@@ -31,8 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'status:boolean',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'view' => false
+                ]
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ],
         ],
     ]); ?>
 

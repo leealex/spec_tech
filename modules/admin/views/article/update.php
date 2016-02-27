@@ -4,11 +4,12 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Article */
+/* @var $categories array */
 
-$this->title = 'Update Article: ' . ' ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Articles', 'url' => ['index']];
+$this->title = 'Редактирование: ' . ' ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Редактирование';
 ?>
 <div class="article-update">
 
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'categories' => $categories
     ]) ?>
 
 </div>

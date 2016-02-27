@@ -2,7 +2,9 @@
 
 namespace app\modules\admin\models;
 
+use app\modules\admin\Module;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "article_category".
@@ -33,6 +35,16 @@ class ArticleCategory extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -50,14 +62,14 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'slug' => 'Псевдоним',
-            'title' => 'Заголовок',
-            'body' => 'Текст',
-            'parent_id' => 'Родитель',
-            'status' => 'Активно',
-            'created_at' => 'Создано',
-            'updated_at' => 'Обновлено',
+            'id' => Module::t('app', 'ID'),
+            'slug' => Module::t('app', 'Slug'),
+            'title' => Module::t('app', 'Title'),
+            'body' => Module::t('app', 'Body'),
+            'parent_id' => Module::t('app', 'Parent ID'),
+            'status' => Module::t('app', 'Status'),
+            'created_at' => Module::t('app', 'Created At'),
+            'updated_at' => Module::t('app', 'Updated At'),
         ];
     }
 

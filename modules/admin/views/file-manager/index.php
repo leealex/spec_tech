@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'file')->fileInput() ?>
 
-    <?= Html::button('Загрузить файл', ['type' => 'submit', 'class' => 'btn btn-success'])?>
+    <?= Html::submitButton('Загрузить файл', ['class' => 'btn btn-success']) ?>
 
     <?php ActiveForm::end() ?>
 

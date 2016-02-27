@@ -2,7 +2,9 @@
 
 namespace app\modules\admin\models;
 
+use app\modules\admin\Module;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "article".
@@ -40,10 +42,20 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            [['slug', 'title', 'body'], 'required'],
+            [['slug', 'title', 'body', 'category_id'], 'required'],
             [['body'], 'string'],
             [['category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
@@ -58,20 +70,20 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'slug' => Yii::t('app', 'Slug'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
-            'view' => Yii::t('app', 'View'),
-            'category_id' => Yii::t('app', 'Category ID'),
-            'thumbnail_base_url' => Yii::t('app', 'Thumbnail Base Url'),
-            'thumbnail_path' => Yii::t('app', 'Thumbnail Path'),
-            'author_id' => Yii::t('app', 'Author ID'),
-            'updater_id' => Yii::t('app', 'Updater ID'),
-            'status' => Yii::t('app', 'Status'),
-            'published_at' => Yii::t('app', 'Published At'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => Module::t('app', 'ID'),
+            'slug' => Module::t('app', 'Slug'),
+            'title' => Module::t('app', 'Title'),
+            'body' => Module::t('app', 'Body'),
+            'view' => Module::t('app', 'View'),
+            'category_id' => Module::t('app', 'Category ID'),
+            'thumbnail_base_url' => Module::t('app', 'Thumbnail Base Url'),
+            'thumbnail_path' => Module::t('app', 'Thumbnail Path'),
+            'author_id' => Module::t('app', 'Author ID'),
+            'updater_id' => Module::t('app', 'Updater ID'),
+            'status' => Module::t('app', 'Status'),
+            'published_at' => Module::t('app', 'Published At'),
+            'created_at' => Module::t('app', 'Created At'),
+            'updated_at' => Module::t('app', 'Updated At'),
         ];
     }
 

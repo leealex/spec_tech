@@ -2,9 +2,11 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\ArticleCategory;
 use Yii;
 use app\modules\admin\models\Article;
 use app\modules\admin\models\ArticleSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -61,12 +63,16 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
+        $categories = ArticleCategory::find()->asArray()->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->link('author', Yii::$app->user->identity);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categories' => $categories
             ]);
         }
     }
@@ -80,12 +86,16 @@ class ArticleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $categories = ArticleCategory::find()->asArray()->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->link('updater', Yii::$app->user->identity);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => $categories
             ]);
         }
     }

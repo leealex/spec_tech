@@ -45,12 +45,12 @@ class FileStorage extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'base_url' => Yii::t('app', 'Base Url'),
-            'path' => Yii::t('app', 'Path'),
-            'type' => Yii::t('app', 'Type'),
-            'size' => Yii::t('app', 'Size'),
-            'name' => Yii::t('app', 'Name'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'base_url' => 'Расположение',
+            'path' => 'Расположение',
+            'type' => 'Тип',
+            'size' => 'Размер',
+            'name' => 'Название',
+            'created_at' => 'Создан',
         ];
     }
 }

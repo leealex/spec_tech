@@ -21,17 +21,25 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'slug',
             'title',
-            'body:ntext',
-            'parent_id',
-            // 'status',
-            // 'created_at',
-            // 'updated_at',
+            [
+                'label' => 'Элементов',
+                'value' => function ($model) {
+                    return count($model->articles);
+                }
+            ],
+            'status:boolean',
+            'created_at:date',
+            'updated_at:date',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'view' => false
+                ]
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ],
         ],
     ]); ?>
 
