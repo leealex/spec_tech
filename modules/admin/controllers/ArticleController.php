@@ -6,6 +6,7 @@ use app\modules\admin\models\ArticleCategory;
 use Yii;
 use app\modules\admin\models\Article;
 use app\modules\admin\models\ArticleSearch;
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
