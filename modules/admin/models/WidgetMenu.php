@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\models;
 
-use app\modules\admin\Module;
 use Yii;
 
 /**
@@ -12,6 +11,8 @@ use Yii;
  * @property string $key
  * @property string $title
  * @property integer $status
+ *
+ * @property WidgetMenuItem[] $items
  */
 class WidgetMenu extends \yii\db\ActiveRecord
 {

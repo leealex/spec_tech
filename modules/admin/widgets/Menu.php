@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\admin\widgets;
+
 use app\modules\admin\models\WidgetMenu;
 use yii\bootstrap\Html;
 use yii\bootstrap\Widget;
@@ -20,7 +21,7 @@ class Menu extends Widget
     /**
      * @var array HTML options of the <UL> tag
      */
-    public $menuOptions = [];
+    public $htmlOptions = [];
     /**
      * @var array
      */
@@ -33,11 +34,13 @@ class Menu extends Widget
     {
         parent::init();
 
+        /**
+         * @var $menu WidgetMenu
+         */
         $menu = WidgetMenu::findOne(['key' => $this->key]);
-
         $this->menuItems = $menu->items;
-        if (empty($this->menuOptions)) {
-            $this->menuOptions = ['class' => 'nav nav-pills'];
+        if (empty($this->htmlOptions)) {
+            $this->htmlOptions = ['class' => 'nav nav-pills'];
         }
     }
 
@@ -48,7 +51,7 @@ class Menu extends Widget
     {
         parent::run();
 
-        $html = Html::beginTag('ul', $this->menuOptions);
+        $html = Html::beginTag('ul', $this->htmlOptions);
         foreach ($this->menuItems as $item) {
             if (!$item->status) continue;
             $options = [];

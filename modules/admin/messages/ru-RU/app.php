@@ -21,6 +21,9 @@ return [
     'Published At' => 'Опубликовано',
     'Created At' => 'Создано',
     'Updated At' => 'Обновлено',
+    'Logged At' => 'Активность',
     'Parent ID' => 'Родитель',
-
+    'Key' => 'Код',
+    'Username' => 'Логин',
+    'Password' => 'Пароль',
 ];

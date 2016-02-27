@@ -1,6 +1,7 @@
 <?php
 namespace app\modules\admin\models;
 
+use app\modules\admin\Module;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -61,12 +62,12 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             [['username', 'email'], 'required'],
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'username_taken')],
+            ['username', 'unique', 'targetClass' => 'app\modules\admin\models\User', 'message' => Yii::t('app', 'username_taken')],
             ['username', 'string', 'min' => 2, 'max' => 255],
             [['email'], 'filter', 'filter' => 'trim'],
             [['email'], 'email'],
             [['email'], 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('app', 'email_taken')],
+            ['email', 'unique', 'targetClass' => 'app\modules\admin\models\User', 'message' => Yii::t('app', 'email_taken')],
             ['password', 'string', 'min' => 6],
         ];
     }
@@ -223,15 +224,13 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'username' => Yii::t('app', 'username'),
-            'password' => Yii::t('app', 'password'),
-            'email' => Yii::t('app', 'email'),
-            'created_at' => Yii::t('app', 'created_at'),
-            'updated_at' => Yii::t('app', 'updated_at'),
-            'childEmail' => Yii::t('app', 'child_email'),
-            'login_time' => Yii::t('app', 'login_time'),
-            'active' => Yii::t('app', 'active'),
-            'tour' => Yii::t('app', 'tour'),
+            'username' => Module::t('app', 'Username'),
+            'password' => Module::t('app', 'Password'),
+            'email' => Module::t('app', 'Email'),
+            'created_at' => Module::t('app', 'Created At'),
+            'updated_at' => Module::t('app', 'Updated At'),
+            'logged_at' => Module::t('app', 'Logged At'),
+            'active' => Module::t('app', 'Active'),
         ];
     }
 

@@ -7,16 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\admin\models\WidgetTextSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Widget Texts';
+$this->title = 'Текстовые блоки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-text-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
-        <?= Html::a('Create Widget Text', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать текстовый блок', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -24,16 +21,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'key',
             'title',
-            'body:ntext',
-            'status',
-            // 'created_at',
-            // 'updated_at',
+            'status:boolean',
+            'created_at:date',
+            'updated_at:date',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'visibleButtons' => [
+                    'view' => false
+                ]
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ],
         ],
     ]); ?>
 

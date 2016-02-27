@@ -2,7 +2,9 @@
 
 namespace app\modules\admin\models;
 
+use app\modules\admin\Module;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "widget_text".
@@ -28,6 +30,17 @@ class WidgetText extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -44,13 +57,13 @@ class WidgetText extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'key' => Yii::t('app', 'Key'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
-            'status' => Yii::t('app', 'Status'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => Module::t('app', 'ID'),
+            'key' => Module::t('app', 'Key'),
+            'title' => Module::t('app', 'Title'),
+            'body' => Module::t('app', 'Body'),
+            'status' => Module::t('app', 'Status'),
+            'created_at' => Module::t('app', 'Created At'),
+            'updated_at' => Module::t('app', 'Updated At'),
         ];
     }
 }
