@@ -3,6 +3,8 @@
  * @var $user \app\modules\admin\models\User
  * @var $adminImg string
  */
+use yii\helpers\Html;
+
 ?>
 <aside class="main-sidebar">
 
@@ -15,8 +17,7 @@
             </div>
             <div class="pull-left info">
                 <p><?= $user->username ?></p>
-                <p><?= $user->email ?></p>
-
+                <p><?= Html::a('Выход', ['/admin/dashboard/logout'], ['data-method' => 'post']) ?></p>
             </div>
         </div>
 
@@ -37,7 +38,7 @@
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
-                ]],
+                ]]
             ],
         ]) ?>
 
