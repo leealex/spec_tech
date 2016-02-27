@@ -2,6 +2,7 @@
 namespace app\modules\admin\models;
 
 use app\modules\admin\Module;
+use app\modules\admin\behaviors\LoginTimestampBehavior;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;

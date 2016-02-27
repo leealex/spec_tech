@@ -23,11 +23,6 @@ class UserController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['login'],
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],

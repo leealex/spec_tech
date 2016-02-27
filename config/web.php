@@ -19,6 +19,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\modules\admin\models\User',
             'enableAutoLogin' => true,
+            'as afterLogin' => 'app\modules\admin\behaviors\LoginTimestampBehavior'
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
