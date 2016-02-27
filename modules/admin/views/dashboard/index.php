@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="info-box-content">
                     <span class="info-box-text">Пользователей</span>
                     <span class="info-box-number"><?= Html::a(User::find()->count(), Url::to('/admin/user')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/user/create'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Добавить', Url::to('/admin/user/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div>
@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="info-box-content">
                     <span class="info-box-text">Статей</span>
                     <span class="info-box-number"><?= Html::a(Article::find()->count(), Url::to('/admin/article')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/article/create'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Добавить', Url::to('/admin/article/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div>
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="info-box-content">
                     <span class="info-box-text">Статичных материалов</span>
                     <span class="info-box-number"><?= Html::a(Page::find()->count(), Url::to('/admin/page')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/page/create'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Добавить', Url::to('/admin/page/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div>
@@ -70,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="info-box-content">
                     <span class="info-box-text">Текстовых блоков</span>
                     <span class="info-box-number"><?= Html::a(WidgetText::find()->count(), Url::to('/admin/widget-text')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/widget-text/create'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('Добавить', Url::to('/admin/widget-text/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
         </div>

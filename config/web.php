@@ -3,14 +3,12 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'name' => 'Название сайта',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'admin'],
     'language' => 'ru-RU',
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'ZUVycbpQJp2MOxGLaYQ6QkA3PqzChHjN',
         ],
         'cache' => [
@@ -26,9 +24,6 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
             'useFileTransport' => true,
         ],
         'log' => [

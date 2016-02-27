@@ -24,6 +24,7 @@ class Module extends \yii\base\Module
         $this->registerTranslations();
         Yii::configure($this, require(__DIR__ . '/config.php'));
         Yii::setAlias('@admin', '@app/modules/admin');
+        Yii::$app->name = 'asd';
     }
 
     public function registerTranslations()

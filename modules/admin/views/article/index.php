@@ -28,8 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Категория',
                 'value' => 'category.title'
             ],
-            'author.username',
-            'updater.username',
+            [
+                'label' => 'Автор',
+                'value' => 'author.username',
+            ],
+            [
+                'label' => 'Редактор',
+                'value' => 'updater.username',
+            ],
             'status:boolean',
             'created_at:date',
             'updated_at:date',
