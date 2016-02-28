@@ -10,6 +10,7 @@ return [
             'class' => 'yii\web\User'
         ],
         'log' => [
+            'class' => 'yii\log\Dispatcher',
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
                 [
@@ -23,6 +24,7 @@ return [
             ],
         ],
         'urlManager' => [
+            'class' => 'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
