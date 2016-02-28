@@ -3,6 +3,7 @@ namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\SystemLog;
 use app\modules\admin\models\SystemLogSearch;
+use app\modules\admin\Module;
 use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -41,6 +42,9 @@ class LogController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['log_time' => SORT_DESC]
         ];
+        SystemLog::updateAll(['read' => true], ['read' => false]);
+        Module::loadLogData();
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -54,8 +58,13 @@ class LogController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $model->read = true;
+        $model->save();
+        Module::loadLogData();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
         ]);
     }
 

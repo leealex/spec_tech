@@ -7,6 +7,7 @@ use app\modules\admin\models\User;
 use app\modules\admin\models\WidgetText;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\widgets\ListView;
 
 /* @var $searchModel app\modules\admin\models\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -15,24 +16,6 @@ $this->title = 'Панель управления';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-default-index">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Информация о системе</h3>
-                    <div class="box-tools pull-right">
-                        <span class="label label-primary"> <i class="fa fa-info-circle"></i> </span>
-                    </div><!-- /.box-tools -->
-                </div>
-                <div class="box-body">
-                    <p>Версия фреймворка <code><?= Yii::getVersion() ?></code></p>
-                    <p>Версия PHP <code><?= phpversion() ?></code></p>
-                    <p>Размер диска <code><?= round(disk_total_space(Yii::$app->basePath) / 1024 / 1024 / 1024) ?> Gb</code></p>
-                    <p>Свободное место на диске <code><?= round(disk_free_space(Yii::$app->basePath) / 1024 / 1024 / 1024) ?> Gb</code></p>
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-3">
             <div class="info-box">
@@ -49,7 +32,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a('<span class="info-box-icon bg-red"><i class="fa fa-file-text"></i></span>', Url::to('/admin/article')) ?>
                 <div class="info-box-content">
                     <span class="info-box-text">Статей</span>
-                    <span class="info-box-number"><?= Html::a(Article::find()->count(), Url::to('/admin/article')) ?></span>
+                    <span
+                        class="info-box-number"><?= Html::a(Article::find()->count(), Url::to('/admin/article')) ?></span>
                     <?= Html::a('Добавить', Url::to('/admin/article/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
@@ -69,10 +53,57 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a('<span class="info-box-icon bg-olive"><i class="fa fa-file-text-o"></i></span>', Url::to('/admin/widget-text')) ?>
                 <div class="info-box-content">
                     <span class="info-box-text">Текстовых блоков</span>
-                    <span class="info-box-number"><?= Html::a(WidgetText::find()->count(), Url::to('/admin/widget-text')) ?></span>
+                    <span
+                        class="info-box-number"><?= Html::a(WidgetText::find()->count(), Url::to('/admin/widget-text')) ?></span>
                     <?= Html::a('Добавить', Url::to('/admin/widget-text/create'), ['class' => 'btn btn-primary pull-right']) ?>
                 </div><!-- /.info-box-content -->
             </div><!-- /.info-box -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Информация о системе</h3>
+                    <div class="box-tools pull-right">
+                        <span class="label label-primary"> <i class="fa fa-info-circle"></i> </span>
+                    </div><!-- /.box-tools -->
+                </div>
+                <div class="box-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">Версия фреймворка <code><?= Yii::getVersion() ?></code></li>
+                        <li class="list-group-item">Версия PHP <code><?= phpversion() ?></code></li>
+                        <li class="list-group-item">Размер диска
+                            <code><?= round(disk_total_space(Yii::$app->basePath) / 1024 / 1024 / 1024) ?>
+                                Gb</code></li>
+                        <li class="list-group-item">Свободное место на диске
+                            <code><?= round(disk_free_space(Yii::$app->basePath) / 1024 / 1024 / 1024) ?> Gb</code></li>
+                    </ul>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+        <div class="col-md-6">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Последние системные сообщения</h3>
+                    <div class="box-tools pull-right">
+                        <span class="label label-primary"> <i class="fa fa-tasks"></i> </span>
+                    </div><!-- /.box-tools -->
+                </div>
+                <div class="box-body">
+                    <ul class="list-group">
+                        <?= ListView::widget([
+                            'dataProvider' => $dataProvider,
+                            'itemView' => '_message',
+                            'itemOptions' => [
+                                'tag' => false
+                            ],
+                            'layout' => '{items}'
+                        ]) ?>
+
+                    </ul>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
         </div>
     </div>
 </div>

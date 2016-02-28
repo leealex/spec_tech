@@ -4,8 +4,10 @@ namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\FileStorage;
 use app\modules\admin\models\LoginForm;
+use app\modules\admin\models\SystemLog;
 use vova07\imperavi\actions\GetAction;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
@@ -117,7 +119,18 @@ class DashboardController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $dataProvider = new ActiveDataProvider([
+            'query' => SystemLog::find(),
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+            'sort' => [
+                'defaultOrder' => ['log_time' => SORT_DESC]
+            ]
+        ]);
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**

@@ -52,6 +52,7 @@ class m160228_034050_log extends Migration
                 'log_time' => $this->double(),
                 'prefix' => $this->text(),
                 'message' => $this->text(),
+                'read' => $this->boolean()->defaultValue(false),
             ], $tableOptions);
 
             $this->createIndex('idx_log_level', $target->logTable, 'level');

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -8,7 +9,7 @@ use yii\helpers\Html;
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">APP</span><span class="logo-lg">' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">P</span><span class="logo-lg">Plum CMS</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
@@ -19,6 +20,36 @@ use yii\helpers\Html;
         <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
+
+
+                <li class="dropdown tasks-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-flag-o"></i>
+                        <?= Yii::$app->params['logCount'] > 0 ? '<span class="label label-danger">' .
+                            Yii::$app->params['logCount'] . '</span>' : '' ?>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header"><?= Yii::$app->params['logCount'] ?> Новых сообщений</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <?php foreach (Yii::$app->params['logData'] as $item) { ?>
+                                    <li><!-- Task item -->
+                                        <a href="<?= Url::to(['/admin/log/view', 'id' => $item->id]) ?>">
+                                            <?= $item->level === 1 ?
+                                                '<span class="label label-danger pull-right">Error</span> ' :
+                                                '<span class="label label-info pull-right">Info</span> ' ?>
+                                            <?= $item->category ?>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                        </li>
+                        <li class="footer">
+                            <a href="<?= Url::to(['/admin/log']) ?>">Посмотреть все сообщения</a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -2,7 +2,15 @@
 
 namespace app\modules\admin;
 
+use app\modules\admin\models\Article;
+use app\modules\admin\models\ArticleCategory;
+use app\modules\admin\models\FileStorage;
+use app\modules\admin\models\Page;
 use app\modules\admin\models\Settings;
+use app\modules\admin\models\SystemLog;
+use app\modules\admin\models\User;
+use app\modules\admin\models\WidgetMenu;
+use app\modules\admin\models\WidgetText;
 use Yii;
 
 /**
@@ -27,6 +35,8 @@ class Module extends \yii\base\Module
         Yii::configure($this, require(__DIR__ . '/config.php'));
         Yii::setAlias('@admin', '@app/modules/admin');
         $this->loadSettings();
+        $this->loadLogData();
+        $this->loadCounters();
     }
 
     /**
@@ -39,6 +49,35 @@ class Module extends \yii\base\Module
             Yii::$app->params['settings'][$key] = $value;
         }
         Yii::$app->name = Yii::$app->params['settings']['siteName'];
+    }
+
+    /**
+     * Loads log data into params
+     */
+    public static function loadLogData()
+    {
+        $messages = SystemLog::find()->where(['read' => false])->all();
+
+        Yii::$app->params['logCount'] = count($messages);
+        Yii::$app->params['logData'] = $messages;
+    }
+
+    /**
+     * Loads counters for the sidebar into params
+     */
+    public function loadCounters()
+    {
+        Yii::$app->params['counters'] = [
+            'menu' => '<small class="label pull-right bg-gray">' . WidgetMenu::find()->count() . '</small>',
+            'category' => '<small class="label pull-right bg-black">' . ArticleCategory::find()->count() . '</small>',
+            'page' => '<small class="label pull-right bg-black">' . Page::find()->count() . '</small>',
+            'article' => '<small class="label pull-right bg-black">' . Article::find()->count() . '</small>',
+            'file' => '<small class="label pull-right bg-black">' . FileStorage::find()->count() . '</small>',
+            'text' => '<small class="label pull-right bg-black">' . WidgetText::find()->count() . '</small>',
+            'user' => '<small class="label pull-right bg-gray">' . User::find()->count() . '</small>',
+            'settings' => '<small class="label pull-right bg-gray">' . Settings::find()->count() . '</small>',
+            'log' => '<small class="label pull-right bg-red">' . SystemLog::find()->count() . '</small>',
+        ];
     }
 
     /**

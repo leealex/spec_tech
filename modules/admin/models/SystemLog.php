@@ -13,6 +13,7 @@ use Yii;
  * @property integer $log_time
  * @property string $prefix
  * @property integer $message
+ * @property boolean $read
  */
 class SystemLog extends \yii\db\ActiveRecord
 {
@@ -32,10 +33,11 @@ class SystemLog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['level', 'log_time', 'message'], 'integer'],
+            [['level'], 'integer'],
             [['log_time'], 'required'],
             [['prefix'], 'string'],
-            [['category'], 'string', 'max' => 255]
+            [['category'], 'string', 'max' => 255],
+            ['read', 'boolean']
         ];
     }
 
