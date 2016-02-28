@@ -29,11 +29,14 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
+
         $this->layout = 'main';
         $this->defaultRoute = 'dashboard';
-        $this->registerTranslations();
-        Yii::configure($this, require(__DIR__ . '/config.php'));
+
+        Yii::configure(Yii::$app, require(__DIR__ . '/config.php'));
         Yii::setAlias('@admin', '@app/modules/admin');
+
+        $this->registerTranslations();
         $this->loadSettings();
         $this->loadLogData();
         $this->loadCounters();
