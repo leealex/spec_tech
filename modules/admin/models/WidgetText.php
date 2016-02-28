@@ -37,7 +37,6 @@ class WidgetText extends \yii\db\ActiveRecord
         ];
     }
 
-
     /**
      * @inheritdoc
      */
@@ -47,7 +46,8 @@ class WidgetText extends \yii\db\ActiveRecord
             [['key', 'title', 'body'], 'required'],
             [['body'], 'string'],
             [['status', 'created_at', 'updated_at'], 'integer'],
-            [['key', 'title'], 'string', 'max' => 255]
+            [['key', 'title'], 'string', 'max' => 255],
+            ['key', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
         ];
     }
 

@@ -52,6 +52,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['slug'], 'string', 'max' => 1024],
+            ['slug', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['title'], 'string', 'max' => 512]
         ];
     }

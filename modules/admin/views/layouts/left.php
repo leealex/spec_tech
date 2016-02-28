@@ -35,9 +35,11 @@ use yii\helpers\Html;
                     ['label' => 'Текстовые блоки', 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
                 ]],
                 ['label' => 'Пользователи', 'icon' => 'fa fa-user', 'url' => ['/admin/user']],
+                ['label' => 'Настройки', 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                    ['label' => 'Журнал событий', 'icon' => 'fa fa-tasks', 'url' => ['/admin/log'],],
                 ]]
             ],
         ]) ?>

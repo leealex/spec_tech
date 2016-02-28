@@ -15,6 +15,15 @@ $this->title = 'My Yii Application';
 
         <?= Yii::$app->name ?>
 
+        <?= Yii::$app->params['settings']['adminEmail']?>
+
+
+        <?php
+        var_dump(Yii::$app->params['settings']['adminEmail']);
+        var_dump(\app\modules\admin\models\Settings::getAll());
+        var_dump(\app\modules\admin\models\Settings::getOne('adminEmail'));
+        ?>
+
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
         <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
