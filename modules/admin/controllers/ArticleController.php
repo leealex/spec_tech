@@ -20,18 +20,6 @@ class ArticleController extends Controller
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-                'denyCallback' => function ($rule, $action) {
-                    return $action->controller->redirect('/admin/dashboard/login');
-                }
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
