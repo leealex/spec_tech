@@ -9,20 +9,13 @@ use yii\helpers\Url;
 ?>
 
 <header class="main-header">
-
     <?= Html::a('<span class="logo-mini">P</span><span class="logo-lg">Plum CMS</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
-
     <nav class="navbar navbar-static-top" role="navigation">
-
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
-
         <div class="navbar-custom-menu">
-
             <ul class="nav navbar-nav">
-
-
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
@@ -52,7 +45,6 @@ use yii\helpers\Url;
                         </li>
                     </ul>
                 </li>
-
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $adminImg ?>/img/avatar.png" class="user-image" alt="User Image"/>
@@ -63,7 +55,6 @@ use yii\helpers\Url;
                         <li class="user-header">
                             <img src="<?= $adminImg ?>/img/avatar.png" class="img-circle"
                                  alt="User Image"/>
-
                             <p>
                                 <?= $user->username ?>
                                 <small>Зарегистрирован <?= date('d.m.Y', $user->created_at) ?></small>
@@ -84,7 +75,6 @@ use yii\helpers\Url;
                         </li>
                     </ul>
                 </li>
-
                 <!-- User Account: style can be found in dropdown.less -->
                 <li>
                     <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

@@ -1,12 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
-use app\modules\admin\models\Article;
-use app\modules\admin\models\Page;
-use app\modules\admin\models\User;
-use app\modules\admin\models\WidgetText;
-use yii\helpers\Html;
-use yii\helpers\Url;
+use app\modules\admin\widgets\InfoBox;
 use yii\widgets\ListView;
 
 /* @var $searchModel app\modules\admin\models\ArticleSearch */
@@ -18,46 +13,40 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="admin-default-index">
     <div class="row">
         <div class="col-md-3">
-            <div class="info-box">
-                <?= Html::a('<span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>', Url::to('/admin/user')) ?>
-                <div class="info-box-content">
-                    <span class="info-box-text">Пользователей</span>
-                    <span class="info-box-number"><?= Html::a(User::find()->count(), Url::to('/admin/user')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/user/create'), ['class' => 'btn btn-primary pull-right']) ?>
-                </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+            <?= InfoBox::widget([
+                'counterName' => 'user',
+                'controllerPath' => '/admin/user',
+                'title' => 'Пользователей',
+                'icon' => 'fa fa-user',
+                'iconColor' => 'green'
+            ]) ?>
         </div>
         <div class="col-md-3">
-            <div class="info-box">
-                <?= Html::a('<span class="info-box-icon bg-red"><i class="fa fa-file-text"></i></span>', Url::to('/admin/article')) ?>
-                <div class="info-box-content">
-                    <span class="info-box-text">Статей</span>
-                    <span
-                        class="info-box-number"><?= Html::a(Article::find()->count(), Url::to('/admin/article')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/article/create'), ['class' => 'btn btn-primary pull-right']) ?>
-                </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+            <?= InfoBox::widget([
+                'counterName' => 'article',
+                'controllerPath' => '/admin/article',
+                'title' => 'Статей',
+                'icon' => 'fa fa-file-text',
+                'iconColor' => 'red'
+            ]) ?>
         </div>
         <div class="col-md-3">
-            <div class="info-box">
-                <?= Html::a('<span class="info-box-icon bg-blue"><i class="fa fa-file-text"></i></span>', Url::to('/admin/page')) ?>
-                <div class="info-box-content">
-                    <span class="info-box-text">Статичных материалов</span>
-                    <span class="info-box-number"><?= Html::a(Page::find()->count(), Url::to('/admin/page')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/page/create'), ['class' => 'btn btn-primary pull-right']) ?>
-                </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+            <?= InfoBox::widget([
+                'counterName' => 'page',
+                'controllerPath' => '/admin/page',
+                'title' => 'Статичных материалов',
+                'icon' => 'fa fa-file-text',
+                'iconColor' => 'blue'
+            ]) ?>
         </div>
         <div class="col-md-3">
-            <div class="info-box">
-                <?= Html::a('<span class="info-box-icon bg-olive"><i class="fa fa-file-text-o"></i></span>', Url::to('/admin/widget-text')) ?>
-                <div class="info-box-content">
-                    <span class="info-box-text">Текстовых блоков</span>
-                    <span
-                        class="info-box-number"><?= Html::a(WidgetText::find()->count(), Url::to('/admin/widget-text')) ?></span>
-                    <?= Html::a('Добавить', Url::to('/admin/widget-text/create'), ['class' => 'btn btn-primary pull-right']) ?>
-                </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
+            <?= InfoBox::widget([
+                'counterName' => 'text',
+                'controllerPath' => '/admin/widget-text',
+                'title' => 'Текстовых блоков',
+                'icon' => 'fa fa-file-text-o',
+                'iconColor' => 'olive'
+            ]) ?>
         </div>
     </div>
     <div class="row">
@@ -100,7 +89,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             'layout' => '{items}'
                         ]) ?>
-
                     </ul>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
