@@ -1,7 +1,7 @@
 Yii 2 Admin module
 ============================
 
-Description...
+This module implements admin panel.
 
 INSTALLATION
 ------------
