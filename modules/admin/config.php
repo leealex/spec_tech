@@ -28,5 +28,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
-    ]
+    ],
+    'aliases' => [
+        '@admin' => '@app/modules/admin',
+    ],
 ];

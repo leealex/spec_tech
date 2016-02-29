@@ -30,11 +30,10 @@ class Module extends \yii\base\Module
     {
         parent::init();
 
+        Yii::configure(Yii::$app, require(__DIR__ . '/config.php'));
+
         $this->layout = 'main';
         $this->defaultRoute = 'dashboard';
-
-        Yii::configure(Yii::$app, require(__DIR__ . '/config.php'));
-        Yii::setAlias('@admin', '@app/modules/admin');
 
         $this->registerTranslations();
         $this->loadSettings();

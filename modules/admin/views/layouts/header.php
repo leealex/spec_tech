@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
@@ -39,7 +40,8 @@ use yii\helpers\Url;
                                             <?= $item->level === 1 ?
                                                 '<span class="label label-danger pull-right">Error</span> ' :
                                                 '<span class="label label-info pull-right">Info</span> ' ?>
-                                            <?= $item->category ?>
+                                            <small
+                                                style="white-space: normal; color: #444;"><?= StringHelper::truncate($item->message, 200) ?></small>
                                         </a>
                                     </li>
                                 <?php } ?>

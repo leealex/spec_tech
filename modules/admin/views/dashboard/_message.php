@@ -3,10 +3,11 @@
  * @var $model \app\modules\admin\models\SystemLog
  */
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ?>
 <li class="list-group-item">
-    <a href="">
+    <a href="<?= Url::to(['/admin/log/view', 'id' => $model->id]) ?>">
         <small><i class="fa fa-clock-o"></i> <?= Html::encode(date('d.m.Y H:i:s', $model->log_time)) ?></small>
     </a>
     <strong><?= Html::encode($model->category) ?></strong>
