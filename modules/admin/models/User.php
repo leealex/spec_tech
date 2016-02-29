@@ -6,26 +6,24 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 /**
  * User model
  *
  * @property integer $id
- * @property integer $parent
  * @property string $username
  * @property string $auth_key
  * @property string $password_hash
- * @property string $password_reset_token
- * @property string $token
  * @property string $email
  * @property string $access_token
  * @property string $logged_at
- * @property string $active
- * @property string $tour
+ * @property string $status
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property string $role
  *
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -33,8 +31,15 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_NOT_ACTIVE = 1;
     const STATUS_ACTIVE = 2;
 
+    const ROLE_USER = 'user';
+    const ROLE_MANAGER = 'manager';
+    const ROLE_ADMINISTRATOR = 'administrator';
+
+    const EVENT_AFTER_SIGNUP = 'afterSignup';
+    const EVENT_AFTER_LOGIN = 'afterLogin';
+
     public $password;
-    public $childEmail;
+    public $role;
 
     /**
      * @inheritdoc
@@ -69,6 +74,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['email'], 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => 'app\modules\admin\models\User', 'message' => Yii::t('app', 'email_taken')],
             ['password', 'string', 'min' => 6],
+            ['role', 'in', 'range' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name')],
         ];
     }
 
@@ -219,6 +225,19 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @param bool $insert
+     * @param array $changedAttributes
+     */
+    public function afterSave($insert, $changedAttributes)
+    {
+        if ($this->id !== 1 && $this->role) {
+            $auth = Yii::$app->authManager;
+            $auth->revokeAll($this->id);
+            $auth->assign($auth->getRole($this->role), $this->id);
+        }
+    }
+
+    /**
      * @inheritdoc
      */
     public function attributeLabels()
@@ -231,6 +250,7 @@ class User extends ActiveRecord implements IdentityInterface
             'updated_at' => Module::t('app', 'Updated At'),
             'logged_at' => Module::t('app', 'Logged At'),
             'active' => Module::t('app', 'Active'),
+            'role' => Module::t('app', 'Role'),
         ];
     }
 
@@ -240,5 +260,30 @@ class User extends ActiveRecord implements IdentityInterface
     public function getUserProfile()
     {
         return $this->hasOne(UserProfile::className(), ['user_id'=>'id']);
+    }
+
+    /**
+     * Returns user statuses list
+     * @return array|mixed
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_NOT_ACTIVE => Yii::t('common', 'Not Active'),
+            self::STATUS_ACTIVE => Yii::t('common', 'Active'),
+        ];
+    }
+
+    public static function permissionUpdate($permissionName, $roleName, $status)
+    {
+        $auth = Yii::$app->authManager;
+        $role = $auth->getRole($roleName);
+        $permission = $auth->getPermission($permissionName);
+
+        if ($status) {
+            $auth->addChild($role, $permission);
+        } else {
+            $auth->removeChild($role, $permission);
+        }
     }
 }

@@ -13,6 +13,51 @@ $this->title = 'My Yii Application';
 
         <?= \app\modules\admin\widgets\Menu::widget(['key' => 'main']) ?>
 
+        <?php
+
+        var_dump(Yii::$app->user->can('editUsers'));
+        var_dump(Yii::$app->user->can('editSettings'));
+        var_dump(Yii::$app->authManager->getPermissions());
+
+        $data = new \yii\data\ArrayDataProvider();
+        $data->allModels = Yii::$app->authManager->getPermissions();
+
+
+
+        echo \yii\grid\GridView::widget([
+            'dataProvider' => $data,
+            'columns' => [
+                'description',
+                [
+                    'label' => 'Admin',
+                    'value' => function ($model) {
+                        $p = Yii::$app->authManager->getPermissionsByRole('administrator');
+                        return \yii\bootstrap\Html::checkbox('aPermission', key_exists($model->name, $p));
+                    },
+                    'format' => 'raw'
+                ],
+                [
+                    'label' => 'Manager',
+                    'value' => function ($model) {
+                        $p = Yii::$app->authManager->getPermissionsByRole('manager');
+                        return \yii\bootstrap\Html::checkbox('mPermission', key_exists($model->name, $p));
+                    },
+                    'format' => 'raw'
+                ],
+                [
+                    'label' => 'User',
+                    'value' => function ($model) {
+                        $p = Yii::$app->authManager->getPermissionsByRole('user');
+                        return \yii\bootstrap\Html::checkbox('uPermission', key_exists($model->name, $p));
+                    },
+                    'format' => 'raw'
+                ]
+
+            ]
+        ]);
+
+        ?>
+
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
         <p><a class="btn btn-lg btn-success" href="/admin">Log into admin cp</a></p>

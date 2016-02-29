@@ -19,6 +19,9 @@ class AdminAsset extends AssetBundle
     public $css = [
         'css/site.css'
     ];
+    public $js = [
+        'js/permissions.js'
+    ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',

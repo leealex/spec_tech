@@ -7,6 +7,7 @@ return [
             'class' => 'yii\web\User',
             'identityClass' => 'app\modules\admin\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['admin/dashboard/login'],
             'as afterLogin' => 'app\modules\admin\behaviors\LoginTimestampBehavior',
         ],
         'log' => [
@@ -28,6 +29,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
     ],
     'aliases' => [
         '@admin' => '@app/modules/admin',
@@ -41,16 +45,13 @@ return [
             ],
             [
                 'controllers' => ['admin/dashboard'],
+                'actions' => ['login'],
                 'allow' => true,
-                'actions' => ['login']
             ],
             [
                 'allow' => true,
-                'roles' => ['@'],
+                'roles' => ['administrator', 'manager'],
             ]
-        ],
-        'denyCallback' => function ($rule, $action) {
-            return $action->controller->redirect('/admin/dashboard/login');
-        }
+        ]
     ]
 ];

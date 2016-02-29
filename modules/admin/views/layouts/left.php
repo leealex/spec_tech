@@ -32,7 +32,10 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'fa fa-file-image-o', 'url' => ['/admin/file-manager']],
                     ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
                 ]],
-                ['label' => 'Пользователи' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-user', 'url' => ['/admin/user']],
+                ['label' => 'Пользователи', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
+                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/user']],
+                    ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
+                ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],

@@ -144,4 +144,15 @@ class DashboardController extends Controller
 
         return $this->redirect('/admin');
     }
+
+    /**
+     * @return string
+     */
+    public function actionError()
+    {
+        return $this->render('error', [
+            'name' => 'Ошибка доступа',
+            'message' => 'У вас нет прав на просмотр содержимого этого раздела.',
+        ]);
+    }
 }

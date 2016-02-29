@@ -7,6 +7,7 @@ use app\modules\admin\models\Settings;
 use app\modules\admin\models\SettingsSearch;
 use yii\base\Model;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -25,6 +26,23 @@ class SettingsController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * @param \yii\base\Action $action
+     * @return bool
+     * @throws \yii\web\BadRequestHttpException
+     */
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!Yii::$app->user->can('editSettings')) {
+                return $this->redirect('/admin/dashboard/error');
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

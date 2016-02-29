@@ -3,6 +3,11 @@ Yii 2 Admin module
 
 This module implements admin panel.
 
+To enter admin panel use:
+
+    login: admin
+    password: admin
+
 INSTALLATION
 ------------
 
@@ -29,6 +34,9 @@ $config['modules']['admin'] = [
             'levels' => ['error', 'warning'],
         ],
     ],
+],
+'authManager' => [
+    'class' => 'yii\rbac\DbManager',
 ],
 ```
 

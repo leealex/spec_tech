@@ -5,7 +5,9 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\modules\admin\models\User;
 use app\modules\admin\models\UserSearch;
+use yii\data\ArrayDataProvider;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -27,6 +29,22 @@ class UserController extends Controller
         ];
     }
 
+    /**
+     * @param \yii\base\Action $action
+     * @return bool
+     * @throws \yii\web\BadRequestHttpException
+     */
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            if (!Yii::$app->user->can('editUsers')) {
+                return $this->redirect('/admin/dashboard/error');
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Lists all User models.
@@ -69,6 +87,7 @@ class UserController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description')
             ]);
         }
     }
@@ -82,12 +101,16 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($roles = Yii::$app->authManager->getRolesByUser($id)) {
+            $model->role = key($roles);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description')
             ]);
         }
     }
@@ -100,7 +123,9 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if ($id != 1) {
+            $this->findModel($id)->delete();
+        }
 
         return $this->redirect(['index']);
     }
@@ -119,5 +144,29 @@ class UserController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function actionPermission()
+    {
+        $dataProvider = new ArrayDataProvider([
+            'allModels' => Yii::$app->authManager->getPermissions()
+        ]);
+
+        return $this->render('permission', [
+            'dataProvider' => $dataProvider,
+            'administrator' => Yii::$app->authManager->getPermissionsByRole('administrator'),
+            'manager' => Yii::$app->authManager->getPermissionsByRole('manager'),
+            'user' => Yii::$app->authManager->getPermissionsByRole('user'),
+        ]);
+    }
+
+    public function actionPermissionUpdate()
+    {
+        $post = Yii::$app->request->post();
+
+        User::permissionUpdate($post['permission'], $post['role'], json_decode($post['status']));
     }
 }

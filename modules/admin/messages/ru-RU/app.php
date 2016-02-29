@@ -26,5 +26,6 @@ return [
     'Key' => 'Код',
     'Username' => 'Логин',
     'Password' => 'Пароль',
-    'username_password_wrong' => 'Неверное имя пользователя или пароль'
+    'username_password_wrong' => 'Неверное имя пользователя или пароль',
+    'Role' => 'Роль пользователя',
 ];

@@ -25,6 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'email:email',
+            [
+                'label' => 'Роль',
+                'value' => function ($model) {
+                    if ($roles = Yii::$app->authManager->getRolesByUser($model->id)) {
+                        return $roles[key($roles)]->description;
+                    } else {
+                        return '';
+                    }
+                }
+            ],
             'created_at:date',
             'updated_at:date',
             'logged_at:date',
