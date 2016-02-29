@@ -57,6 +57,7 @@ use yii\helpers\Url;
                                  alt="User Image"/>
                             <p>
                                 <?= $user->username ?>
+                                <small><?= Yii::$app->params['settings']['userRole'] ?></small>
                                 <small>Зарегистрирован <?= date('d.m.Y', $user->created_at) ?></small>
                             </p>
                         </li>

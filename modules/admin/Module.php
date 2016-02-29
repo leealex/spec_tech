@@ -51,6 +51,12 @@ class Module extends \yii\base\Module
             Yii::$app->params['settings'][$key] = $value;
         }
         Yii::$app->name = Yii::$app->params['settings']['siteName'];
+
+        if ($roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->id)) {
+            Yii::$app->params['settings']['userRole'] = $roles[key($roles)]->description;
+        } else {
+            Yii::$app->params['settings']['userRole'] = '';
+        }
     }
 
     /**

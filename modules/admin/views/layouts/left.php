@@ -33,7 +33,7 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
                 ]],
                 ['label' => 'Пользователи', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
-                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/user']],
+                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/user/index']],
                     ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
                 ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],

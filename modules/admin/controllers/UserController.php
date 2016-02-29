@@ -157,9 +157,9 @@ class UserController extends Controller
 
         return $this->render('permission', [
             'dataProvider' => $dataProvider,
-            'administrator' => Yii::$app->authManager->getPermissionsByRole('administrator'),
-            'manager' => Yii::$app->authManager->getPermissionsByRole('manager'),
-            'user' => Yii::$app->authManager->getPermissionsByRole('user'),
+            'administrator' => Yii::$app->authManager->getPermissionsByRole(User::ROLE_ADMINISTRATOR),
+            'manager' => Yii::$app->authManager->getPermissionsByRole(User::ROLE_MANAGER),
+            'user' => Yii::$app->authManager->getPermissionsByRole(User::ROLE_USER),
         ]);
     }
 
