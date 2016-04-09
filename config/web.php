@@ -29,6 +29,15 @@ $config = [
                 ],
             ],
         ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                'page/<slug:[a-z-]+>' => 'page/view',
+                '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
+            ]
+        ],
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
