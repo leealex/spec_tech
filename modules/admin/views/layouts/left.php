@@ -36,7 +36,7 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
                 ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
-                ['label' => 'События', 'encode' => false, 'icon' => 'fa fa-calendar', 'url' => ['/admin/event']],
+                ['label' => 'Инфографика', 'encode' => false, 'icon' => 'fa fa-pie-chart', 'url' => ['/admin/graph-item']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],

@@ -2,64 +2,56 @@
 
 /* @var $this yii\web\View */
 
+use app\modules\admin\models\GraphItem;
+use app\modules\admin\widgets\Text;
+use yii\bootstrap\Carousel;
+
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <?= \app\modules\admin\widgets\Menu::widget(['key' => 'main']) ?>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="/admin">Log into admin cp</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+    <section class="intro">
+        <div class="container">
+            <div class="about-us">
+                <h2>Чем занимаемся</h2>
+                <div class="subtitle">
+                    Осуществляем поставки для нужд предприятий нефтегазовой отрасли
+                </div>
+                <div class="years">
+                    <div class="number">5</div>
+                    лет
+                </div>
+                <div class="years-desc">
+                    Успешной работы
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="laptop"><img src="/img/laptop.png" alt="ООО НПП Спецтех" class="img-responsive"></div>
+        </div>
+        <div class="section-footer-wrapper">
+            <div class="section-footer"></div>
+        </div>
+    </section>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="icon"><i class="fa fa-commenting"></i></div>
+                    <h2>О нашей компании</h2>
+                    <div class="text">
+                        <?= Text::widget(['key' => 'about']) ?>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a>
-                </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <?= Carousel::widget([
+                        'controls' => false,
+                        'showIndicators' => false,
+                        'options' => ['class' => 'slide'],
+                        'items' => GraphItem::renderItems()
+                    ]) ?>
+                </div>
             </div>
         </div>
-
-    </div>
+    </section>
 </div>

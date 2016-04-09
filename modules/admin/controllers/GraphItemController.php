@@ -2,38 +2,40 @@
 
 namespace app\modules\admin\controllers;
 
-use app\modules\admin\models\Settings;
 use Yii;
-use app\models\Event;
-use app\models\EventSearch;
+use app\modules\admin\models\GraphItem;
+use app\modules\admin\models\GraphItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * EventController implements the CRUD actions for Event model.
+ * GraphItemController implements the CRUD actions for GraphItem model.
  */
-class EventController extends Controller
+class GraphItemController extends Controller
 {
+    /**
+     * @inheritdoc
+     */
     public function behaviors()
     {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all Event models.
+     * Lists all GraphItem models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EventSearch();
+        $searchModel = new GraphItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -43,7 +45,7 @@ class EventController extends Controller
     }
 
     /**
-     * Displays a single Event model.
+     * Displays a single GraphItem model.
      * @param integer $id
      * @return mixed
      */
@@ -55,14 +57,14 @@ class EventController extends Controller
     }
 
     /**
-     * Creates a new Event model.
+     * Creates a new GraphItem model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Event();
-        $model->address = Settings::getValue('address');
+        $model = new GraphItem();
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -73,7 +75,7 @@ class EventController extends Controller
     }
 
     /**
-     * Updates an existing Event model.
+     * Updates an existing GraphItem model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -92,7 +94,7 @@ class EventController extends Controller
     }
 
     /**
-     * Deletes an existing Event model.
+     * Deletes an existing GraphItem model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -105,15 +107,15 @@ class EventController extends Controller
     }
 
     /**
-     * Finds the Event model based on its primary key value.
+     * Finds the GraphItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Event the loaded model
+     * @return GraphItem the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Event::findOne($id)) !== null) {
+        if (($model = GraphItem::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

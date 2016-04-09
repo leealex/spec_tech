@@ -43,7 +43,7 @@ class Menu extends Widget
     {
         parent::run();
         echo Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
+            'options' => ['class' => 'navbar-nav'],
             'encodeLabels' => false,
             'items' => $this->menuItems,
         ]);
@@ -63,8 +63,30 @@ class Menu extends Widget
                 }
                 $this->menuItems[] = ['label' => $item->title, 'items' => $children];
             } else {
+                $this->isActive($item);
                 $this->menuItems[] = ['label' => $item->title, 'url' => $item->url, 'linkOptions' => $item->optionsArray];
             }
         }
+    }
+
+    /**
+     * @param $item
+     * @return bool
+     */
+    private function isActive($item)
+    {
+        $route = trim($item->url, '/');
+        $action = Yii::$app->controller->id . '/' . Yii::$app->controller->action->id;
+        if ($route === $action) {
+            $options = $item->optionsArray;
+            if (isset($options['class'])) {
+                $options['class'] .= ' active';
+            } else {
+                $options['class'] = 'active';
+            }
+            $item->options = json_encode($options);
+            return true;
+        }
+        return false;
     }
 }

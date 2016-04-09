@@ -5,7 +5,6 @@
 
 use app\modules\admin\widgets\Menu;
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
 AppAsset::register($this);
@@ -24,13 +23,15 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?= Menu::widget(['key' => 'main']) ?>
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+    <div class="header">
+        <a class="logo" href="/"></a>
+        <?= Menu::widget(['key' => 'main']) ?>
+        <div class="phones">
+            <div>+7 (495) 911 26 09</div>
+            <div>+7 (962) 997 00 82</div>
+        </div>
     </div>
+    <?= $content ?>
 </div>
 
 <footer class="footer">

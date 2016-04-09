@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-size: 18px;
 }
 
 .wrap {
@@ -19,21 +20,6 @@ body {
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     padding-top: 20px;
-}
-
-.jumbotron {
-    text-align: center;
-    background-color: transparent;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-.not-set {
-    color: #c55;
-    font-style: italic;
 }
 
 /* add sorting icons to gridview sort links */
@@ -88,4 +74,180 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
+}
+
+.header .logo,
+.header .navbar-nav,
+.header .phones {
+    display: inline-block;
+    float: none;
+}
+
+.header .logo {
+    height: 100px;
+    width: 330px;
+    float: left;
+    background: url('../img/logo.png') no-repeat center;
+}
+
+.header .navbar-nav {
+    height: 50px;
+    float: none;
+    margin-top: 47px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.header .navbar-nav a {
+    color: #222222;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background: none;
+    border-bottom: 3px solid #777;
+}
+
+.nav > li > a.active {
+    border-bottom: 3px solid #2c90cf;
+}
+
+.header .phones {
+    float: right;
+    padding: 24px 30px 0 0;
+}
+
+.phones div {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.site-index .intro {
+    overflow: hidden;
+    background: url('../img/pattern-black.jpg');
+    color: #ffffff;
+    padding-top: 70px;
+}
+
+.section-footer-wrapper {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-footer {
+    height: 100px;
+    width: 110%;
+    background: #fff;
+    transform: rotate(-2deg);
+    position: relative;
+    bottom: -50px;
+}
+
+.about-us, .laptop {
+    float: left;
+}
+
+.about-us {
+    width: 30%;
+    height: 100%;
+    margin-right: -5%;
+    position: relative;
+    z-index: 1;
+}
+
+.about-us h2 {
+    font-weight: 200;
+    font-size: 42px;
+    margin: 0;
+}
+
+.about-us .subtitle {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #c8c8c8;
+    font-weight: 200;
+}
+
+.years {
+    height: 247px;
+    width: 219px;
+    background: url("../img/years.png") no-repeat;
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    font-size: 84px;
+    line-height: 1em;
+    font-weight: bold;
+    padding-top: 32px;
+    margin: 20px auto;
+}
+
+.years .number {
+    font-size: 120px;
+    line-height: 0.6em;
+}
+
+.years-desc {
+    color: #2c90cf;
+    text-align: center;
+    font-size: 44px;
+    font-weight: 300;
+    line-height: 1em;
+}
+
+.laptop {
+    width: 75%;
+    position: relative;
+    z-index: 0;
+}
+
+section.about {
+    padding-bottom: 50px;
+}
+
+.about .icon {
+    font-size: 60px;
+    color: #2c90cf;
+    text-align: center;
+}
+
+.about h2 {
+    text-align: center;
+    margin: 0 0 38px;
+    font-weight: 300;
+    font-size: 48px;
+}
+
+.text {
+    -moz-column-count: 2;
+    -moz-column-gap: 6em;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 6em;
+    column-count: 2;
+    column-gap: 6em;
+}
+
+.item {
+    text-align: center;
+}
+
+.circle-graph {
+    width: 30%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.circle-graph span {
+    height: 100px;
+    display: block;
 }

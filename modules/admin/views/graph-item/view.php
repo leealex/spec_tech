@@ -4,15 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Event */
+/* @var $model app\modules\admin\models\GraphItem */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Events'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Graph Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="graph-item-view">
 
     <p>
         <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -29,11 +27,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'text:html',
-            'date:dateTime',
-            'address:text',
-            'created_at:dateTime',
-            'updated_at:dateTime',
+            'number',
+            'text',
+            'color',
+            'width',
         ],
     ]) ?>
 

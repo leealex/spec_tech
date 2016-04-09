@@ -4,18 +4,17 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\EventSearch */
+/* @var $searchModel app\modules\admin\models\GraphItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'События';
+$this->title = Yii::t('app', 'Graph Items');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="event-index">
+<div class="graph-item-index">
 
     <p>
-        <?= Html::a('Добавить событие', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Create Graph Item'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -23,14 +22,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'text:ntext',
-            'date:dateTime',
-            'address:text',
-            'created_at:dateTime',
-            'updated_at:dateTime',
+            'number',
+            'color',
+            'width',
+            'text',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
 </div>

@@ -7,18 +7,18 @@ use yii\bootstrap\Html;
 use yii\bootstrap\Widget;
 
 /**
- * Menu widget renders a menu
+ * Menu widget renders a text
  *
  * @author Alexey Lee <alex@plumy.ru>
  */
 class Text extends Widget
 {
     /**
-     * @var string The key of the menu
+     * @var string The key of the text
      */
     public $key;
     /**
-     * @var array HTML options of the <UL> tag
+     * @var array HTML options 
      */
     public $htmlOptions = [];
 
