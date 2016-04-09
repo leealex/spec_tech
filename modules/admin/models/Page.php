@@ -49,7 +49,7 @@ class Page extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['status', 'created_at', 'updated_at'], 'integer'],
             [['slug'], 'string', 'max' => 2048],
-            ['slug', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
+            ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['title'], 'string', 'max' => 512],
             [['view'], 'string', 'max' => 255]
         ];

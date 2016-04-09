@@ -22,7 +22,6 @@ $counter = Yii::$app->params['countersHtml'];
         <?= dmstr\widgets\Menu::widget([
             'options' => ['class' => 'sidebar-menu'],
             'items' => [
-                ['label' => 'Меню', 'options' => ['class' => 'header']],
                 ['label' => 'Главная', 'icon' => 'fa fa-home', 'url' => ['/admin/dashboard']],
                 ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'fa fa-sitemap', 'url' => ['/admin/widget-menu']],
                 ['label' => 'Материалы', 'icon' => 'fa fa-file-text', 'url' => '#', 'items' => [
@@ -37,6 +36,7 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
                 ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
+                ['label' => 'События', 'encode' => false, 'icon' => 'fa fa-calendar', 'url' => ['/admin/event']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],

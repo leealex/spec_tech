@@ -52,7 +52,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['slug'], 'string', 'max' => 1024],
-            ['slug', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
+            ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['title'], 'string', 'max' => 512]
         ];
     }
@@ -96,5 +96,15 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public function getArticleCategories()
     {
         return $this->hasMany(ArticleCategory::className(), ['parent_id' => 'id']);
+    }
+
+    /**
+     * @param $slug
+     * @return int
+     */
+    public static function getIdBySlug($slug)
+    {
+        $category = self::findOne(['slug' => $slug]);
+        return $category->id;
     }
 }

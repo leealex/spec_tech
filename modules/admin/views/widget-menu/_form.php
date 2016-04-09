@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\WidgetMenu */
 /* @var $form yii\widgets\ActiveForm */
+/* @var array $parents */
 ?>
 
 <div class="widget-menu-form">
@@ -32,10 +33,12 @@ use yii\widgets\ActiveForm;
     <p><strong>Активно</strong> Включен или выключен пункт меню.</p>
     <?php foreach ($items as $index => $item) { ?>
         <div class="row">
-            <div class="col-md-2"><?= $form->field($item, "[$index]key") ?></div>
+            <div class="col-md-1"><?= $form->field($item, "[$index]id")->textInput(['disabled' => true]) ?></div>
+            <div class="col-md-1"><?= $form->field($item, "[$index]parent_id")->dropDownList($parents) ?></div>
+            <div class="col-md-1"><?= $form->field($item, "[$index]key") ?></div>
             <div class="col-md-2"><?= $form->field($item, "[$index]title") ?></div>
             <div class="col-md-2"><?= $form->field($item, "[$index]url") ?></div>
-            <div class="col-md-4"><?= $form->field($item, "[$index]options") ?></div>
+            <div class="col-md-3"><?= $form->field($item, "[$index]options") ?></div>
             <div class="col-md-1"><?= $form->field($item, "[$index]status")->widget(ButtonGroup::className(), [
                     'default' => 1,
                     'items' => [

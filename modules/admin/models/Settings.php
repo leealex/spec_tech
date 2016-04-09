@@ -36,7 +36,7 @@ class Settings extends \yii\db\ActiveRecord
             [['value', 'comment'], 'string'],
             [['editable', 'updated_at', 'created_at'], 'integer'],
             [['key'], 'string', 'max' => 128],
-            ['key', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
+            ['key', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['key'], 'unique']
         ];
     }
@@ -72,5 +72,16 @@ class Settings extends \yii\db\ActiveRecord
     {
         $settings = self::find()->asArray()->all();
         return ArrayHelper::map($settings, 'key', 'value');
+    }
+
+    /**
+     * @param $key
+     * @return string
+     */
+    public static function getValue($key)
+    {
+        if (self::findOne($key)) {
+            return self::findOne($key)->value;
+        }
     }
 }

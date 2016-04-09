@@ -11,6 +11,24 @@ To enter admin panel use:
 INSTALLATION
 ------------
 
+Add this to the "required" section of your composer.json
+
+```
+"require": {
+    "dmstr/yii2-adminlte-asset": "2.*",
+    "vova07/yii2-imperavi-widget": "*"
+```    
+
+OR install each extension separately:
+
+### Install Imperavi editor:
+
+`php composer.phar require --prefer-dist vova07/yii2-imperavi-widget "*"`
+
+### Install AdminLTE theme:
+
+`php composer.phar require dmstr/yii2-adminlte-asset "2.*"`
+
 ### Add the following snippet into the `app\config\web.php` before `return $config;`:
 
 ```

@@ -26,7 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             [
                 'label' => 'Категория',
-                'value' => 'category.title'
+                'value' => 'category.title',
+                'filter' => Html::activeDropDownList($searchModel, 'category_id', $categories, ['class' => 'form-control', 'prompt' => ''])
             ],
             [
                 'label' => 'Автор',

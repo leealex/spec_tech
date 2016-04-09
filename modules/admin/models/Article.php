@@ -59,7 +59,7 @@ class Article extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            ['slug', 'match', 'pattern' => '/^[a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
+            ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['title'], 'string', 'max' => 512],
             [['view'], 'string', 'max' => 255]
         ];
@@ -118,5 +118,20 @@ class Article extends \yii\db\ActiveRecord
     public function getArticleAttachments()
     {
         return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
+    }
+
+    /**
+     * @param $category
+     * @param null $limit
+     * @return $this
+     */
+    public static function getByCategory($category, $limit = null)
+    {
+        $categoryId = ArticleCategory::getIdBySlug($category);
+        $query = self::find()->where(['category_id' => $categoryId])->orderBy(['id' => SORT_DESC]);
+        if ($limit) {
+            $query->limit($limit);
+        }
+        return $query->all();
     }
 }

@@ -31,6 +31,7 @@ class Module extends \yii\base\Module
         parent::init();
 
         Yii::configure(Yii::$app, require(__DIR__ . '/config.php'));
+        Yii::configure($this, require(__DIR__ . '/moduleConfig.php'));
 
         $this->layout = 'main';
         $this->defaultRoute = 'dashboard';
@@ -79,7 +80,7 @@ class Module extends \yii\base\Module
         $counters = Yii::$app->cache->get($cacheKeyCounters);
         if (!$counters) {
             $counters = [
-                'menu' =>WidgetMenu::find()->count(),
+                'menu' => WidgetMenu::find()->count(),
                 'category' => ArticleCategory::find()->count(),
                 'page' => Page::find()->count(),
                 'article' => Article::find()->count(),
@@ -91,7 +92,7 @@ class Module extends \yii\base\Module
             ];
         }
         Yii::$app->params['counters'] = $counters;
-        Yii::$app->cache->set($cacheKeyCounters, $counters);
+        Yii::$app->cache->set($cacheKeyCounters, $counters, 60 * 60);
 
         $cacheKeyCountersHtml = ['admin', 'counters', 'html'];
         $countersHtml = Yii::$app->cache->get($cacheKeyCountersHtml);
@@ -109,7 +110,7 @@ class Module extends \yii\base\Module
             ];
         }
         Yii::$app->params['countersHtml'] = $countersHtml;
-        Yii::$app->cache->set($cacheKeyCountersHtml, $countersHtml);
+        Yii::$app->cache->set($cacheKeyCountersHtml, $countersHtml, 60 * 60);
     }
 
     /**

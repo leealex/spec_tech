@@ -72,7 +72,7 @@ class WidgetMenuController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if (Model::loadMultiple($items, Yii::$app->request->post()) && Model::validateMultiple($items)) {
                 foreach ($items as $item) {
-                    $item->parent_id = $model->id;
+                    $item->menu_id = $model->id;
                     $item->save(false);
                 }
             }
@@ -80,7 +80,8 @@ class WidgetMenuController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'items' => $items
+                'items' => $items,
+                'parents' => []
             ]);
         }
     }
@@ -94,13 +95,13 @@ class WidgetMenuController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $items = WidgetMenuItem::find()->where(['parent_id' => $id])->indexBy('id')->all();
+        $items = WidgetMenuItem::find()->where(['menu_id' => $id])->indexBy('id')->all();
         $items[] = new WidgetMenuItem();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if (Model::loadMultiple($items, Yii::$app->request->post()) && Model::validateMultiple($items)) {
                 foreach ($items as $item) {
                     if (!empty($item->key) && !empty($item->title)) {
-                        $item->parent_id = $id;
+                        $item->menu_id = $id;
                         $item->save(false);
                     }
                 }
@@ -109,7 +110,8 @@ class WidgetMenuController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'items' => $items
+                'items' => $items,
+                'parents' => WidgetMenuItem::parents($id)
             ]);
         }
     }

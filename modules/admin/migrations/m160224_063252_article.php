@@ -55,11 +55,10 @@ class m160224_063252_article extends Migration
 
     public function safeDown()
     {
-        $this->dropForeignKey('fk_article_attachment_article', '{{%article_attachment}}');
-        $this->dropForeignKey('fk_article_author', '{{%article}}');
-        $this->dropForeignKey('fk_article_updater', '{{%article}}');
-        $this->dropForeignKey('fk_article_category', '{{%article}}');
         $this->dropForeignKey('fk_article_category_section', '{{%article_category}}');
+        $this->dropForeignKey('fk_article_category', '{{%article}}');
+        $this->dropForeignKey('fk_article_updater', '{{%article}}');
+        $this->dropForeignKey('fk_article_author', '{{%article}}');
         $this->dropTable('{{%article_attachment}}');
         $this->dropTable('{{%article}}');
         $this->dropTable('{{%article_category}}');

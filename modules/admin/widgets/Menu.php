@@ -3,7 +3,11 @@
 namespace app\modules\admin\widgets;
 
 use app\modules\admin\models\WidgetMenu;
+use app\modules\admin\models\WidgetMenuItem;
+use Yii;
 use yii\bootstrap\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\bootstrap\Widget;
 use yii\helpers\ArrayHelper;
 
@@ -19,10 +23,6 @@ class Menu extends Widget
      */
     public $key;
     /**
-     * @var array HTML options of the <UL> tag
-     */
-    public $htmlOptions = [];
-    /**
      * @var array
      */
     private $menuItems;
@@ -33,15 +33,7 @@ class Menu extends Widget
     public function init()
     {
         parent::init();
-
-        /**
-         * @var $menu WidgetMenu
-         */
-        $menu = WidgetMenu::findOne(['key' => $this->key]);
-        $this->menuItems = $menu->items;
-        if (empty($this->htmlOptions)) {
-            $this->htmlOptions = ['class' => 'nav nav-pills'];
-        }
+        $this->buildItems();
     }
 
     /**
@@ -50,19 +42,29 @@ class Menu extends Widget
     public function run()
     {
         parent::run();
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'encodeLabels' => false,
+            'items' => $this->menuItems,
+        ]);
+    }
 
-        $html = Html::beginTag('ul', $this->htmlOptions);
-        foreach ($this->menuItems as $item) {
-            if (!$item->status) continue;
-            $options = [];
-            if ($item->options) {
-                $options = json_decode($item->options);
-                $options = ArrayHelper::toArray($options);
+    /**
+     * Prepares the array of items for the Nav widget
+     */
+    private function buildItems()
+    {
+        $menu = WidgetMenu::findOne(['key' => $this->key]);
+        foreach ($menu->items as $item) {
+            if ($item->children) {
+                $children = [];
+                foreach ($item->children as $child) {
+                    $children[] = ['label' => $child->title, 'url' => $child->url, 'linkOptions' => $child->optionsArray];
+                }
+                $this->menuItems[] = ['label' => $item->title, 'items' => $children];
+            } else {
+                $this->menuItems[] = ['label' => $item->title, 'url' => $item->url, 'linkOptions' => $item->optionsArray];
             }
-            $button = Html::a($item->title, $item->url, $options);
-            $html .= Html::tag('li', $button);
         }
-        $html .= Html::endTag('ul');
-        return $html;
     }
 }

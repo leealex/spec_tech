@@ -2,20 +2,18 @@
 
 namespace app\modules\admin\controllers;
 
-use app\modules\admin\models\ArticleCategory;
+use app\modules\admin\models\Settings;
 use Yii;
-use app\modules\admin\models\Article;
-use app\modules\admin\models\ArticleSearch;
-use yii\filters\AccessControl;
-use yii\helpers\ArrayHelper;
+use app\models\Event;
+use app\models\EventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ArticleController implements the CRUD actions for Article model.
+ * EventController implements the CRUD actions for Event model.
  */
-class ArticleController extends Controller
+class EventController extends Controller
 {
     public function behaviors()
     {
@@ -30,24 +28,22 @@ class ArticleController extends Controller
     }
 
     /**
-     * Lists all Article models.
+     * Lists all Event models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleSearch();
+        $searchModel = new EventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $categories = ArticleCategory::find()->asArray()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'categories' => ArrayHelper::map($categories, 'id', 'title')
         ]);
     }
 
     /**
-     * Displays a single Article model.
+     * Displays a single Event model.
      * @param integer $id
      * @return mixed
      */
@@ -59,29 +55,25 @@ class ArticleController extends Controller
     }
 
     /**
-     * Creates a new Article model.
+     * Creates a new Event model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Article();
-        $model->slug = time();
-        $categories = ArticleCategory::find()->asArray()->all();
-
+        $model = new Event();
+        $model->address = Settings::getValue('address');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->link('author', Yii::$app->user->identity);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => ArrayHelper::map($categories, 'id', 'title')
             ]);
         }
     }
 
     /**
-     * Updates an existing Article model.
+     * Updates an existing Event model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -89,21 +81,18 @@ class ArticleController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $categories = ArticleCategory::find()->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->link('updater', Yii::$app->user->identity);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArrayHelper::map($categories, 'id', 'title')
             ]);
         }
     }
 
     /**
-     * Deletes an existing Article model.
+     * Deletes an existing Event model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -116,15 +105,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * Finds the Article model based on its primary key value.
+     * Finds the Event model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Article the loaded model
+     * @return Event the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Article::findOne($id)) !== null) {
+        if (($model = Event::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

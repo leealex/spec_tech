@@ -24,11 +24,6 @@ return [
                 ],
             ],
         ],
-        'urlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-        ],
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
         ],
@@ -36,22 +31,4 @@ return [
     'aliases' => [
         '@admin' => '@app/modules/admin',
     ],
-    'as globalAccess' => [
-        'class' => '\app\modules\admin\behaviors\AccessBehavior',
-        'rules' => [
-            [
-                'controllers' => ['site'],
-                'allow' => true
-            ],
-            [
-                'controllers' => ['admin/dashboard'],
-                'actions' => ['login'],
-                'allow' => true,
-            ],
-            [
-                'allow' => true,
-                'roles' => ['administrator', 'manager'],
-            ]
-        ]
-    ]
 ];
