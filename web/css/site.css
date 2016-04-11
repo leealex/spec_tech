@@ -15,13 +15,6 @@ body {
     padding: 70px 15px 20px;
 }
 
-.footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-}
-
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
@@ -81,6 +74,11 @@ a.desc:after {
     width: 100%;
     text-align: center;
     box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
+    /*position: fixed;*/
+    /*top: 0;*/
+    background: #fff;
+    /*z-index: 5;*/
+    /*transition: 0.5s;*/
 }
 
 .header .logo,
@@ -92,21 +90,55 @@ a.desc:after {
 
 .header .logo {
     height: 100px;
-    width: 330px;
+    width: 277px;
     float: left;
-    background: url('../img/logo.png') no-repeat center;
+    margin-left: 15px;
+    background: url('../img/logo.png') no-repeat left;
+    background-size: contain;
+    /*transition: 0.5s;*/
 }
+
+/*.sticky-wrapper {*/
+/*transition: 0.5s;*/
+/*background: #ffffff;*/
+/*}*/
+
+/*.is-sticky {*/
+/*height: 50px;*/
+/*}*/
+
+/*.header.sticky .logo {*/
+/*height: 50px;*/
+/*background: url('../img/logo-small.png') no-repeat left;*/
+/*}*/
+
+/*.header.sticky {*/
+/*height: 50px;*/
+/*}*/
+
+/*.header.sticky .navbar-nav {*/
+/*margin-top: 0;*/
+/*}*/
+
+/*.header.sticky .phones {*/
+/*padding: 0 30px 0 0;*/
+/*font-size: 16px;*/
+/*font-weight: normal;*/
+/*line-height: 25px;*/
+/*}*/
 
 .header .navbar-nav {
     height: 50px;
     float: none;
-    margin-top: 47px;
+    margin-top: 50px;
     font-size: 14px;
     text-transform: uppercase;
+    transition: 0.5s;
 }
 
 .header .navbar-nav a {
     color: #222222;
+    line-height: 17px;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
@@ -122,19 +154,22 @@ a.desc:after {
 .header .phones {
     float: right;
     padding: 24px 30px 0 0;
-}
-
-.phones div {
     font-size: 21px;
     font-weight: bold;
     line-height: 30px;
+    transition: 0.5s;
+}
+
+.header .phones .fa {
+    color: #2c90cf;
 }
 
 .site-index .intro {
     overflow: hidden;
     background: url('../img/pattern-black.jpg');
     color: #ffffff;
-    padding-top: 70px;
+    padding-top: 150px;
+    padding-bottom: 0;
 }
 
 .section-footer-wrapper {
@@ -211,24 +246,28 @@ a.desc:after {
     z-index: 0;
 }
 
-section.about {
-    padding-bottom: 50px;
+section {
+    padding: 50px 0;
 }
 
-.about .icon {
+section.gray {
+    background: #e9eeef;
+}
+
+section .icon {
     font-size: 60px;
     color: #2c90cf;
     text-align: center;
 }
 
-.about h2 {
+section h2 {
     text-align: center;
     margin: 0 0 38px;
     font-weight: 300;
     font-size: 48px;
 }
 
-.text {
+.column-2 {
     -moz-column-count: 2;
     -moz-column-gap: 6em;
     -webkit-column-count: 2;
@@ -251,3 +290,115 @@ section.about {
     height: 100px;
     display: block;
 }
+
+.card-black .card-header {
+    background: url('../img/pattern-black.jpg');
+}
+
+.card-green .card-header {
+    background: #5e8738;
+}
+
+.card-blue .card-header {
+    background: #2c90cf;
+}
+
+.card-red .card-header {
+    background: #e5290e;
+}
+
+.card-md,
+.card-sm {
+    margin: 20px 15px;
+    font-size: 16px;
+    font-weight: 300;
+    box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
+    background: #ffffff;
+}
+
+.card-title {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-header {
+    position: relative;
+}
+
+.card-md .card-header {
+    height: 150px;
+}
+
+.card-sm .card-header {
+    height: 120px;
+}
+
+.card-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+}
+
+.card-md .card-avatar {
+    height: 160px;
+    width: 160px;
+    margin-left: -80px;
+    bottom: -80px;
+    border: 5px solid #fff;
+}
+
+.card-sm .card-avatar {
+    height: 100px;
+    width: 100px;
+    margin-left: -50px;
+    bottom: -50px;
+    border: 3px solid #fff;
+}
+
+.card-avatar img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-body {
+    overflow: hidden;
+    text-align: center;
+}
+
+.card-md .card-body {
+    padding: 90px 10px 10px;
+}
+.card-sm .card-body {
+    padding: 60px 10px 10px;
+}
+
+.card-footer {
+    overflow: hidden;
+}
+
+.card-footer button {
+    background: none;
+    border: none;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    border-top: 1px solid #e0e1e1;
+    color: #2c90cf;
+    transition: 0.5s;
+}
+
+.card-footer button:hover {
+    background: #2c90cf;
+    color: #ffffff;
+}
+
+.footer {
+    color: #d2d2d2;
+    min-height: 260px;
+    background: url('../img/pattern-black.jpg');
+    padding: 20px 0;
+}
+

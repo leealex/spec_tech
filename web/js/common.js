@@ -27,3 +27,12 @@ $(document).ready(function () {
 $(document).on('slid.bs.carousel', function () {
     graph.run();
 });
+
+// Sticky menu
+// $(document).on('scroll', function () {
+//     if ($('body').scrollTop() > 50) {
+//         $(".header").addClass('sticky');
+//     } else {
+//         $(".header").removeClass('sticky');
+//     }
+// });

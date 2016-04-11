@@ -39,8 +39,8 @@ class Settings extends Widget
 
         $form = ActiveForm::begin();
 
-        $keyTitle = Html::tag('th', 'Код');
-        $valueTitle = Html::tag('th', 'Значение');
+        $keyTitle = Html::tag('th', 'Код', ['width' => '200']);
+        $valueTitle = Html::tag('th', 'Значение', ['width' => '400']);
         $commentTitle = Html::tag('th', 'Комментарий');
         $rows = Html::tag('tr', $keyTitle . $valueTitle . $commentTitle);
         foreach ($this->settings as $index => $setting) {
@@ -56,7 +56,7 @@ class Settings extends Widget
         $button = '<p>' . Html::submitButton('Сохранить', ['class' => 'btn btn-success']) . '</p>';
         $addRow = '<p>' . Html::button('Добавить настройку', ['id' => 'add-row', 'class' => 'btn btn-primary']) . '</p>';
 
-        echo Html::tag('div', $table . $addRow . $button, ['class' => 'col-md-6']);
+        echo Html::tag('div', $table . $addRow . $button, ['class' => 'col-md-12']);
 
         ActiveForm::end();
     }
