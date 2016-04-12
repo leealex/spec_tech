@@ -7,7 +7,7 @@ use yii\bootstrap\Html;
 use yii\bootstrap\Widget;
 
 /**
- * Menu widget renders a text
+ * Renders text
  *
  * @author Alexey Lee <alex@plumy.ru>
  */

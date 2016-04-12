@@ -8,7 +8,7 @@ use yii\bootstrap\Widget;
 use yii\helpers\Url;
 
 /**
- * Menu widget renders a menu
+ * Renders an info block with the number of records of the model
  *
  * @author Alexey Lee <alex@plumy.ru>
  */

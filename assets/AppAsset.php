@@ -20,9 +20,11 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css',
         'css/jquery.circliful.css',
+        'css/animate.css',
         'css/site.css',
     ];
     public $js = [
+        'js/wow.min.js',
         'js/jquery.circliful.min.js',
         'js/common.js'
     ];

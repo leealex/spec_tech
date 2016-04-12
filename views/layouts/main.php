@@ -28,8 +28,8 @@ AppAsset::register($this);
         <a class="logo" href="/" title="<?= Html::encode(Yii::$app->name) ?>"></a>
         <?= Menu::widget(['key' => 'main']) ?>
         <div class="phones">
-            <div><i class="fa fa-phone"></i> <?= Settings::getValue('phoneHeader1') ?></div>
-            <div><i class="fa fa-phone"></i> <?= Settings::getValue('phoneHeader2') ?></div>
+            <div><?= Settings::getValue('phoneHeader1') ?></div>
+            <div><?= Settings::getValue('phoneHeader2') ?></div>
         </div>
     </div>
     <?= $content ?>

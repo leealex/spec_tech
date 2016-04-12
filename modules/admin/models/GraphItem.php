@@ -61,8 +61,6 @@ class GraphItem extends \yii\db\ActiveRecord
     {
         $items = self::find()->all();
         $itemsHtml = [];
-        $counter = 1;
-        $row = '';
         foreach ($items as $index => $item) {
             $options['class'] = 'circle';
             $number = str_replace(' ', '', $item->number);
@@ -80,15 +78,7 @@ class GraphItem extends \yii\db\ActiveRecord
             }
             $text = Html::tag('span', $item->text);
             $itemHtml = Html::tag('div', '', $options);
-            if ($counter == 3) {
-                $row .= Html::tag('div', $itemHtml . $text, ['class' => 'circle-graph']);
-                $itemsHtml[]['content'] = $row;
-                $row = '';
-                $counter = 1;
-            } else {
-                $row .= Html::tag('div', $itemHtml . $text, ['class' => 'circle-graph']);
-                $counter++;
-            }
+            $itemsHtml[] = Html::tag('div', $itemHtml . $text, ['class' => 'circle-graph']);
         }
         return $itemsHtml;
     }

@@ -5,6 +5,7 @@ namespace app\modules\admin\models;
 use app\modules\admin\Module;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "article".
@@ -133,5 +134,20 @@ class Article extends \yii\db\ActiveRecord
             $query->limit($limit);
         }
         return $query->all();
+    }
+
+    /**
+     * @return array
+     */
+    public static function getSlides()
+    {
+        $items = self::getByCategory('news', 5);
+        $slides = [];
+        foreach ($items as $item) {
+            $title = Html::tag('div', date('d.m.Y', $item->created_at), ['class' => 'news-title']);
+            $text = Html::tag('div', $item->body, ['class' => 'news-text']);
+            $slides[] = Html::tag('div', $title . $text);
+        }
+        return $slides;
     }
 }

@@ -30,13 +30,14 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Статьи' . $counter['article'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
                     ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'fa fa-file-image-o', 'url' => ['/admin/file-manager']],
                     ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
+                    ['label' => 'Инфографика', 'encode' => false, 'icon' => 'fa fa-pie-chart', 'url' => ['/admin/graph-item']],
+                    ['label' => 'Партнеры', 'encode' => false, 'icon' => 'fa fa-users', 'url' => ['/admin/partner']],
                 ]],
                 ['label' => 'Пользователи', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
                     ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/user/index']],
                     ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
                 ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
-                ['label' => 'Инфографика', 'encode' => false, 'icon' => 'fa fa-pie-chart', 'url' => ['/admin/graph-item']],
                 ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],

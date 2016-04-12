@@ -1,7 +1,7 @@
 var graph = {
-    items: $('.circle'),
-    run: function () {
-        $.each(graph.items, function () {
+    run: function (wrapper) {
+        var items = wrapper.find('.circle');
+        $.each(items, function () {
             var percent = $(this).data('percent');
             var number = $(this).data('number') ? $(this).data('number') : null;
             var width = $(this).data('width') ? $(this).data('width') : 15;
@@ -10,7 +10,7 @@ var graph = {
                 foregroundColor: color,
                 backgroundColor: '#eeeeee',
                 fontColor: '#222222',
-                animationStep: percent / 10,
+                animationStep: percent / 10 + 2,
                 foregroundBorderWidth: width,
                 backgroundBorderWidth: width,
                 percent: percent,
@@ -21,18 +21,13 @@ var graph = {
 };
 
 $(document).ready(function () {
-    graph.run();
+    $('.slick-slider').each(function () {
+        graph.run($(this));
+    });
 });
 
-$(document).on('slid.bs.carousel', function () {
-    graph.run();
+$('.slick-slider').on('afterChange', function () {
+    graph.run($(this));
 });
 
-// Sticky menu
-// $(document).on('scroll', function () {
-//     if ($('body').scrollTop() > 50) {
-//         $(".header").addClass('sticky');
-//     } else {
-//         $(".header").removeClass('sticky');
-//     }
-// });
+new WOW().init();

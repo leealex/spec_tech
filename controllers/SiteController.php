@@ -2,15 +2,24 @@
 
 namespace app\controllers;
 
+use app\modules\admin\models\Feedback;
 use Yii;
+use yii\bootstrap\ActiveForm;
 use yii\filters\AccessControl;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use yii\web\Response;
 
+/**
+ * Class SiteController
+ * @package app\controllers
+ */
 class SiteController extends Controller
 {
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -34,6 +43,9 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * @return array
+     */
     public function actions()
     {
         return [
@@ -47,8 +59,19 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Feedback();
+
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()) && $model->send()) {
+            return Html::tag('div', '<i class="fa fa-check" aria-hidden="true"></i> Сообщение успешно отправлено.', ['class' => 'feedback-result wow fadeInDown']);
+        }
+
+        return $this->render('index', [
+            'model' => $model
+        ]);
     }
 }
