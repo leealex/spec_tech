@@ -26,7 +26,7 @@ $(document).ready(function () {
     });
 });
 
-$('.slick-slider').on('afterChange', function () {
+$('.slick-slider').off().on('afterChange', function () {
     graph.run($(this));
 });
 

@@ -8,6 +8,7 @@ use yii\helpers\Html;
 /**
  * Class ButtonGroup
  *
+ * @property mixed variableWidth
  * @author Alexey Lee <alex@plumy.ru>
  * @since 1.0
  */
@@ -21,6 +22,10 @@ class Slick extends Widget
      * @var int
      */
     public $numberToScroll = 1;
+    /**
+     * @var int
+     */
+    public $variableWidth = false;
     /**
      * @var array The array of items each wrapped in DIV
      */
@@ -53,6 +58,7 @@ class Slick extends Widget
             'class' => 'slick-slider',
             'data-show-number' => $this->numberToShow,
             'data-scroll-number' => $this->numberToScroll,
+            'data-variable-width' => $this->variableWidth ? 'true' : 'false',
         ]);
         foreach ($this->items as $item) {
             $items .= $item;

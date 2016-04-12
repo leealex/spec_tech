@@ -278,7 +278,7 @@ section h2 {
 }
 
 .circle-graph {
-    width: 30%;
+    width: 300px;
     display: inline-block;
     overflow: hidden;
 }
@@ -427,6 +427,14 @@ a.read-all {
     color: #ffffff;
 }
 
+.partners img:hover {
+    opacity: 0.5;
+}
+
+.partners .slick-slide {
+    margin: 0 20px;
+}
+
 .institutes .form-control {
     background: none;
     border-radius: 0;
@@ -485,9 +493,74 @@ a.read-all {
 }
 
 .footer {
-    color: #d2d2d2;
+    color: #777777;
     min-height: 260px;
     background: url('../img/pattern-black.jpg');
-    padding: 20px 0;
+    padding: 40px 0 10px;
+    font-size: 16px;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer-logo {
+    height: 90px;
+    width: 183px;
+    background: url('../img/logo-footer.png');
+    margin-top: 20px;
+}
+
+.footer .nav li > a {
+    color: #d2d2d2;
+}
+
+.footer .nav li > a:hover {
+    color: #ffffff;
+    border: none;
+}
+
+.footer-time,
+.footer-phone,
+.footer-email {
+    padding-left: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-time {
+    background: url('../img/icon-footer-clock.png') no-repeat;
+}
+
+.footer-phone {
+    background: url('../img/icon-footer-phone.png') no-repeat;
+}
+
+.footer-email {
+    background: url('../img/icon-footer-plane.png') no-repeat;
+}
+
+.footer-email a {
+    color: #d2d2d2;
+    text-decoration: none;
+}
+
+.footer-email a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.plum {
+    display: inline-block;
+    height: 28px;
+    padding-left: 70px;
+    padding-top: 5px;
+    background: url('../img/logo-plum.png') no-repeat;
+    color: #555;
+    text-decoration: none;
+}
+
+.plum:hover {
+    text-decoration: none;
+    color: #999999;
 }
 

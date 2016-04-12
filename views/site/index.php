@@ -196,11 +196,12 @@ use yii\widgets\Pjax;
                 <div class="col-md-10 col-md-offset-1">
                     <div class="icon people wow fadeInDown"></div>
                     <h2 class="wow fadeInDown">Партнеры</h2>
-                    <div class="wow bounceInUp" data-wow-offset="200">
+                    <div class="partners wow bounceInUp" data-wow-offset="200">
                         <?= Slick::widget([
                             'items' => Partner::getSlides(),
                             'numberToShow' => 5,
                             'numberToScroll' => 1,
+                            'variableWidth' => true,
                         ]) ?>
                     </div>
 
@@ -221,7 +222,6 @@ use yii\widgets\Pjax;
                             'numberToShow' => 1,
                             'numberToScroll' => 1,
                         ]) ?>
-
                         <a href="#" class="read-all grey">Посмотреть все новости</a>
                     </div>
                 </div>
