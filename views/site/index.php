@@ -49,7 +49,7 @@ use yii\widgets\Pjax;
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10 col-md-offset-1 wow bounceInUp" data-wow-offset="200">
+                <div class="col-md-10 col-md-offset-1 wow bounceInUp graph" data-wow-offset="200">
                     <?= Slick::widget([
                         'items' => GraphItem::renderItems(),
                         'numberToShow' => 3,
@@ -202,6 +202,7 @@ use yii\widgets\Pjax;
                             'numberToShow' => 5,
                             'numberToScroll' => 1,
                             'variableWidth' => true,
+                            'autoPlay' => true,
                         ]) ?>
                     </div>
 
@@ -221,6 +222,7 @@ use yii\widgets\Pjax;
                             'items' => Article::getSlides(),
                             'numberToShow' => 1,
                             'numberToScroll' => 1,
+                            'autoPlay' => true,
                         ]) ?>
                         <a href="#" class="read-all grey">Посмотреть все новости</a>
                     </div>

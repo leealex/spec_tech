@@ -26,6 +26,7 @@ AppAsset::register($this);
 <div class="wrap">
     <div class="header">
         <a class="logo" href="/" title="<?= Html::encode(Yii::$app->name) ?>"></a>
+        <button class="bars"><i class="fa fa-bars" aria-hidden="true"></i></button>
         <?= Menu::widget(['key' => 'main']) ?>
         <div class="phones">
             <div><?= Settings::getValue('phoneHeader1') ?></div>
@@ -38,10 +39,10 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-logo"></div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <ul class="nav">
                     <li><a href="#">О компании</a></li>
                     <li><a href="#">Оборудование</a></li>
@@ -52,7 +53,7 @@ AppAsset::register($this);
                     <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <ul class="nav">
                     <li><a href="#">Отводы гнутые</a></li>
                     <li><a href="#">Узлы монтажные</a></li>
@@ -61,7 +62,7 @@ AppAsset::register($this);
                     <li><a href="#">ТУ</a></li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-time">
                     <p>Работаем в будние дни</p>
                     <p>с 9:00 до 18:00 (MSK)</p>
@@ -71,7 +72,9 @@ AppAsset::register($this);
                     <p><?= Settings::getValue('phoneHeader2') ?></p>
                 </div>
                 <div class="footer-email">
-                    <p><a href="mailto:<?= Yii::$app->params['adminEmail']?>"><?= Yii::$app->params['adminEmail']?></a></p>
+                    <p>
+                        <a href="mailto:<?= Yii::$app->params['adminEmail'] ?>"><?= Yii::$app->params['adminEmail'] ?></a>
+                    </p>
                 </div>
             </div>
         </div>

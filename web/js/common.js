@@ -20,14 +20,19 @@ var graph = {
     }
 };
 
-$(document).ready(function () {
-    $('.slick-slider').each(function () {
-        graph.run($(this));
-    });
+$(document).on('scroll', function () {
+    if ($('.graph').css("visibility") == "visible") {
+        $(document).off('scroll');
+        graph.run($('.slick-slider'));
+    }
 });
 
 $('.slick-slider').off().on('afterChange', function () {
     graph.run($(this));
+});
+
+$('button.bars').on('click', function () {
+    $('.navbar-nav').toggleClass('collapse')
 });
 
 new WOW().init();

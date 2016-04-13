@@ -43,7 +43,7 @@ class Menu extends Widget
     {
         parent::run();
         echo Nav::widget([
-            'options' => ['class' => 'navbar-nav'],
+            'options' => ['class' => 'navbar-nav collapse'],
             'encodeLabels' => false,
             'items' => $this->menuItems,
         ]);

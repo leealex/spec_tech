@@ -69,16 +69,16 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+button.bars {
+    display: none;
+}
+
 .header {
     height: 100px;
     width: 100%;
     text-align: center;
     box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
-    /*position: fixed;*/
-    /*top: 0;*/
     background: #fff;
-    /*z-index: 5;*/
-    /*transition: 0.5s;*/
 }
 
 .header .logo,
@@ -139,7 +139,7 @@ a.desc:after {
     overflow: hidden;
     background: url('../img/pattern-black.jpg');
     color: #ffffff;
-    padding-top: 150px;
+    padding-top: 84px;
     padding-bottom: 0;
 }
 
@@ -562,5 +562,186 @@ a.read-all {
 .plum:hover {
     text-decoration: none;
     color: #999999;
+}
+
+@media (max-width: 1200px) {
+    .site-index .intro {
+        padding-top: 70px;
+    }
+
+    .about-us h2 {
+        font-size: 36px;
+    }
+
+    .about-us .subtitle {
+        font-size: 18px;
+    }
+
+    .years {
+        height: 180px;
+        padding-top: 24px;
+        font-size: 64px;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .years .number {
+        font-size: 86px;
+    }
+
+    .years-desc {
+        font-size: 36px;
+    }
+
+    .column-2 {
+        -moz-column-gap: 3em;
+        -webkit-column-gap: 3em;
+        column-gap: 3em;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        height: 50px;
+    }
+
+    .header .navbar-nav {
+        margin-top: 0;
+    }
+
+    .header .phones {
+        padding: 3px 10px 0 0;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 22px;
+    }
+
+    .header .logo {
+        height: 50px;
+    }
+
+    .site-index .intro {
+        padding-top: 40px;
+    }
+
+    .about-us h2 {
+        font-size: 28px;
+    }
+
+    .about-us .subtitle {
+        font-size: 16px;
+    }
+
+    .years {
+        height: 160px;
+        padding-top: 24px;
+        font-size: 54px;
+        margin: 10px auto;
+        background-size: contain;
+        background-position: center;
+    }
+
+    .years .number {
+        font-size: 78px;
+    }
+
+    .years-desc {
+        font-size: 28px;
+    }
+
+    .column-2 {
+        -moz-column-gap: 3em;
+        -webkit-column-gap: 3em;
+        column-gap: 3em;
+    }
+
+    .footer-logo {
+        height: 90px;
+        width: 183px;
+        background: url('../img/logo-footer.png');
+        margin: 0 auto;
+    }
+
+    .footer ul.nav {
+        text-align: center;
+    }
+
+    .footer-time,
+    .footer-phone,
+    .footer-email {
+        margin: 0 auto 30px;
+        width: 250px;
+        text-align: center;
+    }
+
+    .slick-prev,
+    .slick-next {
+        position: fixed;
+        top: -100px;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .header .logo,
+    .header .phones {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    button.bars {
+        width: 100%;
+        height: 50px;
+        background: none;
+        font-size: 28px;
+        display: block;
+        border: none;
+    }
+
+    .header .navbar-nav {
+        background: #333;
+        height: auto;
+        width: 100%;
+        z-index: 5;
+        position: relative;
+    }
+    .header .navbar-nav.collapse {
+        display: none;
+    }
+    .header .navbar-nav li a {
+        color: #fff;
+        border: none;
+        padding: 20px;
+    }
+
+    .laptop {
+        display: none;
+    }
+
+    .about-us {
+        width: 100%;
+    }
+
+    .subtitle {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        margin: 0;
+    }
+
+    section h2 {
+        text-align: center;
+        margin: 0 0 38px;
+        font-weight: 300;
+        font-size: 40px;
+    }
+
+    .column-2 {
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
 }
 
