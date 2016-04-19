@@ -649,7 +649,7 @@ a.read-all {
         padding: 24px 90px 20px 100px;
     }
     .overlay {
-        height: 306px;
+        height: 320px;
         width: 510px;
         top: 24px;
         right: 90px;
@@ -702,9 +702,9 @@ a.read-all {
     }
     .overlay {
         height: 245px;
-        width: 400px;
-        top: 17px;
-        right: 65px;
+        width: 390px;
+        top: 20px;
+        right: 70px;
     }
     .shine {
         top: 2px;
