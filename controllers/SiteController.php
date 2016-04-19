@@ -67,11 +67,30 @@ class SiteController extends Controller
         $model = new Feedback();
 
         if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post()) && $model->send()) {
-            return Html::tag('div', '<i class="fa fa-check" aria-hidden="true"></i> Сообщение успешно отправлено.', ['class' => 'feedback-result wow fadeInDown']);
+            return Html::tag('div', '<i class="fa fa-check" aria-hidden="true"></i> Сообщение успешно отправлено.',
+                ['class' => 'feedback-result wow fadeInDown']);
         }
 
         return $this->render('index', [
             'model' => $model
         ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function actionProduction()
+    {
+        
+        return $this->render('production');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionContacts()
+    {
+
+        return $this->render('contacts');
     }
 }

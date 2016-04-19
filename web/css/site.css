@@ -130,12 +130,18 @@ button.bars {
     transition: 0.5s;
 }
 
+.header .phones div {
+    text-align: right;
+    overflow: hidden;
+}
+
 .header .phones .fa {
     width: 40px;
-    height: 30px;
+    height: 22px;
     float: left;
     line-height: 30px;
     color: #2C90CF;
+    text-align: center;
 }
 
 .site-index .intro {
@@ -215,9 +221,34 @@ button.bars {
 }
 
 .laptop {
-    width: 75%;
+    height: 475px;
+    width: 855px;
     position: relative;
     z-index: 0;
+    background: url('../img/laptop.png') center;
+    background-size: contain;
+    padding: 27px 101px 20px 112px;
+}
+
+.overlay {
+    height: 390px;
+    width: 642px;
+    position: absolute;
+    top: 26px;
+    right: 100px;
+    z-index: 1;
+    background: url('../img/overlay.png');
+}
+
+.shine {
+    background: url('../img/shine.png') no-repeat right top;
+    background-size: contain;
+    height: 100%;
+    width: 656px;
+    position: absolute;
+    top: 0;
+    right: 93px;
+    z-index: 1;
 }
 
 section {
@@ -568,6 +599,22 @@ a.read-all {
 }
 
 @media (max-width: 1200px) {
+    .laptop {
+        height: 390px;
+        width: 700px;
+        padding: 24px 90px 20px 100px;
+    }
+    .overlay {
+        height: 306px;
+        width: 510px;
+        top: 24px;
+        right: 90px;
+    }
+    .shine {
+        top: 3px;
+        right: 75px;
+        width: 540px;
+    }
     .site-index .intro {
         padding-top: 70px;
     }
@@ -604,6 +651,22 @@ a.read-all {
 }
 
 @media (max-width: 992px) {
+    .laptop {
+        height: 300px;
+        width: 540px;
+        padding: 20px 70px 20px 80px;
+    }
+    .overlay {
+        height: 245px;
+        width: 400px;
+        top: 17px;
+        right: 65px;
+    }
+    .shine {
+        top: 2px;
+        right: 59px;
+        width: 412px;
+    }
     .header {
         height: 50px;
     }
@@ -616,6 +679,10 @@ a.read-all {
         padding: 3px 10px 0 0;
         font-size: 16px;
         font-weight: normal;
+        line-height: 22px;
+    }
+
+    .header .phones .fa {
         line-height: 22px;
     }
 

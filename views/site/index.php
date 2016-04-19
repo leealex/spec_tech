@@ -31,8 +31,21 @@ use yii\widgets\Pjax;
                         Успешной работы
                     </div>
                 </div>
-                <div class="laptop wow slideInRight"><img src="/img/laptop.png" alt="ООО НПП Спецтех"
-                                                          class="img-responsive"></div>
+                <div class="laptop wow slideInRight">
+                    <div class="shine"></div>
+                    <div class="overlay"></div>
+                    <?= Slick::widget([
+                        'items' => [
+                            '<img src="/img/slide01.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
+                            '<img src="/img/slide02.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
+                            '<img src="/img/slide03.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
+                            '<img src="/img/slide04.jpg" alt="ООО НПП Спецтех" class="img-responsive">'
+                        ],
+                        'numberToShow' => 1,
+                        'numberToScroll' => 1,
+                        'autoPlay' => true,
+                    ]) ?>
+                </div>
             </div>
             <div class="section-footer-wrapper">
                 <div class="section-footer"></div>
@@ -136,7 +149,7 @@ use yii\widgets\Pjax;
                 <div class="row">
                     <div class="col-md-12">
                         <div class="icon branches wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Дочерние предприятия</h2>
+                        <h2 class="wow fadeInDown">Предприятия холдинга</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -238,7 +251,7 @@ use yii\widgets\Pjax;
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <div class="icon book wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Институтам</h2>
+                        <h2 class="wow fadeInDown">Проектным институтам, организациям, потребителям</h2>
 
                         <?php
                         Pjax::begin();
