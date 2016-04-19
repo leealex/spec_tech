@@ -44,23 +44,13 @@ AppAsset::register($this);
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <ul class="nav">
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Оборудование</a></li>
-                    <li><a href="#">Дочерние предприятия</a></li>
-                    <li><a href="#">Партнеры</a></li>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Институтам</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="/">О предприятии</a></li>
+                    <li><a href="/site/production">Продукция</a></li>
+                    <li><a href="/site/contacts">Контакты</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <ul class="nav">
-                    <li><a href="#">Отводы гнутые</a></li>
-                    <li><a href="#">Узлы монтажные</a></li>
-                    <li><a href="#">Кромки торцов</a></li>
-                    <li><a href="#">Сертификация</a></li>
-                    <li><a href="#">ТУ</a></li>
-                </ul>
+
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-time">

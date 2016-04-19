@@ -2,10 +2,12 @@
 
 namespace app\controllers;
 
+use app\modules\admin\models\Article;
+use app\modules\admin\models\ArticleCategory;
+use app\modules\admin\models\ArticleSearch;
 use app\modules\admin\models\Feedback;
 use app\modules\admin\models\FileStorage;
 use Yii;
-use yii\bootstrap\ActiveForm;
 use yii\filters\AccessControl;
 use yii\helpers\Html;
 use yii\web\Controller;
@@ -82,7 +84,6 @@ class SiteController extends Controller
      */
     public function actionProduction()
     {
-
         return $this->render('production', [
             'documents' => FileStorage::getFilesById([19, 20, 21, 22, 23, 24, 25, 26, 27, 28])
         ]);
@@ -93,7 +94,33 @@ class SiteController extends Controller
      */
     public function actionContacts()
     {
-
         return $this->render('contacts');
+    }
+
+    /**
+     * @return string
+     */
+    public function actionNews()
+    {
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->andFilterWhere(['category_id' => ArticleCategory::getIdBySlug('news')]);
+        $dataProvider->sort = [
+            'defaultOrder' => ['created_at' => SORT_DESC]
+        ];
+        return $this->render('news', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    public function actionModalContent()
+    {
+        $article = Article::findOne(Yii::$app->request->post('id'));
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        return $article->body;
     }
 }

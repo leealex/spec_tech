@@ -14,12 +14,14 @@ use yii\helpers\Html;
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <div class="icon gear wow bounceInLeft"></div>
+<!--                    <div class="icon gear wow bounceInLeft"></div>-->
                     <h2 class="wow bounceInLeft">Продукция</h2>
-                    <?php foreach ($documents as $document) {
-                        $link = Html::a('<i class="fa fa-file-word-o"></i> ' . $document->name, $document->base_url);
-                        echo Html::tag('p', $link);
-                    } ?>
+                    <div class="wow bounceInRight">
+                        <?php foreach ($documents as $document) {
+                            $link = Html::a('<i class="fa fa-file-word-o"></i> ' . $document->name, $document->base_url);
+                            echo Html::tag('p', $link);
+                        } ?>
+                    </div>
                 </div>
             </div>
         </div>

@@ -19,7 +19,12 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <div class="col-md-2"><?= $form->field($model, 'category_id')->dropDownList($categories) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
-        <div class="col-md-6"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
+        <div class="col-md-4"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
+        <div class="col-md-2"><?= $form->field($model, 'view')->dropDownList([
+                'card-black' => 'Черный',
+                'card-blue' => 'Синий',
+                'card-red' => 'Красный',
+            ]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
                 'default' => 1,
                 'items' => [

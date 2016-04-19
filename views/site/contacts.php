@@ -12,7 +12,7 @@ use app\widgets\Gis;
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <div class="icon factory wow bounceInLeft"></div>
+<!--                    <div class="icon factory wow bounceInLeft"></div>-->
                     <h2 class="wow bounceInLeft">Контакты</h2>
                     <?= Text::widget([
                         'key' => 'contacts',

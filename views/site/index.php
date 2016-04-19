@@ -89,21 +89,19 @@ use yii\widgets\Pjax;
             </div>
         </section>
 
-        <?php
-
-
-        ?>
         <section>
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <?= Slick::widget([
-                            'items' => Article::slideEquipment(),
-                            'numberToShow' => 3,
-                            'numberToScroll' => 1,
-                            'autoPlay' => true,
-                            'centerMode' => true,
-                        ]) ?>
+                        <div class="partners wow bounceInUp" data-wow-offset="200">
+                            <?= Slick::widget([
+                                'items' => Article::slideEquipment(),
+                                'numberToShow' => 3,
+                                'numberToScroll' => 1,
+                                'autoPlay' => true,
+                                'centerMode' => true,
+                            ]) ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,52 +116,15 @@ use yii\widgets\Pjax;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="card-sm card-blue wow bounceInUp" data-wow-offset="200">
-                            <div class="card-header">
-                                <div class="card-title">Название предприятия</div>
-                                <div class="card-avatar"><img src="/img/sample.jpg" alt=""></div>
-                            </div>
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquid assumenda
-                                consequatur dignissimos eius eum expedita explicabo harum magnam neque odio possimus
-                                praesentium quasi saepe suscipit tempora unde ut voluptates?
-                            </div>
-                            <div class="card-footer">
-                                <button data-toggle="modal" data-target="#modalCard">Подробнее</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-sm card-red wow bounceInUp" data-wow-delay="0.2s" data-wow-offset="200">
-                            <div class="card-header">
-                                <div class="card-title">Название предприятия</div>
-                                <div class="card-avatar"><img src="/img/sample.jpg" alt=""></div>
-                            </div>
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquid assumenda
-                                consequatur dignissimos eius eum expedita explicabo harum magnam neque odio possimus
-                                praesentium quasi saepe suscipit tempora unde ut voluptates?
-                            </div>
-                            <div class="card-footer">
-                                <button data-toggle="modal" data-target="#modalCard">Подробнее</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-sm card-black wow bounceInUp" data-wow-delay="0.4s" data-wow-offset="200">
-                            <div class="card-header">
-                                <div class="card-title">Название предприятия</div>
-                                <div class="card-avatar"><img src="/img/sample.jpg" alt=""></div>
-                            </div>
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquid assumenda
-                                consequatur dignissimos eius eum expedita explicabo harum magnam neque odio possimus
-                                praesentium quasi saepe suscipit tempora unde ut voluptates?
-                            </div>
-                            <div class="card-footer">
-                                <button data-toggle="modal" data-target="#modalCard">Подробнее</button>
-                            </div>
+                    <div class="col-md-12">
+                        <div class="partners wow bounceInUp" data-wow-offset="200">
+                            <?= Slick::widget([
+                                'items' => Article::slideBranches(),
+                                'numberToShow' => 3,
+                                'numberToScroll' => 1,
+                                'autoPlay' => true,
+                                'centerMode' => true,
+                            ]) ?>
                         </div>
                     </div>
                 </div>
@@ -185,7 +146,6 @@ use yii\widgets\Pjax;
                                 'autoPlay' => true,
                             ]) ?>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -204,7 +164,7 @@ use yii\widgets\Pjax;
                                 'numberToScroll' => 1,
                                 'autoPlay' => true,
                             ]) ?>
-                            <a href="#" class="read-all grey">Посмотреть все новости</a>
+                            <a href="/site/news" class="read-all grey">Посмотреть все новости</a>
                         </div>
                     </div>
                 </div>
@@ -245,10 +205,7 @@ use yii\widgets\Pjax;
 
 <?php Modal::begin([
     'id' => 'modalCard',
-    'header' => 'Заголовок',
-]) ?>
-
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, aliquid assumenda
-    consequatur dignissimos eius eum expedita explicabo harum magnam neque odio possimus
-    praesentium quasi saepe suscipit tempora unde ut voluptates?
-<?php Modal::end(); ?>
+    'header' => Html::tag('span'),
+    'size' => Modal::SIZE_LARGE
+]);
+Modal::end() ?>

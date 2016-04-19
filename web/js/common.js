@@ -35,4 +35,19 @@ $('button.bars').on('click', function () {
     $('.navbar-nav').toggleClass('collapse')
 });
 
+$('#modalCard').on('show.bs.modal', function (e) {
+    var button = $(e.relatedTarget);
+    $('.modal-body').html('<div class="spinner-box"><div class="spinner"></div></div>');
+    $.ajax({
+        url: '/site/modal-content',
+        type: 'post',
+        dataType: 'json',
+        data: {id: button.data('id')},
+        success: function(data) {
+            $('.modal-body').html(data);
+        }
+    });
+    $('.modal-header span').text(button.data('title'));
+});
+
 new WOW().init();

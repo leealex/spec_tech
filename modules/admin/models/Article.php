@@ -163,10 +163,40 @@ class Article extends \yii\db\ActiveRecord
             $avatar = Html::tag('div', Html::img($item->thumbnail_path), ['class' => 'card-avatar']);
             $header = Html::tag('div', $avatar, ['class' => 'card-header']);
             $body = Html::tag('div', $item->title, ['class' => 'card-body']);
-            $button = Html::button('Подробнее', ['data-toggle' => 'modal', 'data-target' => '#modalCard']);
+            $button = Html::button('Подробнее', [
+                'data-toggle' => 'modal',
+                'data-target' => '#modalCard',
+                'data-id' => $item->id,
+                'data-title' => $item->title
+            ]);
             $footer = Html::tag('div', $button, ['class' => 'card-footer']);
 
             $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-md card-black']);
+        }
+        return $slides;
+    }
+
+    /**
+     * @return array
+     */
+    public static function slideBranches()
+    {
+        $items = self::getByCategory('branches');
+        $slides = [];
+        foreach ($items as $item) {
+            $title = Html::tag('div', $item->title, ['class' => 'card-title']);
+            $avatar = Html::tag('div', Html::img($item->thumbnail_path), ['class' => 'card-avatar']);
+            $header = Html::tag('div', $title . $avatar, ['class' => 'card-header']);
+            $body = Html::tag('div', $item->body, ['class' => 'card-body']);
+            $button = Html::button('Подробнее', [
+                'data-toggle' => 'modal',
+                'data-target' => '#modalCard',
+                'data-id' => $item->id,
+                'data-title' => $item->title
+            ]);
+            $footer = Html::tag('div', $button, ['class' => 'card-footer']);
+
+            $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm ' . $item->view]);
         }
         return $slides;
     }
