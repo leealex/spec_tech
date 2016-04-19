@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\widgets\ButtonGroup;
+use app\modules\admin\widgets\ImageBrowser;
 use vova07\imperavi\Widget;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -48,6 +49,9 @@ use yii\widgets\ActiveForm;
                 ]
             ]) ?>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><?= $form->field($model, 'thumbnail_path')->widget(ImageBrowser::className()) ?></div>
     </div>
 
     <div class="form-group">

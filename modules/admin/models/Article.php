@@ -6,6 +6,7 @@ use app\modules\admin\Module;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 
 /**
  * This is the model class for table "article".
@@ -139,7 +140,7 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @return array
      */
-    public static function getSlides()
+    public static function slideNews()
     {
         $items = self::getByCategory('news', 5);
         $slides = [];
@@ -147,6 +148,25 @@ class Article extends \yii\db\ActiveRecord
             $title = Html::tag('div', date('d.m.Y', $item->created_at), ['class' => 'news-title']);
             $text = Html::tag('div', $item->body, ['class' => 'news-text']);
             $slides[] = Html::tag('div', $title . $text);
+        }
+        return $slides;
+    }
+
+    /**
+     * @return array
+     */
+    public static function slideEquipment()
+    {
+        $items = self::getByCategory('equipment');
+        $slides = [];
+        foreach ($items as $item) {
+            $avatar = Html::tag('div', Html::img($item->thumbnail_path), ['class' => 'card-avatar']);
+            $header = Html::tag('div', $avatar, ['class' => 'card-header']);
+            $body = Html::tag('div', $item->title, ['class' => 'card-body']);
+            $button = Html::button('Подробнее', ['data-toggle' => 'modal', 'data-target' => '#modalCard']);
+            $footer = Html::tag('div', $button, ['class' => 'card-footer']);
+
+            $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-md card-black']);
         }
         return $slides;
     }

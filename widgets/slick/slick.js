@@ -6,7 +6,8 @@ $(document).ready(function () {
             nextArrow: '<button type="button" class="slick-next"></button>',
             slidesToShow: $(this).data('show-number'),
             slidesToScroll: $(this).data('scroll-number'),
-            variableWidth: $(this).data('variable-width')
+            variableWidth: $(this).data('variable-width'),
+            centerMode: $(this).data('center-mode')
         });
     })
 });

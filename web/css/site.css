@@ -1,6 +1,11 @@
 html,
 body {
     height: 100%;
+}
+
+.site-index,
+.site-production,
+.site-contacts {
     font-size: 18px;
 }
 
@@ -291,6 +296,10 @@ section .icon {
     background-image: url('../img/book.png');
 }
 
+.gear {
+    background-image: url('../img/gear.png');
+}
+
 section h2 {
     text-align: center;
     margin: 0 0 38px;
@@ -340,7 +349,9 @@ section h2 {
 
 .card-md,
 .card-sm {
+    width: 300px;
     margin: 20px 15px;
+    padding: 0;
     font-size: 16px;
     font-weight: 300;
     box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
@@ -358,7 +369,7 @@ section h2 {
 }
 
 .card-md .card-header {
-    height: 150px;
+    height: 110px;
 }
 
 .card-sm .card-header {
@@ -400,6 +411,7 @@ section h2 {
 
 .card-md .card-body {
     padding: 90px 10px 10px;
+    height: 200px;
 }
 
 .card-sm .card-body {
@@ -596,6 +608,10 @@ a.read-all {
 .plum:hover {
     text-decoration: none;
     color: #999999;
+}
+
+.site-production table {
+    font-size: 12px;
 }
 
 @media (max-width: 1200px) {

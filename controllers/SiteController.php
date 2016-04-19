@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\modules\admin\models\Feedback;
+use app\modules\admin\models\FileStorage;
 use Yii;
 use yii\bootstrap\ActiveForm;
 use yii\filters\AccessControl;
@@ -81,8 +82,10 @@ class SiteController extends Controller
      */
     public function actionProduction()
     {
-        
-        return $this->render('production');
+
+        return $this->render('production', [
+            'documents' => FileStorage::getFilesById([19, 20, 21, 22, 23, 24, 25, 26, 27, 28])
+        ]);
     }
 
     /**

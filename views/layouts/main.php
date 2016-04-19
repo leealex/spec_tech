@@ -30,7 +30,7 @@ AppAsset::register($this);
         <?= Menu::widget(['key' => 'main']) ?>
         <div class="phones">
             <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
-            <div><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
+            <div><i class="fa fa-envelope" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
         </div>
     </div>
     <?= $content ?>

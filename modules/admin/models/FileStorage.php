@@ -53,4 +53,17 @@ class FileStorage extends \yii\db\ActiveRecord
             'created_at' => 'Создан',
         ];
     }
+
+    /**
+     * @param $id int|array
+     * @return null|static|static[]
+     */
+    public static function getFilesById($id)
+    {
+        if (is_array($id)) {
+            return self::find()->where(['in', 'id', $id])->all();
+        } else {
+            return self::findOne($id);
+        }
+    }
 }

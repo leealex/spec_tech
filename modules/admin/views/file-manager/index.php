@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html'
             ],
             'name',
+            'base_url',
             'path',
             [
                 'label' => 'Эскиз',
@@ -52,7 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'visibleButtons' => [
                     'view' => false,
-                    'update' => false,
                 ],
             ],
         ],

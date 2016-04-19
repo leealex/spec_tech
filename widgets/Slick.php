@@ -30,6 +30,10 @@ class Slick extends Widget
     /**
      * @var bool
      */
+    public $centerMode = false;
+    /**
+     * @var bool
+     */
     public $autoPlay = false;
     /**
      * @var array The array of items each wrapped in DIV
@@ -65,6 +69,7 @@ class Slick extends Widget
             'data-show-number' => $this->numberToShow,
             'data-scroll-number' => $this->numberToScroll,
             'data-variable-width' => $this->variableWidth ? 'true' : 'false',
+            'data-center-mode' => $this->centerMode ? 'true' : 'false',
         ]);
         foreach ($this->items as $item) {
             $items .= $item;

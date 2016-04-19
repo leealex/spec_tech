@@ -58,7 +58,7 @@ class ImageBrowser extends InputWidget
             $inputValue = $this->noImage;
         }
 
-        $images = FileStorage::find()->where(['in', 'type', ['image/png', 'image/jpg', 'image/gif']])->all();
+        $images = FileStorage::find()->where(['in', 'type', ['image/png', 'image/jpeg', 'image/jpg', 'image/gif']])->all();
         $list = Html::beginTag('div', ['class' => 'row']);
         foreach ($images as $image) {
             $img = Html::img($image->base_url, ['alt' => $image->name, 'class' => 'img-responsive']);
