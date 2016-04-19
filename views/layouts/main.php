@@ -29,8 +29,8 @@ AppAsset::register($this);
         <button class="bars"><i class="fa fa-bars" aria-hidden="true"></i></button>
         <?= Menu::widget(['key' => 'main']) ?>
         <div class="phones">
-            <div><?= Settings::getValue('phoneHeader1') ?></div>
-            <div><?= Settings::getValue('phoneHeader2') ?></div>
+            <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
+            <div><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
         </div>
     </div>
     <?= $content ?>
@@ -73,7 +73,7 @@ AppAsset::register($this);
                 </div>
                 <div class="footer-email">
                     <p>
-                        <a href="mailto:<?= Yii::$app->params['adminEmail'] ?>"><?= Yii::$app->params['adminEmail'] ?></a>
+                        <a href="mailto:<?= Settings::getValue('adminEmail') ?>"><?= Settings::getValue('adminEmail') ?></a>
                     </p>
                 </div>
             </div>

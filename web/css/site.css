@@ -130,9 +130,12 @@ button.bars {
     transition: 0.5s;
 }
 
-.header .phones > div {
-    background: url('../img/phone.png') no-repeat left;
-    padding-left: 25px;
+.header .phones .fa {
+    width: 40px;
+    height: 30px;
+    float: left;
+    line-height: 30px;
+    color: #2C90CF;
 }
 
 .site-index .intro {

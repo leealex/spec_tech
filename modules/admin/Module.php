@@ -76,47 +76,36 @@ class Module extends \yii\base\Module
      */
     public function loadCounters()
     {
-        $cacheKeyCounters = ['admin', 'counters'];
-        $counters = Yii::$app->cache->get($cacheKeyCounters);
-        if (!$counters) {
-            $counters = [
-                'menu' => WidgetMenu::find()->count(),
-                'category' => ArticleCategory::find()->count(),
-                'page' => Page::find()->count(),
-                'article' => Article::find()->count(),
-                'file' => FileStorage::find()->count(),
-                'text' => WidgetText::find()->count(),
-                'user' => User::find()->count(),
-                'settings' => Settings::find()->count(),
-                'log' => SystemLog::find()->count(),
-            ];
-        }
-        Yii::$app->params['counters'] = $counters;
-        Yii::$app->cache->set($cacheKeyCounters, $counters, 60 * 60);
+        Yii::$app->params['counters'] = [
+            'menu' => WidgetMenu::find()->count(),
+            'category' => ArticleCategory::find()->count(),
+            'page' => Page::find()->count(),
+            'article' => Article::find()->count(),
+            'file' => FileStorage::find()->count(),
+            'text' => WidgetText::find()->count(),
+            'user' => User::find()->count(),
+            'settings' => Settings::find()->count(),
+            'log' => SystemLog::find()->count(),
+        ];
 
-        $cacheKeyCountersHtml = ['admin', 'counters', 'html'];
-        $countersHtml = Yii::$app->cache->get($cacheKeyCountersHtml);
-        if (!$countersHtml) {
-            $countersHtml = [
-                'menu' => '<small class="label pull-right bg-gray">' . WidgetMenu::find()->count() . '</small>',
-                'category' => '<small class="label pull-right bg-black">' . ArticleCategory::find()->count() . '</small>',
-                'page' => '<small class="label pull-right bg-black">' . Page::find()->count() . '</small>',
-                'article' => '<small class="label pull-right bg-black">' . Article::find()->count() . '</small>',
-                'file' => '<small class="label pull-right bg-black">' . FileStorage::find()->count() . '</small>',
-                'text' => '<small class="label pull-right bg-black">' . WidgetText::find()->count() . '</small>',
-                'user' => '<small class="label pull-right bg-gray">' . User::find()->count() . '</small>',
-                'settings' => '<small class="label pull-right bg-gray">' . Settings::find()->count() . '</small>',
-                'log' => '<small class="label pull-right bg-red">' . SystemLog::find()->count() . '</small>',
-            ];
-        }
-        Yii::$app->params['countersHtml'] = $countersHtml;
-        Yii::$app->cache->set($cacheKeyCountersHtml, $countersHtml, 60 * 60);
+        Yii::$app->params['countersHtml'] = [
+            'menu' => '<small class="label pull-right bg-gray">' . WidgetMenu::find()->count() . '</small>',
+            'category' => '<small class="label pull-right bg-black">' . ArticleCategory::find()->count() . '</small>',
+            'page' => '<small class="label pull-right bg-black">' . Page::find()->count() . '</small>',
+            'article' => '<small class="label pull-right bg-black">' . Article::find()->count() . '</small>',
+            'file' => '<small class="label pull-right bg-black">' . FileStorage::find()->count() . '</small>',
+            'text' => '<small class="label pull-right bg-black">' . WidgetText::find()->count() . '</small>',
+            'user' => '<small class="label pull-right bg-gray">' . User::find()->count() . '</small>',
+            'settings' => '<small class="label pull-right bg-gray">' . Settings::find()->count() . '</small>',
+            'log' => '<small class="label pull-right bg-red">' . SystemLog::find()->count() . '</small>',
+        ];
     }
 
     /**
      * Registers translations
      */
-    public function registerTranslations()
+    public
+    function registerTranslations()
     {
         Yii::$app->i18n->translations['modules/admin/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
@@ -134,7 +123,8 @@ class Module extends \yii\base\Module
      * @param null $language
      * @return string
      */
-    public static function t($category, $message, $params = [], $language = null)
+    public
+    static function t($category, $message, $params = [], $language = null)
     {
         return Yii::t('modules/admin/' . $category, $message, $params, $language);
     }
