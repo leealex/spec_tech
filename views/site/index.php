@@ -93,7 +93,7 @@ use yii\widgets\Pjax;
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="partners wow bounceInUp" data-wow-offset="200">
+                        <div class="wow bounceInUp" data-wow-offset="200">
                             <?= Slick::widget([
                                 'items' => Article::slideEquipment(),
                                 'numberToShow' => 3,
@@ -117,7 +117,7 @@ use yii\widgets\Pjax;
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="partners wow bounceInUp" data-wow-offset="200">
+                        <div class="wow bounceInLeft">
                             <?= Slick::widget([
                                 'items' => Article::slideBranches(),
                                 'numberToShow' => 3,
