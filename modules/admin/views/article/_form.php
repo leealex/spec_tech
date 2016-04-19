@@ -24,6 +24,7 @@ use yii\widgets\ActiveForm;
                 'card-black' => 'Черный',
                 'card-blue' => 'Синий',
                 'card-red' => 'Красный',
+                'card-green' => 'Зеленый',
             ]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
                 'default' => 1,
