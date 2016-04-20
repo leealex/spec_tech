@@ -618,6 +618,9 @@ a.read-all {
 
 .modal-body img {
     max-width: 100%;
+    border: 1px solid #ccc;
+    padding: 3px;
+    border-radius: 10px;
 }
 
 .spinner-box {
