@@ -26,7 +26,7 @@ $counter = Yii::$app->params['countersHtml'];
                 ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'fa fa-sitemap', 'url' => ['/admin/widget-menu']],
                 ['label' => 'Материалы', 'icon' => 'fa fa-file-text', 'url' => '#', 'items' => [
                     ['label' => 'Категории' . $counter['category'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/article-category']],
-                    ['label' => 'Статичные' . $counter['page'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/page']],
+                    ['label' => 'Страницы' . $counter['page'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/page']],
                     ['label' => 'Статьи' . $counter['article'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
                     ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'fa fa-file-image-o', 'url' => ['/admin/file-manager']],
                     ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
