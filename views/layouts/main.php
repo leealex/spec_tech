@@ -42,15 +42,12 @@ AppAsset::register($this);
             <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-logo"></div>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <ul class="nav">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <ul class="nav text-center">
                     <li><a href="/">О предприятии</a></li>
                     <li><a href="/site/production">Продукция</a></li>
                     <li><a href="/site/contacts">Контакты</a></li>
                 </ul>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-time">
