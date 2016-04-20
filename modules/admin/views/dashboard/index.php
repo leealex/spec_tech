@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-3">
             <?= InfoBox::widget([
-                'counterName' => 'page',
-                'controllerPath' => '/admin/page',
-                'title' => 'Статичных материалов',
+                'counterName' => 'file',
+                'controllerPath' => '/admin/file-manager',
+                'title' => 'Файлов',
                 'icon' => 'fa fa-file-text',
                 'iconColor' => 'blue'
             ]) ?>
