@@ -301,6 +301,10 @@ section .icon {
     background-image: url('../img/gear.png');
 }
 
+.contacts {
+    background-image: url('../img/contacts.png');
+}
+
 section h2 {
     text-align: center;
     margin: 0 0 38px;
