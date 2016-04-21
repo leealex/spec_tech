@@ -46,6 +46,7 @@ AppAsset::register($this);
                 <ul class="nav text-center">
                     <li><a href="/">О предприятии</a></li>
                     <li><a href="/site/production">Продукция</a></li>
+                    <li><a href="/site/news">Новости</a></li>
                     <li><a href="/site/contacts">Контакты</a></li>
                 </ul>
             </div>
