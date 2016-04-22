@@ -84,9 +84,7 @@ class SiteController extends Controller
      */
     public function actionProduction()
     {
-        return $this->render('production', [
-            'documents' => FileStorage::getFilesById([19, 20, 21, 22, 23, 24, 25, 26, 27, 28])
-        ]);
+        return $this->render('production');
     }
 
     /**

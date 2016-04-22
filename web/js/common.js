@@ -43,11 +43,16 @@ $('#modalCard').on('show.bs.modal', function (e) {
         type: 'post',
         dataType: 'json',
         data: {id: button.data('id')},
-        success: function(data) {
+        success: function (data) {
             $('.modal-body').html(data);
         }
     });
     $('.modal-header span').text(button.data('title'));
+});
+
+$('.buttons button').click(function () {
+    $('.pdf-wrapper embed').remove();
+    $('.pdf-wrapper').html('<embed src="' + $(this).data('file') + '" class="embed-responsive-item">')
 });
 
 new WOW().init();
