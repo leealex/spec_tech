@@ -29,9 +29,9 @@ AppAsset::register($this);
         <div class="header">
             <div class="certificates">
                 <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
-                   data-title="Нормативно-технический документ" class="esr"></a>
+                   data-title="ЕвроСтандартРегистр" class="esr"></a>
                 <a href="/uploads/files/esr.pdf" data-toggle="modal" data-target="#modalDocument"
-                   data-title="Нормативно-технический документ" class="rst"></a>
+                   data-title="ЕвроСтандартРегистр" class="rst"></a>
             </div>
             <div class="title">
                 <div class="ooo">Общество с ограниченной ответственностью</div>

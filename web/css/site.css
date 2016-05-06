@@ -462,7 +462,16 @@ section h2 {
 .card-title {
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0.6) 0%, rgba(125,185,232,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0.6) 0%,rgba(125,185,232,0) 100%);
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(125,185,232,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#007db9e8',GradientType=0 );
 }
 
 .card-header {
@@ -474,35 +483,10 @@ section h2 {
 }
 
 .card-sm .card-header {
-    height: 120px;
-}
-
-.card-avatar {
-    border-radius: 50%;
+    height: 190px;
     overflow: hidden;
-    position: absolute;
-    left: 50%;
-}
+    position: relative;
 
-.card-md .card-avatar {
-    height: 160px;
-    width: 160px;
-    margin-left: -80px;
-    bottom: -80px;
-    border: 5px solid #fff;
-}
-
-.card-sm .card-avatar {
-    height: 100px;
-    width: 100px;
-    margin-left: -50px;
-    bottom: -50px;
-    border: 3px solid #fff;
-}
-
-.card-avatar img {
-    max-width: 100%;
-    height: auto;
 }
 
 .card-body {
@@ -516,8 +500,8 @@ section h2 {
 }
 
 .card-sm .card-body {
-    padding: 60px 10px 10px;
-    height: 220px;
+    padding: 10px;
+    height: 135px;
 }
 
 .card-footer {
