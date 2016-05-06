@@ -96,7 +96,7 @@ use yii\widgets\Pjax;
                                 'items' => Article::slideBranches(),
                                 'numberToShow' => 3,
                                 'numberToScroll' => 1,
-//                                'autoPlay' => true,
+                                'autoPlay' => true,
                                 'centerMode' => true,
                             ]) ?>
                         </div>
