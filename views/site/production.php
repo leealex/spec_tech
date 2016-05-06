@@ -27,13 +27,3 @@ use yii\helpers\Html;
         </div>
     </section>
 </div>
-
-<?php
-Modal::begin([
-    'id' => 'modalProduction',
-    'header' => Html::tag('span'),
-    'size' => Modal::SIZE_LARGE
-]);
-
-Modal::end();
-?>

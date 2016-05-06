@@ -50,7 +50,7 @@ $('#modalCard').on('show.bs.modal', function (e) {
     $('.modal-header span').text(button.data('title'));
 });
 
-$('#modalProduction').on('show.bs.modal', function (event) {
+$('#modalDocument').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);
     var file = button.attr('href');
     var title = button.data('title');

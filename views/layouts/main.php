@@ -5,6 +5,7 @@
 
 use app\modules\admin\models\Settings;
 use app\modules\admin\widgets\Menu;
+use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use app\assets\AppAsset;
 
@@ -24,17 +25,39 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <div class="header">
-        <a class="logo" href="/" title="<?= Html::encode(Yii::$app->name) ?>"></a>
-        <button class="bars"><i class="fa fa-bars" aria-hidden="true"></i></button>
-        <?= Menu::widget(['key' => 'main']) ?>
-        <div class="phones">
-            <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
-            <div><i class="fa fa-envelope" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
+    <div class="header-wrapper">
+        <div class="header">
+            <div class="certificates">
+                <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
+                   data-title="Нормативно-технический документ" class="esr"></a>
+                <a href="/uploads/files/esr.pdf" data-toggle="modal" data-target="#modalDocument"
+                   data-title="Нормативно-технический документ" class="rst"></a>
+            </div>
+            <div class="title">
+                <div class="ooo">Общество с ограниченной ответственностью</div>
+                <div class="name">НПП "Специальные технологии"</div>
+            </div>
+            <div class="phones">
+                <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
+                <div><i class="fa fa-envelope" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
+            </div>
+        </div>
+        <div class="menu">
+            <button class="bars"><i class="fa fa-bars" aria-hidden="true"></i></button>
+            <?= Menu::widget(['key' => 'main']) ?>
         </div>
     </div>
     <?= $content ?>
 </div>
+
+<?php
+Modal::begin([
+    'id' => 'modalDocument',
+    'header' => Html::tag('span'),
+    'size' => Modal::SIZE_LARGE
+]);
+Modal::end();
+?>
 
 <footer class="footer">
     <div class="container">

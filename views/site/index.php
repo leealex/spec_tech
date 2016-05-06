@@ -17,6 +17,8 @@ use yii\widgets\Pjax;
 ?>
     <div class="site-index">
         <section class="intro">
+            <div class="crest-l"></div>
+            <div class="crest-r"></div>
             <div class="container">
                 <div class="about-us">
                     <h2 class="wow bounceInLeft">Чем занимаемся</h2>
@@ -53,9 +55,6 @@ use yii\widgets\Pjax;
                         'autoPlay' => true,
                     ]) ?>
                 </div>
-            </div>
-            <div class="section-footer-wrapper">
-                <div class="section-footer"></div>
             </div>
         </section>
 

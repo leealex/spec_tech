@@ -78,55 +78,77 @@ button.bars {
     display: none;
 }
 
-.header {
-    height: 100px;
+.header-wrapper {
+    height: 150px;
     width: 100%;
     text-align: center;
     box-shadow: 0 0 10px 0 RGBA(0, 0, 0, 0.5);
     background: #fff;
+    z-index: 1;
+    position: relative;
 }
 
-.header .logo,
-.header .navbar-nav,
-.header .phones {
+.header {
+    width: 100%;
+    height: 110px;
+    position: relative;
+}
+
+.header .certificates {
+    height: 110px;
+    width: 170px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.header .certificates .esr,
+.header .certificates .rst {
+    width: 70px;
+    height: 60px;
+    border: none;
+    margin-top: 25px;
     display: inline-block;
-    float: none;
 }
 
-.header .logo {
-    height: 100px;
-    width: 277px;
-    float: left;
-    margin-left: 15px;
-    background: url('../img/logo.png') no-repeat left;
-    background-size: contain;
+.header .certificates .esr:focus,
+.header .certificates .rst:focus {
+    outline: none;
 }
 
-.header .navbar-nav {
-    height: 50px;
-    float: none;
-    margin-top: 50px;
-    font-size: 14px;
+.header .certificates .esr {
+    background: url('../img/cert-esr.png');
+}
+
+.header .certificates .rst {
+    background: url('../img/cert-rst.png');
+}
+
+.header .title {
+    background: url('../img/header-logo.png') no-repeat left;
+    padding-left: 130px;
+    padding-top: 15px;
+    height: 110px;
+    width: 700px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -350px;
+}
+
+.header .title .ooo {
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.header .title .name {
+    font-size: 30px;
+    font-weight: 200;
     text-transform: uppercase;
-    transition: 0.5s;
-}
-
-.header .navbar-nav a {
-    color: #222222;
-    line-height: 17px;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
-    background: none;
-    border-bottom: 3px solid #777;
-}
-
-.nav > li > a.active {
-    border-bottom: 3px solid #2c90cf;
 }
 
 .header .phones {
+    height: 110px;
     float: right;
     padding: 24px 30px 0 0;
     font-size: 21px;
@@ -149,14 +171,71 @@ button.bars {
     text-align: center;
 }
 
-.site-index .intro {
-    overflow: hidden;
-    background: url('../img/pattern-black.jpg');
-    color: #ffffff;
-    padding-top: 84px;
-    padding-bottom: 0;
+.header-wrapper .menu {
+    width: 100%;
+    height: 40px;
+    background: #f1f1f1;
 }
 
+.header-wrapper .navbar-nav {
+    display: inline-block;
+    float: none;
+}
+
+.header-wrapper .navbar-nav {
+    height: 40px;
+    float: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.header-wrapper .navbar-nav a {
+    color: #222222;
+    line-height: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background: none;
+    border-bottom: 3px solid #777;
+}
+
+.nav > li > a.active {
+    border-bottom: 3px solid #2c90cf;
+}
+
+.site-index .intro {
+    overflow: hidden;
+    background: url('../img/flag.jpg') no-repeat center;
+    background-size: cover;
+    color: #ffffff;
+    padding-top: 60px;
+    padding-bottom: 70px;
+    position: relative;
+}
+
+.crest-l {
+    background: url('../img/crest-omsk.png');
+    height: 124px;
+    width: 130px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -62px;
+}
+
+.crest-r {
+    background: url('../img/crest-moscow.png');
+    height: 124px;
+    width: 130px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -62px;
+}
 
 section.about .text-justify {
     font-size: 20px;
@@ -200,28 +279,31 @@ section.about .notice {
     font-weight: 200;
     font-size: 42px;
     margin: 0;
+    color: #000;
+    text-shadow: 1px 1px 1px #EFEFEF;
 }
 
 .about-us .subtitle {
     margin-top: 15px;
     font-size: 20px;
-    color: #c8c8c8;
     font-weight: 200;
     text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000000;
 }
 
 .years {
-    height: 247px;
+    height: 180px;
     width: 219px;
-    background: url("../img/years.png") no-repeat;
     overflow: hidden;
-    color: #ffffff;
+    color: #2C90CF;
     text-align: center;
     font-size: 84px;
     line-height: 1em;
     font-weight: bold;
     padding-top: 32px;
     margin: 20px auto;
+    font-family: 'Arial Black', serif;
 }
 
 .years .number {
@@ -360,9 +442,9 @@ section h2 {
 .card-style-5 .card-header {
     background: #2c90cf;
     background: -moz-linear-gradient(-45deg, #2c90cf 0%, #2c90cf 33%, #1a1a18 33%, #1a1a18 67%, #e5290e 67%, #e5290e 100%);
-    background: -webkit-linear-gradient(-45deg, #2c90cf 0%,#2c90cf 33%,#1a1a18 33%,#1a1a18 67%,#e5290e 67%,#e5290e 100%);
-    background: linear-gradient(135deg, #2c90cf 0%,#2c90cf 33%,#1a1a18 33%,#1a1a18 67%,#e5290e 67%,#e5290e 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c90cf', endColorstr='#e5290e',GradientType=1 );
+    background: -webkit-linear-gradient(-45deg, #2c90cf 0%, #2c90cf 33%, #1a1a18 33%, #1a1a18 67%, #e5290e 67%, #e5290e 100%);
+    background: linear-gradient(135deg, #2c90cf 0%, #2c90cf 33%, #1a1a18 33%, #1a1a18 67%, #e5290e 67%, #e5290e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c90cf', endColorstr='#e5290e', GradientType=1);
 
 }
 
@@ -751,26 +833,26 @@ a.read-all {
         width: 296px;
     }
 
-    .header {
+    .header-wrapper {
         height: 50px;
     }
 
-    .header .navbar-nav {
+    .header-wrapper .navbar-nav {
         margin-top: 0;
     }
 
-    .header .phones {
+    .header-wrapper .phones {
         padding: 3px 10px 0 0;
         font-size: 16px;
         font-weight: normal;
         line-height: 22px;
     }
 
-    .header .phones .fa {
+    .header-wrapper .phones .fa {
         line-height: 22px;
     }
 
-    .header .logo {
+    .header-wrapper .logo {
         height: 50px;
     }
 
@@ -837,8 +919,8 @@ a.read-all {
 }
 
 @media (max-width: 900px) {
-    .header .logo,
-    .header .phones {
+    .header-wrapper .logo,
+    .header-wrapper .phones {
         display: none;
     }
 }
@@ -853,7 +935,7 @@ a.read-all {
         border: none;
     }
 
-    .header .navbar-nav {
+    .header-wrapper .navbar-nav {
         background: #333;
         height: auto;
         width: 100%;
@@ -861,11 +943,11 @@ a.read-all {
         position: relative;
     }
 
-    .header .navbar-nav.collapse {
+    .header-wrapper .navbar-nav.collapse {
         display: none;
     }
 
-    .header .navbar-nav li a {
+    .header-wrapper .navbar-nav li a {
         color: #fff;
         border: none;
         padding: 20px;
