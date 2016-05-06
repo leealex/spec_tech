@@ -21,10 +21,11 @@ use yii\widgets\ActiveForm;
         <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-4"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'view')->dropDownList([
-                'card-black' => 'Черный',
-                'card-blue' => 'Синий',
-                'card-red' => 'Красный',
-                'card-green' => 'Зеленый',
+                'card-style-1' => 'Стиль 1',
+                'card-style-2' => 'Стиль 2',
+                'card-style-3' => 'Стиль 3',
+                'card-style-4' => 'Стиль 4',
+                'card-style-5' => 'Стиль 5',
             ]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
                 'default' => 1,

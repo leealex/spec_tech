@@ -57,7 +57,6 @@ AppAsset::register($this);
                 </div>
                 <div class="footer-phone">
                     <p><?= Settings::getValue('phoneHeader1') ?></p>
-                    <p><?= Settings::getValue('phoneHeader2') ?></p>
                 </div>
                 <div class="footer-email">
                     <p>

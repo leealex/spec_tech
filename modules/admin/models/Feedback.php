@@ -40,7 +40,7 @@ class Feedback extends Model
     public function attributeLabels()
     {
         return [
-            'title' => 'Название института',
+            'title' => 'Название организации',
             'user' => 'Контактное лицо',
             'phone' => 'Телефон',
             'email' => 'Email',
@@ -55,26 +55,26 @@ class Feedback extends Model
     {
         // to customer
         Yii::$app->mailer->compose()
-            ->setFrom(Yii::$app->params['adminEmail'])
+            ->setFrom(Settings::getValue('adminEmail'))
             ->setTo([$this->email])
             ->setSubject('Копия: Сообщение с сайта ' . Yii::$app->name)
-            ->setHtmlBody('Сообщение: ' . $this->body
-            . 'Название института' . $this->title
-            . 'Контактное лицо' . $this->user
-            . 'Телефон' . $this->phone
-            . 'Email' . $this->email)
+            ->setHtmlBody('Сообщение: ' . $this->body . '<br>'
+            . 'Название организации: ' . $this->title . '<br>'
+            . 'Контактное лицо: ' . $this->user . '<br>'
+            . 'Телефон: ' . $this->phone . '<br>'
+            . 'Email: ' . $this->email)
             ->send();
 
         // to admin
         Yii::$app->mailer->compose()
             ->setFrom($this->email)
-            ->setTo(Yii::$app->params['adminEmail'])
+            ->setTo(Settings::getValue('adminEmail'))
             ->setSubject('Сообщение с сайта ' . Yii::$app->name)
-            ->setHtmlBody('Сообщение: ' . $this->body
-                . 'Название института' . $this->title
-                . 'Контактное лицо' . $this->user
-                . 'Телефон' . $this->phone
-                . 'Email' . $this->email)
+            ->setHtmlBody('Сообщение: ' . $this->body . '<br>'
+                . 'Название организации: ' . $this->title . '<br>'
+                . 'Контактное лицо: ' . $this->user . '<br>'
+                . 'Телефон: ' . $this->phone . '<br>'
+                . 'Email: ' . $this->email)
             ->send();
         return true;
     }

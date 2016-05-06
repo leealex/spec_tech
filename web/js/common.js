@@ -50,9 +50,20 @@ $('#modalCard').on('show.bs.modal', function (e) {
     $('.modal-header span').text(button.data('title'));
 });
 
-$('.buttons button').click(function () {
-    $('.pdf-wrapper embed').remove();
-    $('.pdf-wrapper').html('<embed src="' + $(this).data('file') + '" class="embed-responsive-item">')
+$('#modalProduction').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var file = button.attr('href');
+    var title = button.data('title');
+    var modal = $(this);
+    var extension = file.split('.').pop();
+    if (extension == 'pdf') {
+        modal.find('.modal-body').html('<div class="embed-responsive embed-responsive-4by3"><embed src="' + file + '" class="embed-responsive-item"></div>')
+    } else {
+        modal.find('.modal-body').html('<img src="' + file + '" class="img-responsive center-block">');
+    }
+
+    modal.find('.modal-header span').text(title);
+
 });
 
 new WOW().init();

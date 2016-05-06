@@ -27,9 +27,10 @@ use yii\widgets\ActiveForm;
             ])->label(null, ['style' => 'display: block']) ?></div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <?= $form->field($model, 'body')->widget(Widget::className(), [
                 'settings' => [
+                    'replaceDivs' => false,
                     'lang' => 'ru',
                     'minHeight' => 200,
                     'plugins' => [

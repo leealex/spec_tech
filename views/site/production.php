@@ -28,30 +28,12 @@ use yii\helpers\Html;
     </section>
 </div>
 
-<?php Modal::begin([
-    'id' => 'modalProduction1',
-    'header' => Html::tag('span', 'ТУ 1469-003-67983609-2012'),
+<?php
+Modal::begin([
+    'id' => 'modalProduction',
+    'header' => Html::tag('span'),
     'size' => Modal::SIZE_LARGE
-]); ?>
-<div class="embed-responsive embed-responsive-4by3 test">
-    <embed src="/uploads/files/1.pdf" class="embed-responsive-item">
-</div>
-<?php Modal::end() ?>
+]);
 
-<?php Modal::begin([
-    'id' => 'modalProduction2',
-    'header' => Html::tag('span', 'ТУ 1469-001-67983609-2011'),
-    'size' => Modal::SIZE_LARGE
-]); ?>
-<p class="buttons">
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/2.pdf">Заглушки</button>
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/3.pdf">Переходы</button>
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/4.pdf">ПШС</button>
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/5.pdf">ТШ</button>
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/6.pdf">ТШС</button>
-    <button class="btn btn-sm btn-default" data-file="/uploads/files/7.pdf">ЭПШС</button>
-</p>
-<div class="embed-responsive embed-responsive-4by3 pdf-wrapper">
-    <embed src="/uploads/files/2.pdf" class="embed-responsive-item">
-</div>
-<?php Modal::end() ?>
+Modal::end();
+?>

@@ -187,7 +187,7 @@ class Article extends \yii\db\ActiveRecord
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
             $avatar = Html::tag('div', Html::img($item->thumbnail_path), ['class' => 'card-avatar']);
             $header = Html::tag('div', $title . $avatar, ['class' => 'card-header']);
-            $body = Html::tag('div', $item->body, ['class' => 'card-body']);
+            $body = Html::tag('div', StringHelper::truncateWords($item->body, 20), ['class' => 'card-body']);
             $button = Html::button('Подробнее', [
                 'data-toggle' => 'modal',
                 'data-target' => '#modalCard',

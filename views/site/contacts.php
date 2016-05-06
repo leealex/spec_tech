@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 /* @var $model \app\modules\admin\models\Feedback */
 
+use app\modules\admin\models\Settings;
 use app\modules\admin\widgets\Text;
 use app\widgets\Gis;
 
@@ -24,7 +25,7 @@ use app\widgets\Gis;
     </section>
     
     <?= Gis::widget([
-        'address' => 'Омск',
-        'text' => 'ООО НПП "Спецтех"'
+        'address' => Settings::getValue('mapAddress'),
+        'text' => Settings::getValue('mapText')
     ])?>
 </div>

@@ -157,6 +157,17 @@ button.bars {
     padding-bottom: 0;
 }
 
+
+section.about .text-justify {
+    font-size: 20px;
+}
+
+section.about .notice {
+    background: #e6ecec;
+    padding: 20px;
+    text-align: center;
+}
+
 .section-footer-wrapper {
     height: 100px;
     width: 100%;
@@ -192,10 +203,11 @@ button.bars {
 }
 
 .about-us .subtitle {
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 20px;
     color: #c8c8c8;
     font-weight: 200;
+    text-align: center;
 }
 
 .years {
@@ -235,21 +247,11 @@ button.bars {
     padding: 27px 112px 20px 125px;
 }
 
-.overlay {
-    height: 390px;
-    width: 618px;
-    position: absolute;
-    top: 26px;
-    right: 112px;
-    z-index: 1;
-    background: url('../img/overlay.png');
-}
-
 .shine {
     background: url('../img/shine.png') no-repeat right top;
     background-size: contain;
     height: 100%;
-    width: 656px;
+    width: 296px;
     position: absolute;
     top: 0;
     right: 93px;
@@ -339,16 +341,29 @@ section h2 {
     background: url('../img/pattern-black.jpg');
 }
 
-.card-green .card-header {
-    background: #5e8738;
+.card-style-1 .card-header {
+    background: #3e5528;
 }
 
-.card-blue .card-header {
+.card-style-2 .card-header {
+    background: #1b6c62;
+}
+
+.card-style-3 .card-header {
+    background: #185378;
+}
+
+.card-style-4 .card-header {
+    background: #957401;
+}
+
+.card-style-5 .card-header {
     background: #2c90cf;
-}
+    background: -moz-linear-gradient(-45deg, #2c90cf 0%, #2c90cf 33%, #1a1a18 33%, #1a1a18 67%, #e5290e 67%, #e5290e 100%);
+    background: -webkit-linear-gradient(-45deg, #2c90cf 0%,#2c90cf 33%,#1a1a18 33%,#1a1a18 67%,#e5290e 67%,#e5290e 100%);
+    background: linear-gradient(135deg, #2c90cf 0%,#2c90cf 33%,#1a1a18 33%,#1a1a18 67%,#e5290e 67%,#e5290e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c90cf', endColorstr='#e5290e',GradientType=1 );
 
-.card-red .card-header {
-    background: #e5290e;
 }
 
 .card-md,
@@ -556,8 +571,8 @@ a.read-all {
 }
 
 .footer-logo {
-    height: 90px;
-    width: 183px;
+    height: 98px;
+    width: 185px;
     background: url('../img/logo-footer.png');
 }
 
@@ -615,7 +630,16 @@ a.read-all {
 }
 
 .site-production table {
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.site-production .table-bordered > thead > tr > th,
+.site-production .table-bordered > tbody > tr > th,
+.site-production .table-bordered > tfoot > tr > th,
+.site-production .table-bordered > thead > tr > td,
+.site-production .table-bordered > tbody > tr > td,
+.site-production .table-bordered > tfoot > tr > td {
+    border: 1px solid #777777;
 }
 
 .modal-body img {
@@ -623,6 +647,12 @@ a.read-all {
     border: 1px solid #ccc;
     padding: 3px;
     border-radius: 10px;
+}
+
+.modal-header span {
+    text-align: center;
+    display: block;
+    font-weight: bold;
 }
 
 .spinner-box {
@@ -643,8 +673,21 @@ a.read-all {
     animation: spin 700ms infinite linear;
 }
 
+.site-production .table > tbody > tr > th {
+    background: #0091D2;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.site-production .table .btn-xs {
+    margin-bottom: 5px;
+}
+
 @keyframes spin {
-    100%{ transform: rotate(360deg); }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 1200px) {
@@ -653,17 +696,13 @@ a.read-all {
         width: 700px;
         padding: 24px 90px 20px 100px;
     }
-    .overlay {
-        height: 320px;
-        width: 510px;
-        top: 24px;
-        right: 90px;
-    }
+
     .shine {
         top: 3px;
         right: 75px;
-        width: 540px;
+        width: 296px;
     }
+
     .site-index .intro {
         padding-top: 70px;
     }
@@ -705,17 +744,13 @@ a.read-all {
         width: 540px;
         padding: 20px 70px 20px 80px;
     }
-    .overlay {
-        height: 245px;
-        width: 390px;
-        top: 20px;
-        right: 70px;
-    }
+
     .shine {
         top: 2px;
         right: 59px;
-        width: 412px;
+        width: 296px;
     }
+
     .header {
         height: 50px;
     }
@@ -825,9 +860,11 @@ a.read-all {
         z-index: 5;
         position: relative;
     }
+
     .header .navbar-nav.collapse {
         display: none;
     }
+
     .header .navbar-nav li a {
         color: #fff;
         border: none;
