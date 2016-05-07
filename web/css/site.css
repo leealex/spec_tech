@@ -975,6 +975,7 @@ a.read-all {
 
     .years {
         height: 120px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif, serif;
     }
 
     .header-wrapper .navbar-nav {
