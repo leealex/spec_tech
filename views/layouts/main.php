@@ -65,7 +65,7 @@ Modal::end();
             <div class="col-md-3 col-sm-12 col-xs-12">
                 <div class="footer-logo"></div>
             </div>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-12 col-xs-12">
                 <ul class="nav text-center">
                     <li><a href="/">О предприятии</a></li>
                     <li><a href="/site/production">Продукция</a></li>

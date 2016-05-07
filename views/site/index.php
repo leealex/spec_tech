@@ -90,12 +90,13 @@ use yii\widgets\Pjax;
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-1">
                         <div class="wow bounceInLeft">
                             <?= Slick::widget([
                                 'items' => Article::slideBranches(),
                                 'numberToShow' => 3,
                                 'numberToScroll' => 1,
+                                'variableWidth' => true,
                                 'autoPlay' => true,
                                 'centerMode' => true,
                             ]) ?>

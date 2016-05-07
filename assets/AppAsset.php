@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/wow.min.js',
         'js/jquery.circliful.min.js',
+        'js/pdfobject.min.js',
         'js/common.js'
     ];
     public $depends = [

@@ -16,7 +16,7 @@ use yii\helpers\Html;
                 <div class="col-md-12">
                     <div class="icon gear wow bounceInLeft"></div>
                     <h2 class="wow bounceInLeft">Продукция</h2>
-                    <div class="wow bounceInUp">
+                    <div class="wow bounceInUp table-responsive">
                         <?= Text::widget([
                             'key' => 'productionTable',
                             'htmlOptions' => ['class' => 'wow bounceInUp']

@@ -57,7 +57,13 @@ $('#modalDocument').on('show.bs.modal', function (event) {
     var modal = $(this);
     var extension = file.split('.').pop();
     if (extension == 'pdf') {
-        modal.find('.modal-body').html('<div class="embed-responsive embed-responsive-4by3"><embed src="' + file + '" class="embed-responsive-item"></div>')
+        if (PDFObject.supportsPDFs) {
+            modal.find('.modal-body').html('<div class="embed-responsive embed-responsive-4by3">' +
+                '<embed src="' + file + '" class="embed-responsive-item"></div>');
+        } else {
+            modal.find('.modal-body').html('<p class="text-center">Ваш браузер не поддерживает отображение документов PDF. ' +
+                'Для просмотра документа загрузите его по ссылке: <a href="' + file + '">' + title + '</a></p>');
+        }
     } else {
         modal.find('.modal-body').html('<img src="' + file + '" class="img-responsive center-block">');
     }
