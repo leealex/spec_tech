@@ -94,7 +94,7 @@ use yii\widgets\Pjax;
                         <div class="wow bounceInLeft">
                             <?= Slick::widget([
                                 'items' => Article::slideBranches(),
-                                'numberToShow' => 3,
+                                'numberToShow' => 1,
                                 'numberToScroll' => 1,
                                 'variableWidth' => true,
                                 'autoPlay' => true,
@@ -112,7 +112,7 @@ use yii\widgets\Pjax;
                     <div class="col-md-10 col-md-offset-1">
                         <div class="icon people wow fadeInDown"></div>
                         <h2 class="wow fadeInDown">Партнеры</h2>
-                        <div class="partners wow bounceInUp" data-wow-offset="200">
+                        <div class="partners">
                             <?= Slick::widget([
                                 'items' => Partner::getSlides(),
                                 'numberToShow' => 5,
@@ -131,13 +131,13 @@ use yii\widgets\Pjax;
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="icon news wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Новости</h2>
-                        <div class="wow bounceInUp" data-wow-offset="200">
+                        <h2 class="wow fadeInDown">История</h2>
+                        <div>
                             <?= Slick::widget([
                                 'items' => Article::slideNews(),
                                 'numberToShow' => 1,
                                 'numberToScroll' => 1,
-                                'autoPlay' => true,
+//                                'autoPlay' => true,
                             ]) ?>
                             <a href="/site/news" class="read-all grey">Посмотреть все новости</a>
                         </div>

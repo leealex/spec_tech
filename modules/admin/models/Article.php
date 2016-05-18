@@ -125,12 +125,13 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @param $category
      * @param null $limit
+     * @param int $order
      * @return $this
      */
-    public static function getByCategory($category, $limit = null)
+    public static function getByCategory($category, $limit = null, $order = SORT_DESC)
     {
         $categoryId = ArticleCategory::getIdBySlug($category);
-        $query = self::find()->where(['category_id' => $categoryId])->orderBy(['id' => SORT_DESC]);
+        $query = self::find()->where(['category_id' => $categoryId])->orderBy(['id' => $order]);
         if ($limit) {
             $query->limit($limit);
         }
@@ -142,12 +143,16 @@ class Article extends \yii\db\ActiveRecord
      */
     public static function slideNews()
     {
-        $items = self::getByCategory('news', 5);
+        $items = self::getByCategory('news', null, SORT_ASC);
         $slides = [];
-        foreach ($items as $item) {
-            $title = Html::tag('div', date('d.m.Y', $item->created_at), ['class' => 'news-title']);
-            $text = Html::tag('div', $item->body, ['class' => 'news-text']);
-            $slides[] = Html::tag('div', $title . $text);
+        foreach ($items as $i => $item) {
+            $number = Html::tag('div', $i + 1, ['class' => 'news-number']);
+            $title = Html::tag('div', $item->title, ['class' => 'news-title']);
+            $body = Html::tag('div', $item->body, ['class' => 'news-body']);
+            $text = Html::tag('div', $number . $title . $body, ['class' => 'news-text']);
+            $image = Html::tag('div', Html::img($item->thumbnail_path) . $text, ['class' => 'news-image']);
+
+            $slides[] = Html::tag('div', $image, ['class' => 'news-box']);
         }
         return $slides;
     }
@@ -186,7 +191,7 @@ class Article extends \yii\db\ActiveRecord
         foreach ($items as $item) {
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
             $header = Html::tag('div', $title . Html::img($item->thumbnail_path), ['class' => 'card-header']);
-            $body = Html::tag('div', StringHelper::truncateWords($item->body, 20), ['class' => 'card-body']);
+            $body = Html::tag('div', StringHelper::truncateWords(strip_tags($item->body), 20), ['class' => 'card-body']);
             $button = Html::button('Подробнее', [
                 'data-toggle' => 'modal',
                 'data-target' => '#modalCard',

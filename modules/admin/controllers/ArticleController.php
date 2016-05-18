@@ -71,7 +71,7 @@ class ArticleController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->link('author', Yii::$app->user->identity);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -93,7 +93,7 @@ class ArticleController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->link('updater', Yii::$app->user->identity);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

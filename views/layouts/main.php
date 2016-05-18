@@ -30,7 +30,7 @@ AppAsset::register($this);
             <div class="certificates">
                 <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
                    data-title="ЕвроСтандартРегистр" class="esr"></a>
-                <a href="/uploads/files/esr.pdf" data-toggle="modal" data-target="#modalDocument"
+                <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
                    data-title="ЕвроСтандартРегистр" class="rst"></a>
             </div>
             <div class="title">
