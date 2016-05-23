@@ -14,11 +14,15 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="article-category-index">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-
-    <?= $form->field($model, 'file')->fileInput() ?>
-
-    <?= Html::submitButton('Загрузить файл', ['class' => 'btn btn-success']) ?>
-
+    <div class="row">
+        <div class="col-md-2">
+            <?= $form->field($model, 'file')->fileInput()->label(false) ?>
+            <?= Html::submitButton('Загрузить файл', ['class' => 'btn btn-xs btn-success']) ?>
+        </div>
+        <div class="col-md-1 col-md-offset-9">
+            <?= Html::a('Обновить пути', '/admin/file-manager/update-path', ['class' => 'btn btn-xs btn-default']) ?>
+        </div>
+    </div>
     <?php ActiveForm::end() ?>
 
     <?= GridView::widget([

@@ -66,4 +66,24 @@ class FileStorage extends \yii\db\ActiveRecord
             return self::findOne($id);
         }
     }
+
+    /**
+     * Update file path if it is not equal to base path    
+     * @return integer the number of updated files
+     */
+    public static function updatePath()
+    {
+        $basePath = Yii::$app->basePath;
+        $files = FileStorage::find()->all();
+        $updated = 0;
+        foreach ($files as $file) {
+            $path = explode('/web', $file->path);
+            if ($basePath !== $path[0]) {
+                $file->path = $basePath . '/web' . $path[1];
+                $file->save();
+                $updated++;
+            }
+        }
+        return $updated;
+    }
 }

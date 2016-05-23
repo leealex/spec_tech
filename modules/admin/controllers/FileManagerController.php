@@ -86,4 +86,15 @@ class FileManagerController extends Controller
         }
         return $this->redirect('/admin/file-manager');
     }
+
+    /**             
+     * Updates paths on the server
+     * @return \yii\web\Response
+     */
+    public function actionUpdatePath()
+    {
+        $updatedFiles = FileStorage::updatePath();
+        Yii::$app->session->setFlash('success', 'Обновлено ' . $updatedFiles . ' файлов.');
+        return $this->redirect('/admin/file-manager');
+    }
 }

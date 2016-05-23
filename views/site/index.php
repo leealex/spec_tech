@@ -137,9 +137,8 @@ use yii\widgets\Pjax;
                                 'items' => Article::slideNews(),
                                 'numberToShow' => 1,
                                 'numberToScroll' => 1,
-//                                'autoPlay' => true,
+                                'autoPlay' => true,
                             ]) ?>
-                            <a href="/site/news" class="read-all grey">Посмотреть все новости</a>
                         </div>
                     </div>
                 </div>
