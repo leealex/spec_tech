@@ -7,7 +7,6 @@ use yii\widgets\ListView;
 ?>
 <div class="site-news">
     <section>
-        <?php echo strtotime('08.06.2016')?>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
