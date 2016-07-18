@@ -34,6 +34,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'production' => 'site/production',
+                'contacts' => 'site/contacts',
+                'news' => 'site/news',
                 'page/<slug:[a-z-]+>' => 'page/view',
                 '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
             ]
