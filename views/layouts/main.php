@@ -69,7 +69,7 @@ Modal::end();
                 <ul class="nav text-center">
                     <li><a href="/">О предприятии</a></li>
                     <li><a href="/production">Продукция</a></li>
-                    <li><a href="/news">Новости</a></li>
+<!--                    <li><a href="/news">Новости</a></li>-->
                     <li><a href="/contacts">Контакты</a></li>
                 </ul>
             </div>
