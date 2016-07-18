@@ -2,11 +2,10 @@
 /* @var $model \app\modules\admin\models\Article */
 
 ?>
-<div class="news-item wow bounceInRight">
-    <h4 class="text-center"><?= $model->title ?></h4>
-    <p class="text-center"><small class="text-muted"><?= date('d.m.Y', $model->created_at) ?></small></p>
+<li class="news-item">
+    <div class="time-badge"><?= date('d.m.Y', $model->created_at) ?></div>
+    <h4><?= $model->title ?></h4>
     <div class="news-body">
         <?= $model->body ?>
     </div>
-</div>
-<hr>
+</li>
