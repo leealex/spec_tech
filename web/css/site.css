@@ -623,6 +623,8 @@ a.read-all {
 .news-date {
     color: #777777;
     font-size: 14px;
+    text-align: right;
+    font-style: italic;
 }
 
 .news-title {
@@ -642,18 +644,9 @@ li.news-item {
     position: relative;
 }
 
-.news-item h4 {
-    padding: 0 0 0 130px;
-}
-
-.time-badge {
-    background: #f1f1f1;
-    display: block;
-    position: absolute;
-    left: -10px;
-    border-radius: 0 10px 10px 0;
-    padding: 5px 15px;
-    color: #8e8e8e;
+img.img-thumbnail {
+    max-width: 230px;
+    margin: 5px;
 }
 
 .feedback-result {
