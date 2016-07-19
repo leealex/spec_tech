@@ -134,7 +134,7 @@ use yii\widgets\Pjax;
                         <h2 class="wow fadeInDown">История</h2>
                         <div>
                             <?= Slick::widget([
-                                'items' => Article::slideNews(),
+                                'items' => Article::slideHistory(),
                                 'numberToShow' => 1,
                                 'numberToScroll' => 1,
                                 'autoPlay' => true,

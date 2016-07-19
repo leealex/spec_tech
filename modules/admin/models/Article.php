@@ -141,18 +141,18 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @return array
      */
-    public static function slideNews()
+    public static function slideHistory()
     {
-        $items = self::getByCategory('news', null, SORT_ASC);
+        $items = self::getByCategory('history', null, SORT_ASC);
         $slides = [];
         foreach ($items as $i => $item) {
-            $number = Html::tag('div', $i + 1, ['class' => 'news-number']);
-            $title = Html::tag('div', $item->title, ['class' => 'news-title']);
-            $body = Html::tag('div', $item->body, ['class' => 'news-body']);
-            $text = Html::tag('div', $number . $title . $body, ['class' => 'news-text']);
-            $image = Html::tag('div', Html::img($item->thumbnail_path) . $text, ['class' => 'news-image']);
+            $number = Html::tag('div', $i + 1, ['class' => 'history-number']);
+            $title = Html::tag('div', $item->title, ['class' => 'history-title']);
+            $body = Html::tag('div', $item->body, ['class' => 'history-body']);
+            $text = Html::tag('div', $number . $title . $body, ['class' => 'history-text']);
+            $image = Html::tag('div', Html::img($item->thumbnail_path) . $text, ['class' => 'history-image']);
 
-            $slides[] = Html::tag('div', $image, ['class' => 'news-box']);
+            $slides[] = Html::tag('div', $image, ['class' => 'history-box']);
         }
         return $slides;
     }
