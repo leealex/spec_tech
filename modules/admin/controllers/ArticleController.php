@@ -37,6 +37,7 @@ class ArticleController extends Controller
     {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort = ['defaultOrder' => ['id' => SORT_DESC]];
         $categories = ArticleCategory::find()->asArray()->all();
 
         return $this->render('index', [
