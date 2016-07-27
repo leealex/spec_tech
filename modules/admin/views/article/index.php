@@ -23,11 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'slug',
-            'title',
+            [
+                'attribute' => 'title',
+                'value' => function ($model) {
+                    return Html::a($model->title, ['update', 'id' => $model->id]);
+                },
+                'format' => 'raw'
+            ],
             [
                 'label' => 'Категория',
                 'value' => 'category.title',
-                'filter' => Html::activeDropDownList($searchModel, 'category_id', $categories, ['class' => 'form-control', 'prompt' => ''])
+                'filter' => Html::activeDropDownList($searchModel, 'category_id', $categories,
+                    ['class' => 'form-control', 'prompt' => ''])
             ],
             [
                 'label' => 'Автор',
