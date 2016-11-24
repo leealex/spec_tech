@@ -853,7 +853,7 @@ li.news-item {
     text-align: justify;
 }
 
-.news-body img {
+.news-body img.img-thumbnail {
     max-width: 230px;
     margin: 5px;
 }
