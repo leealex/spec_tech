@@ -37,11 +37,15 @@ $config = [
                 'production' => 'site/production',
                 'contacts' => 'site/contacts',
                 'news' => 'site/news',
+                'testimonials' => 'site/testimonials',
                 'page/<slug:[a-z-]+>' => 'page/view',
                 '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
             ]
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'assetManager' => [
+            'appendTimestamp' => true,
+        ],
     ],
     'params' => $params,
 ];

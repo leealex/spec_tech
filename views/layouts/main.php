@@ -71,6 +71,7 @@ Modal::end();
                     <li><a href="/production">Продукция</a></li>
                     <li><a href="/news">Новости</a></li>
                     <li><a href="/contacts">Контакты</a></li>
+                    <li><a href="/testimonials">Отзывы</a></li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-12 col-xs-12">

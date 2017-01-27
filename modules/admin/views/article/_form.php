@@ -17,6 +17,8 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <div class="row">
+        <div class="col-md-2"><?= $form->field($model, 'createdAt')->textInput([
+            'placeholder' => $model->created_at ? date('d.m.Y', $model->created_at) : date('d.m.Y', time())]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'category_id')->dropDownList($categories) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-4"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
@@ -27,13 +29,6 @@ use yii\widgets\ActiveForm;
                 'card-style-4' => 'Стиль 4',
                 'card-style-5' => 'Стиль 5',
             ]) ?></div>
-        <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
-                'default' => 1,
-                'items' => [
-                    ['label' => 'Да', 'value' => 1],
-                    ['label' => 'Нет', 'value' => 0],
-                ]
-            ])->label(null, ['style' => 'display: block']) ?></div>
     </div>
     <div class="row">
         <div class="col-md-12">
@@ -61,8 +56,19 @@ use yii\widgets\ActiveForm;
         <div class="col-md-6"><?= $form->field($model, 'thumbnail_path')->widget(ImageBrowser::className()) ?></div>
     </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
+                    'default' => 1,
+                    'items' => [
+                        ['label' => 'Да', 'value' => 1],
+                        ['label' => 'Нет', 'value' => 0],
+                    ]
+                ])->label(null, ['style' => 'display: block']) ?>
+                <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+            </div>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -34,6 +34,11 @@ use yii\helpers\StringHelper;
 class Article extends \yii\db\ActiveRecord
 {
     /**
+     * @var
+     */
+    public $createdAt;
+
+    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -58,7 +63,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['slug', 'title', 'body', 'category_id'], 'required'],
-            [['body'], 'string'],
+            [['body', 'createdAt'], 'string'],
             [['category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
@@ -86,6 +91,7 @@ class Article extends \yii\db\ActiveRecord
             'status' => Module::t('app', 'Status'),
             'published_at' => Module::t('app', 'Published At'),
             'created_at' => Module::t('app', 'Created At'),
+            'createdAt' => Module::t('app', 'Created At'),
             'updated_at' => Module::t('app', 'Updated At'),
         ];
     }
@@ -203,5 +209,20 @@ class Article extends \yii\db\ActiveRecord
             $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm ' . $item->view]);
         }
         return $slides;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->createdAt) {
+                $this->created_at = strtotime($this->createdAt);
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

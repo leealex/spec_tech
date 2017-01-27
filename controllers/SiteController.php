@@ -121,4 +121,21 @@ class SiteController extends Controller
         Yii::$app->response->format = Response::FORMAT_JSON;
         return $article->body;
     }
+
+    /**
+     * @return string
+     */
+    public function actionTestimonials()
+    {
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->query->andFilterWhere(['category_id' => ArticleCategory::getIdBySlug('testimonials')]);
+        $dataProvider->sort = [
+            'defaultOrder' => ['created_at' => SORT_DESC]
+        ];
+        return $this->render('testimonials', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }
