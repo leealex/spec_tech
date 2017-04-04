@@ -111,6 +111,9 @@ class SiteController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
+        $dataProvider->pagination = [
+            'pageSize' => 5
+        ];
         return $this->render('news', [
             'dataProvider' => $dataProvider
         ]);
