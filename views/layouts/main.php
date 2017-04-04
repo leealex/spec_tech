@@ -35,7 +35,7 @@ AppAsset::register($this);
             </div>
             <div class="title">
                 <div class="ooo">Общество с ограниченной ответственностью</div>
-                <div class="name">НПП "Специальные технологии"</div>
+                <div class="name">НПП "Спецтех"</div>
             </div>
             <div class="phones">
                 <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>

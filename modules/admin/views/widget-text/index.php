@@ -23,14 +23,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'id',
             'key',
-            'title',
+            [
+                'attribute' => 'title',
+                'value' => function ($model) {
+                    return Html::a($model->title, ['widget-text/update', 'id' => $model->id]);
+                },
+                'format' => 'raw'
+            ],
             'status:boolean',
             'created_at:date',
             'updated_at:date',
             [
                 'class' => 'yii\grid\ActionColumn',
                 'visibleButtons' => [
-                    'view' => false
+                    'view' => false,
+                    'update' => false
                 ]
 
             ],
