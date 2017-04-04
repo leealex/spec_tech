@@ -62,6 +62,24 @@ use yii\widgets\Pjax;
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="icon news wow bounceInLeft"></div>
+                        <h2 class="wow bounceInLeft">Новости</h2>
+                        <table class="table table-condensed wow bounceInRight">
+                            <?php foreach ($news as $new) { ?>
+                                <tr>
+                                    <td><?= date('d.m.Y', $new->created_at) ?></td>
+                                    <td><?= Html::a($new->title, ['site/news', '#' => 'article-' . $new->id]) ?></td>
+                                </tr>
+                            <?php } ?>
+                        </table>
+                        <p class="text-right wow bounceInLeft">
+                            <?= Html::a('<i class="fa fa-archive" aria-hidden="true"></i> Архив новостей', ['site/news']) ?>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
                         <div class="icon chat wow fadeInDown"></div>
                         <h2 class="wow fadeInDown">О нашей компании</h2>
                         <div class="text-justify wow fadeInUp">

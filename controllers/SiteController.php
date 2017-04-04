@@ -75,7 +75,8 @@ class SiteController extends Controller
         }
 
         return $this->render('index', [
-            'model' => $model
+            'model' => $model,
+            'news' => Article::getByCategory('news', 3)
         ]);
     }
 
