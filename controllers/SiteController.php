@@ -97,19 +97,22 @@ class SiteController extends Controller
     }
 
     /**
+     * @param null $id
      * @return string
      */
-    public function actionNews()
+    public function actionNews($id = null)
     {
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->query->andFilterWhere(['category_id' => ArticleCategory::getIdBySlug('news')]);
+        if ($id) {
+            $dataProvider->query->andFilterWhere(['id' => $id]);
+        }
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
         return $this->render('news', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
         ]);
     }
 
@@ -135,8 +138,7 @@ class SiteController extends Controller
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
         return $this->render('testimonials', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'dataProvider' => $dataProvider
         ]);
     }
 }

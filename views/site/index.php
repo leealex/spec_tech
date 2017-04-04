@@ -68,7 +68,7 @@ use yii\widgets\Pjax;
                             <?php foreach ($news as $new) { ?>
                                 <tr>
                                     <td><?= date('d.m.Y', $new->created_at) ?></td>
-                                    <td><?= Html::a($new->title, ['site/news', '#' => 'article-' . $new->id]) ?></td>
+                                    <td><?= Html::a($new->title, ['site/news', 'id' => $new->id]) ?></td>
                                 </tr>
                             <?php } ?>
                         </table>
