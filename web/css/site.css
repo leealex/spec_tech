@@ -670,7 +670,7 @@ a.read-all {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: RGBA(0,0,0,0.5);
+    background: RGBA(0, 0, 0, 0.5);
     color: #fff;
     z-index: 2;
     padding: 15px;
@@ -1139,8 +1139,8 @@ li.news-item {
 }
 
 /*.header {*/
-/*background: url(/img/ny.jpg);*/
-/*color: #fff;*/
+    /*background: url(/img/ny2018-1.jpg);*/
+    /*color: #fff;*/
 /*}*/
 
 /*.footer:before {*/

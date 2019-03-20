@@ -39,6 +39,7 @@ use yii\widgets\Pjax;
                         'items' => [
                             '<img src="/img/slide01.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide02.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
+                            '<img src="/img/slide02-2.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide03.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide04.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide05.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
@@ -104,7 +105,7 @@ use yii\widgets\Pjax;
                 <div class="row">
                     <div class="col-md-12">
                         <div class="icon branches wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Предприятия холдинга</h2>
+                        <h2 class="wow fadeInDown">Предприятия-партнеры</h2>
                     </div>
                 </div>
                 <div class="row">

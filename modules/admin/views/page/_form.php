@@ -37,6 +37,7 @@ use yii\widgets\ActiveForm;
                         'table',
                         'imagemanager',
                         'filemanager',
+                        'video'
 
                     ],
                     'imageManagerJson' => Url::to(['/admin/dashboard/images-get']),

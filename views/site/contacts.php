@@ -23,9 +23,7 @@ use app\widgets\Gis;
             </div>
         </div>
     </section>
+
+    <iframe src="https://yandex.ru/map-widget/v1/-/CBa8bBWW8D" width="100%" height="500" frameborder="0"></iframe>
     
-    <?= Gis::widget([
-        'address' => Settings::getValue('mapAddress'),
-        'text' => Settings::getValue('mapText')
-    ])?>
 </div>
