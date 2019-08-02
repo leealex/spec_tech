@@ -103,7 +103,7 @@ button.bars {
 }
 
 .header .certificates .esr,
-.header .certificates .rst {
+.header .certificates .igc {
     width: 70px;
     height: 60px;
     border: none;
@@ -112,7 +112,7 @@ button.bars {
 }
 
 .header .certificates .esr:focus,
-.header .certificates .rst:focus {
+.header .certificates .igc:focus {
     outline: none;
 }
 
@@ -120,8 +120,8 @@ button.bars {
     background: url('../img/cert-esr.png');
 }
 
-.header .certificates .rst {
-    background: url('../img/cert-rst.png');
+.header .certificates .igc {
+    background: url('../img/cert-igc.png');
 }
 
 .header .title {
