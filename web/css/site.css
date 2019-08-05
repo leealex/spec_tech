@@ -96,15 +96,16 @@ button.bars {
 
 .header .certificates {
     height: 110px;
-    width: 170px;
+    width: 200px;
     position: absolute;
     left: 0;
     top: 0;
 }
 
 .header .certificates .esr,
+.header .certificates .tuv,
 .header .certificates .igc {
-    width: 70px;
+    width: 60px;
     height: 60px;
     border: none;
     margin-top: 25px;
@@ -112,6 +113,7 @@ button.bars {
 }
 
 .header .certificates .esr:focus,
+.header .certificates .tuv:focus,
 .header .certificates .igc:focus {
     outline: none;
 }
@@ -122,6 +124,10 @@ button.bars {
 
 .header .certificates .igc {
     background: url('../img/cert-igc.png');
+}
+
+.header .certificates .tuv {
+    background: url('../img/cert-tuv.png');
 }
 
 .header .title {
