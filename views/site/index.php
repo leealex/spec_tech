@@ -39,7 +39,6 @@ use yii\widgets\Pjax;
                         'items' => [
                             '<img src="/img/slide01.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide02.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide02-2.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide03.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide04.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
                             '<img src="/img/slide05.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
