@@ -20,7 +20,6 @@ $counter = Yii::$app->params['countersHtml'];
             </div>
         </div>
         <?= dmstr\widgets\Menu::widget([
-            'options' => ['class' => 'sidebar-menu'],
             'items' => [
                 ['label' => 'Главная', 'icon' => 'home', 'url' => ['/admin/dashboard']],
                 ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'sitemap', 'url' => ['/admin/widget-menu']],

@@ -14,7 +14,7 @@ if (Yii::$app->controller->action->id === 'login') {
         ['content' => $content]
     );
 } else {
-    app\assets\AppAsset::register($this);
+//    app\assets\AppAsset::register($this);
     dmstr\web\AdminLteAsset::register($this);
     $bundle = admin\AdminAsset::register($this);
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
