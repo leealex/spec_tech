@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         if (parent::beforeAction($action)) {
             if (!Yii::$app->user->can('editUsers')) {
-                return $this->redirect('/admin/dashboard/error');
+//                return $this->redirect('/admin/dashboard/error');
             }
             return true;
         } else {
