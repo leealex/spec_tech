@@ -156,15 +156,4 @@ class DashboardController extends Controller
 
         return $this->redirect('/admin');
     }
-
-    /**
-     * @return \yii\web\Response
-     */
-    public function actionGitPull()
-    {
-        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git fetch --all && git reset --hard origin/master && git pull origin master');
-        Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
-
-        return $this->redirect('/admin');
-    }
 }
