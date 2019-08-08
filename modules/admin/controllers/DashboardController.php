@@ -162,7 +162,7 @@ class DashboardController extends Controller
      */
     public function actionGitPull()
     {
-        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git pull');
+        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git fetch --all && git reset --hard origin/master && git pull origin master');
         Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
 
         return $this->redirect('/admin');
