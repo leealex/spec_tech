@@ -22,28 +22,28 @@ $counter = Yii::$app->params['countersHtml'];
         <?= dmstr\widgets\Menu::widget([
             'options' => ['class' => 'sidebar-menu'],
             'items' => [
-                ['label' => 'Главная', 'icon' => 'fa fa-home', 'url' => ['/admin/dashboard']],
-                ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'fa fa-sitemap', 'url' => ['/admin/widget-menu']],
-                ['label' => 'Материалы', 'icon' => 'fa fa-file-text', 'url' => '#', 'items' => [
-                    ['label' => 'Категории' . $counter['category'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/article-category']],
-                    ['label' => 'Страницы' . $counter['page'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/page']],
-                    ['label' => 'Статьи и Новости' . $counter['article'], 'encode' => false, 'icon' => 'fa fa-file-text', 'url' => ['/admin/article']],
-                    ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'fa fa-file-image-o', 'url' => ['/admin/file-manager']],
-                    ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'fa fa-file-text-o', 'url' => ['/admin/widget-text']],
-                    ['label' => 'Инфографика', 'encode' => false, 'icon' => 'fa fa-pie-chart', 'url' => ['/admin/graph-item']],
-                    ['label' => 'Партнеры', 'encode' => false, 'icon' => 'fa fa-users', 'url' => ['/admin/partner']],
+                ['label' => 'Главная', 'icon' => 'home', 'url' => ['/admin/dashboard']],
+                ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'sitemap', 'url' => ['/admin/widget-menu']],
+                ['label' => 'Материалы', 'icon' => 'file-text', 'url' => '#', 'items' => [
+                    ['label' => 'Категории' . $counter['category'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/article-category']],
+                    ['label' => 'Страницы' . $counter['page'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/page']],
+                    ['label' => 'Статьи и Новости' . $counter['article'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/article']],
+                    ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'file-image-o', 'url' => ['/admin/file-manager']],
+                    ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'file-text-o', 'url' => ['/admin/widget-text']],
+                    ['label' => 'Инфографика', 'encode' => false, 'icon' => 'pie-chart', 'url' => ['/admin/graph-item']],
+                    ['label' => 'Партнеры', 'encode' => false, 'icon' => 'users', 'url' => ['/admin/partner']],
                 ]],
-                ['label' => 'Пользователи', 'icon' => 'fa fa-users', 'url' => '#', 'items' => [
-                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'fa fa-list', 'url' => ['/admin/user/index']],
-                    ['label' => 'Права', 'encode' => false, 'icon' => 'fa fa-unlock', 'url' => ['/admin/user/permission']],
+                ['label' => 'Пользователи', 'icon' => 'users', 'url' => '#', 'items' => [
+                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/user/index']],
+                    ['label' => 'Права', 'encode' => false, 'icon' => 'unlock', 'url' => ['/admin/user/permission']],
                 ]],
-                ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'fa fa-wrench', 'url' => ['/admin/settings']],
-                ['label' => 'Система', 'icon' => 'fa fa-cogs', 'url' => '#', 'items' => [
-                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
-                    ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
-                    ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'fa fa-tasks', 'url' => ['/admin/log'],],
+                ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'wrench', 'url' => ['/admin/settings']],
+                ['label' => 'Система', 'icon' => 'cogs', 'url' => '#', 'items' => [
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
+                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
+                    ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'tasks', 'url' => ['/admin/log'],],
                 ]],
-                ['label' => 'Update', 'encode' => false, 'icon' => 'fa fa-github', 'url' => ['/admin/dashboard/git-pull']],
+                ['label' => 'Update', 'encode' => false, 'icon' => 'github', 'url' => ['/admin/dashboard/git-pull']],
             ]
         ]) ?>
     </section>

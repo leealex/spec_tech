@@ -5,10 +5,8 @@ namespace app\modules\admin\controllers;
 use app\modules\admin\models\FileStorage;
 use app\modules\admin\models\LoginForm;
 use app\modules\admin\models\SystemLog;
-use vova07\imperavi\actions\GetAction;
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
@@ -70,29 +68,21 @@ class DashboardController extends Controller
     public function actions()
     {
         return [
-            'image-upload' => [
-                'class' => 'vova07\imperavi\actions\UploadAction',
-                'url' => '/uploads/images/',
-                'path' => '@app/web/uploads/images'
-            ],
             'images-get' => [
-                'class' => 'vova07\imperavi\actions\GetAction',
-                'url' => '/uploads/images/',
-                'path' => '@app/web/uploads/images',
-                'type' => GetAction::TYPE_IMAGES,
-            ],
-            'file-upload' => [
-                'class' => 'vova07\imperavi\actions\UploadAction',
+                'class' => 'vova07\imperavi\actions\GetImagesAction',
                 'url' => '/uploads/files/',
                 'path' => '@app/web/uploads/files',
-                'uploadOnlyImage' => false
             ],
-            'files-get' => [
-                'class' => 'vova07\imperavi\actions\GetAction',
+            'image-upload' => [
+                'class' => 'vova07\imperavi\actions\UploadFileAction',
                 'url' => '/uploads/files/',
                 'path' => '@app/web/uploads/files',
-                'type' => GetAction::TYPE_FILES,
-            ]
+            ],
+            'file-delete' => [
+                'class' => 'vova07\imperavi\actions\DeleteFileAction',
+                'url' => '/uploads/files/',
+                'path' => '@app/web/uploads/files',
+            ],
         ];
     }
 
