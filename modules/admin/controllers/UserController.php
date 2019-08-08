@@ -6,7 +6,6 @@ use Yii;
 use app\modules\admin\models\User;
 use app\modules\admin\models\UserSearch;
 use yii\data\ArrayDataProvider;
-use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -30,15 +29,15 @@ class UserController extends Controller
     }
 
     /**
-     * @param \yii\base\Action $action
-     * @return bool
+     * @param $action
+     * @return bool|\yii\web\Response
      * @throws \yii\web\BadRequestHttpException
      */
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {
             if (!Yii::$app->user->can('editUsers')) {
-//                return $this->redirect('/admin/dashboard/error');
+                return $this->redirect('/admin/dashboard/error');
             }
             return true;
         } else {
