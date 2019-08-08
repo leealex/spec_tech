@@ -155,4 +155,26 @@ class DashboardController extends Controller
             'message' => 'У вас нет прав на просмотр содержимого этого раздела.',
         ]);
     }
+
+    /**
+     * @return \yii\web\Response
+     */
+    public function actionGitStatus()
+    {
+        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git status');
+        Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
+
+        return $this->redirect('/admin');
+    }
+
+    /**
+     * @return \yii\web\Response
+     */
+    public function actionGitPull()
+    {
+        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git pull');
+        Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
+
+        return $this->redirect('/admin');
+    }
 }

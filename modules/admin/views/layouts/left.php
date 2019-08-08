@@ -42,7 +42,8 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
                     ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
                     ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'fa fa-tasks', 'url' => ['/admin/log'],],
-                ]]
+                ]],
+                ['label' => 'Update', 'encode' => false, 'icon' => 'fa fa-github', 'url' => ['/admin/dashboard/git-pull']],
             ]
         ]) ?>
     </section>
