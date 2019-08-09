@@ -65,8 +65,9 @@ class CliController extends Controller
      */
     private function executeCommand($command)
     {
-        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && ' . $command);
-        Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
+        shell_exec('cd ' . Yii::getAlias('@app'));
+        $result = shell_exec($command);
+        Yii::$app->session->setFlash('success', '<pre>' . $result . '</pre>');
 
         return $this->redirect('/admin/cli');
     }
