@@ -22,6 +22,14 @@ class CliController extends Controller
     /**
      * @return \yii\web\Response
      */
+    public function actionGitStatus()
+    {
+        return $this->executeCommand('git status');
+    }
+
+    /**
+     * @return \yii\web\Response
+     */
     public function actionGitPull()
     {
         return $this->executeCommand('git pull');
