@@ -12,10 +12,11 @@ $this->title = 'CLI Commands';
   <div class="col-md-12">
     <div class="box">
       <div class="box-body">
-        <a href="/admin/cli/git-pull" class="btn btn-default">git pull</a>
-        <a href="/admin/cli/composer-install" class="btn btn-default">composer install</a>
+        <a href="/admin/cli/git-pull" class="btn btn-primary">git pull</a>
+        <a href="/admin/cli/composer-install" class="btn btn-primary">composer install</a>
         <a href="/admin/cli/git-hard-pull" class="btn btn-danger">git hard pull</a>
         <a href="/admin/cli/composer-update" class="btn btn-danger">composer update</a>
+        <a href="#" class="btn btn-default">test</a>
       </div>
     </div>
   </div>
