@@ -76,9 +76,9 @@ class ButtonGroup extends \yii\widgets\InputWidget
     public function run()
     {
         $options = ['class' => 'btn-group', 'data-toggle' => 'buttons'];
-        if (!empty($this->options)) {
-            $options = array_merge($options, $this->options);
-        }
+//        if (!empty($this->options)) {
+//            $options = array_merge($options, $this->options);
+//        }
         $html = Html::beginTag('div', $options);
         foreach ($this->items as $item) {
             if (!is_array($item)) {
