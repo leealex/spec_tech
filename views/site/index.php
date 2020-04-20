@@ -87,15 +87,6 @@ use yii\widgets\Pjax;
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 wow bounceInUp graph" data-wow-offset="200">
-                        <?= Slick::widget([
-                            'items' => GraphItem::renderItems(),
-                            'numberToShow' => 3,
-                            'numberToScroll' => 3,
-                        ]) ?>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -129,7 +120,7 @@ use yii\widgets\Pjax;
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div class="icon people wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Партнеры</h2>
+                        <h2 class="wow fadeInDown">Наши клиенты</h2>
                         <div class="partners">
                             <?= Slick::widget([
                                 'items' => Partner::getSlides(),

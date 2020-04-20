@@ -2,7 +2,6 @@
 
 namespace app\modules\admin\controllers;
 
-use app\modules\admin\models\FileStorage;
 use app\modules\admin\models\LoginForm;
 use app\modules\admin\models\SystemLog;
 use Yii;
@@ -39,51 +38,6 @@ class DashboardController extends Controller
         } else {
             return false;
         }
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function afterAction($action, $result)
-    {
-        if ($action->id === 'image-upload' || $action->id === 'file-upload') {
-            $fileName = substr($result['filelink'], strrpos($result['filelink'], '/') + 1);
-            if ($file = $_FILES['file']) {
-                $storage = new FileStorage();
-                $storage->path = $action->path . $fileName;
-                $storage->base_url = $result['filelink'];
-                $storage->name = $fileName;
-                $storage->size = $file['size'];
-                $storage->type = $file['type'];
-                $storage->created_at = time();
-                $storage->save();
-            }
-        }
-        return parent::afterAction($action, $result);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'images-get' => [
-                'class' => 'vova07\imperavi\actions\GetImagesAction',
-                'url' => '/uploads/files/',
-                'path' => '@app/web/uploads/files',
-            ],
-            'image-upload' => [
-                'class' => 'vova07\imperavi\actions\UploadFileAction',
-                'url' => '/uploads/files/',
-                'path' => '@app/web/uploads/files',
-            ],
-            'file-delete' => [
-                'class' => 'vova07\imperavi\actions\DeleteFileAction',
-                'url' => '/uploads/files/',
-                'path' => '@app/web/uploads/files',
-            ],
-        ];
     }
 
     /**

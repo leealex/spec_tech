@@ -27,11 +27,11 @@ $counter = Yii::$app->params['countersHtml'];
                     ['label' => 'Категории' . $counter['category'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/article-category']],
                     ['label' => 'Страницы' . $counter['page'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/page']],
                     ['label' => 'Статьи и Новости' . $counter['article'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/article']],
-                    ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'file-image-o', 'url' => ['/admin/file-manager']],
                     ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'file-text-o', 'url' => ['/admin/widget-text']],
                     ['label' => 'Инфографика', 'encode' => false, 'icon' => 'pie-chart', 'url' => ['/admin/graph-item']],
                     ['label' => 'Партнеры', 'encode' => false, 'icon' => 'users', 'url' => ['/admin/partner']],
                 ]],
+                ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'file-image-o', 'url' => ['/admin/file-manager']],
                 ['label' => 'Пользователи', 'icon' => 'users', 'url' => '#', 'items' => [
                     ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/user/index']],
                     ['label' => 'Права', 'encode' => false, 'icon' => 'unlock', 'url' => ['/admin/user/permission']],

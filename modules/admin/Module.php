@@ -22,6 +22,29 @@ class Module extends \yii\base\Module
      * @inheritdoc
      */
     public $controllerNamespace = 'app\modules\admin\controllers';
+    /**
+     * @inheritdoc
+     */
+    public $controllerMap = [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\Controller',
+            'access' => ['@'],
+            'disabledCommands' => ['netmount'],
+            'roots' => [
+                [
+                    'baseUrl' => '@web',
+                    'basePath' => '@webroot',
+                    'path' => 'uploads',
+                    'name' => 'Uploads'
+                ],
+                [
+                    'class' => 'mihaildev\elfinder\volume\UserPath',
+                    'path' => 'uploads/user_{id}',
+                    'name' => 'My Uploads'
+                ]
+            ]
+        ]
+    ];
 
     /**
      * @inheritdoc
@@ -104,8 +127,7 @@ class Module extends \yii\base\Module
     /**
      * Registers translations
      */
-    public
-    function registerTranslations()
+    public function registerTranslations()
     {
         Yii::$app->i18n->translations['modules/admin/*'] = [
             'class' => 'yii\i18n\PhpMessageSource',
@@ -123,8 +145,7 @@ class Module extends \yii\base\Module
      * @param null $language
      * @return string
      */
-    public
-    static function t($category, $message, $params = [], $language = null)
+    public static function t($category, $message, $params = [], $language = null)
     {
         return Yii::t('modules/admin/' . $category, $message, $params, $language);
     }
