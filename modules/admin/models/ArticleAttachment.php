@@ -62,6 +62,6 @@ class ArticleAttachment extends \yii\db\ActiveRecord
      */
     public function getArticle()
     {
-        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+        return $this->hasOne(Article::class, ['id' => 'article_id']);
     }
 }

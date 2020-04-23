@@ -25,33 +25,82 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-  <div class="header-wrapper">
-    <div class="header">
-      <div class="certificates">
-        <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
-           data-title="ЕвроСтандартРегистр" class="esr"></a>
-        <a href="/uploads/files/igc.pdf" data-toggle="modal" data-target="#modalDocument"
-           data-title="Сертификат соответствия" class="igc"></a>
-        <a href="/uploads/files/tuv.pdf" data-toggle="modal" data-target="#modalDocument"
-           data-title="Сертификат соответствия" class="tuv"></a>
-      </div>
-      <div class="title">
-        <div class="ooo">Общество с ограниченной ответственностью</div>
-        <div class="name">НПП "Спецтех"</div>
-      </div>
-      <div class="phones">
-        <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
-        <div><i class="fa fa-envelope" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
-      </div>
+<div class="header">
+  <div class="certificates">
+    <a href="/uploads/files/esr-iso.pdf" data-toggle="modal" data-target="#modalDocument"
+       data-title="ЕвроСтандартРегистр" class="esr"></a>
+    <a href="/uploads/files/igc.pdf" data-toggle="modal" data-target="#modalDocument"
+       data-title="Сертификат соответствия" class="igc"></a>
+    <a href="/uploads/files/tuv.pdf" data-toggle="modal" data-target="#modalDocument"
+       data-title="Сертификат соответствия" class="tuv"></a>
+  </div>
+  <div class="title">
+    <div class="ooo">Общество с ограниченной ответственностью</div>
+    <div class="name">НПП "Спецтех"</div>
+  </div>
+  <div class="phones">
+    <div><i class="fa fa-phone" aria-hidden="true"></i> <?= Settings::getValue('phoneHeader1') ?></div>
+    <div><i class="fa fa-envelope" aria-hidden="true"></i> <?= Settings::getValue('adminEmail') ?></div>
+  </div>
+</div>
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-    <div class="menu">
-      <button class="bars"><i class="fa fa-bars" aria-hidden="true"></i></button>
-        <?= Menu::widget(['key' => 'main']) ?>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Главная</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">О компании <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/o-kompanii">О компании</a></li>
+            <li><a href="/page/istoria">История</a></li>
+            <li><a href="/page/rukovodstvo">Руководство</a></li>
+            <li><a href="/page/korporativnaa-kultura">Корпоративная культура</a></li>
+            <li><a href="/page/foto">Фото</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">Наши услуги <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/">sss</a></li>
+          </ul>
+        </li>
+        <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">Качество <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/sistema-kacestva">Система качества</a></li>
+            <li><a href="/page/kacestvo">Контроль качества</a></li>
+          </ul>
+        </li>
+        <li><a href="/page/opyt-raboty">Опыт работы</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">Контакты <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/page/kontakty">Контакты</a></li>
+            <li><a href="/page/rekvizity">Наши реквизиты</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
-    <?= $content ?>
-</div>
+</nav>
+
+<?= $content ?>
+
 
 <?php
 Modal::begin([

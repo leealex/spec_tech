@@ -52,7 +52,7 @@ class Article extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
         ];
     }
 
@@ -101,7 +101,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
+        return $this->hasOne(ArticleCategory::class, ['id' => 'category_id']);
     }
 
     /**
@@ -109,7 +109,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'author_id']);
+        return $this->hasOne(User::class, ['id' => 'author_id']);
     }
 
     /**
@@ -117,7 +117,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getUpdater()
     {
-        return $this->hasOne(User::className(), ['id' => 'updater_id']);
+        return $this->hasOne(User::class, ['id' => 'updater_id']);
     }
 
     /**
@@ -125,7 +125,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getArticleAttachments()
     {
-        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
+        return $this->hasMany(ArticleAttachment::class, ['article_id' => 'id']);
     }
 
     /**

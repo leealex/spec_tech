@@ -75,7 +75,7 @@ class WidgetMenuItem extends \yii\db\ActiveRecord
      */
     public function getMenu()
     {
-        return $this->hasOne(WidgetMenu::className(), ['id' => 'menu_id']);
+        return $this->hasOne(WidgetMenu::class, ['id' => 'menu_id']);
     }
     
     /**
@@ -83,7 +83,7 @@ class WidgetMenuItem extends \yii\db\ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(WidgetMenu::className(), ['id' => 'parent_id']);
+        return $this->hasOne(WidgetMenu::class, ['id' => 'parent_id']);
     }
 
     /**

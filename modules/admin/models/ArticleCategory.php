@@ -38,7 +38,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
         ];
     }
 
@@ -79,7 +79,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
      */
     public function getArticles()
     {
-        return $this->hasMany(Article::className(), ['category_id' => 'id']);
+        return $this->hasMany(Article::class, ['category_id' => 'id']);
     }
 
     /**
@@ -87,7 +87,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
      */
     public function getParent()
     {
-        return $this->hasOne(ArticleCategory::className(), ['id' => 'parent_id']);
+        return $this->hasOne(ArticleCategory::class, ['id' => 'parent_id']);
     }
 
     /**
@@ -95,7 +95,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
      */
     public function getArticleCategories()
     {
-        return $this->hasMany(ArticleCategory::className(), ['parent_id' => 'id']);
+        return $this->hasMany(ArticleCategory::class, ['parent_id' => 'id']);
     }
 
     /**

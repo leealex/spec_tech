@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-category-index">
 
-    <p>
-        <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

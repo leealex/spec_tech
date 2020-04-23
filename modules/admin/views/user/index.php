@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
-    <p>
-        <?= Html::a('Создать пользователя', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a('Создать пользователя', ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -38,7 +38,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'created_at:date',
             'updated_at:date',
             'logged_at:date',
-
             [
                 'class' => 'yii\grid\ActionColumn',
                 'visibleButtons' => [

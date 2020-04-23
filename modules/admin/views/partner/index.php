@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="partner-index">
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Partner'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a(Yii::t('app', 'Create Partner'), ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

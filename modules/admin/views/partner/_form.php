@@ -15,7 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image')->widget(ImageBrowser::className()) ?>
+    <?= $form->field($model, 'image')->widget(ImageBrowser::class) ?>
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 

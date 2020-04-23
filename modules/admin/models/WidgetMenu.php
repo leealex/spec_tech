@@ -55,6 +55,6 @@ class WidgetMenu extends \yii\db\ActiveRecord
      */
     public function getItems()
     {
-        return $this->hasMany(WidgetMenuItem::className(), ['menu_id' => 'id'])->where(['parent_id' => 0, 'status' => true]);
+        return $this->hasMany(WidgetMenuItem::class, ['menu_id' => 'id'])->where(['parent_id' => 0, 'status' => true]);
     }
 }

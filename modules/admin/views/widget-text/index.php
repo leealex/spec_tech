@@ -12,9 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-text-index">
 
-    <p>
-        <?= Html::a('Создать текстовый блок', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a('Создать текстовый блок', ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

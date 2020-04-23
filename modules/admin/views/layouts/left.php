@@ -38,10 +38,10 @@ $counter = Yii::$app->params['countersHtml'];
                 ]],
                 ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'wrench', 'url' => ['/admin/settings']],
                 ['label' => 'Система', 'icon' => 'cogs', 'url' => '#', 'items' => [
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                    ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'tasks', 'url' => ['/admin/log'],],
-                    ['label' => 'CLI Commands', 'encode' => false, 'icon' => 'terminal', 'url' => ['/admin/cli'],],
+                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'tasks', 'url' => ['/admin/log']],
+                    ['label' => 'CLI Commands', 'encode' => false, 'icon' => 'terminal', 'url' => ['/admin/cli']],
                 ]]
             ]
         ]) ?>

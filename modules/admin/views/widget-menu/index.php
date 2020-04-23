@@ -11,9 +11,9 @@ $this->title = 'Разделы сайта';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-menu-index">
-    <p>
-        <?= Html::a('Создать меню', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+  <p>
+      <?= Html::a('Создать меню', ['create'], ['class' => 'btn btn-success']) ?>
+  </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

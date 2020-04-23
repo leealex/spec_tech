@@ -3,6 +3,22 @@ body {
     height: 100%;
 }
 
+a {
+    color: #cd120b;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: #a43e35;
+    text-decoration: underline;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #cd120b;
+    border-color: #a43e35;
+}
+
 .site-index,
 .site-production,
 .site-contacts,
@@ -89,17 +105,15 @@ button.bars {
 }
 
 .header {
-    width: 100%;
     height: 110px;
-    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header .certificates {
     height: 110px;
     width: 200px;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .header .certificates .esr,
@@ -145,12 +159,14 @@ button.bars {
 .header .title .ooo {
     font-size: 25px;
     font-weight: 200;
+    text-align: center;
 }
 
 .header .title .name {
     font-size: 30px;
     font-weight: 200;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .header .phones {
@@ -177,30 +193,18 @@ button.bars {
     text-align: center;
 }
 
-.header-wrapper .menu {
-    width: 100%;
-    height: 50px;
+nav.navbar {
+    display: flex;
+    border-radius: 0;
     background: #c61217;
+    border: none;
+    margin: 0;
 }
 
-.header-wrapper .navbar-nav {
-    display: inline-block;
-    float: none;
-}
-
-.header-wrapper .navbar-nav {
-    height: 50px;
-    float: none;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: 0.5s;
-}
-
-.header-wrapper .navbar-nav a {
+nav.navbar .nav > li > a {
     color: #ffffff;
-    line-height: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    font-size: 18px;
+    transition: 0.5s;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
@@ -209,37 +213,88 @@ button.bars {
 }
 
 .nav > li > a.active {
-    border-bottom: 3px solid #2c90cf;
+    border-bottom: 3px solid #8c3029;
 }
 
-.site-index .intro {
-    overflow: hidden;
-    background: url('../img/flag.jpg') no-repeat center;
-    background-size: cover;
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #8c3029;
+    border-color: #8c3029;
+}
+
+
+.site-index .title {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.site-index .subtitle {
+    font-weight: normal;
+    margin-top: 10px;
+    font-size: 30px;
+    margin-bottom: 0;
+    font-family: 'Myriad Pro Condensed', "Helvetica Neue", serif;
+}
+
+.site-index .description {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 30px 0;
+}
+
+.years {
+    background: #c51116;
+    padding: 6px 15px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+#carousel {
     color: #ffffff;
-    padding-top: 60px;
-    padding-bottom: 70px;
+    height: 700px;
     position: relative;
+    overflow: hidden;
 }
 
-.crest-l {
-    background: url('../img/crest-omsk.png');
-    height: 124px;
-    width: 130px;
+.carousel-overlay {
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
-    margin-top: -62px;
+    background: RGBA(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
 }
 
-.crest-r {
-    background: url('../img/crest-moscow.png');
-    height: 124px;
-    width: 130px;
+.carousel-text {
+    top: 100px;
     position: absolute;
-    top: 50%;
-    right: 20px;
-    margin-top: -62px;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-indicators li {
+    background-color: #ffffff;
+}
+
+.carousel-indicators .active {
+    border-color: #c51116;
+    background-color: #c51116;
+}
+
+.carousel-inner > .item > img {
+    margin-top: 0;
+    height: 700px;
+    object-fit: cover;
+    width: 100%;
 }
 
 section.about .text-justify {
@@ -297,54 +352,6 @@ section.about .notice {
     text-shadow: 1px 1px 1px #000000;
 }
 
-.years {
-    height: 180px;
-    width: 219px;
-    overflow: hidden;
-    color: #2C90CF;
-    text-align: center;
-    font-size: 84px;
-    line-height: 1em;
-    font-weight: bold;
-    padding-top: 32px;
-    margin: 20px auto;
-    font-family: 'Arial Black', serif;
-}
-
-.years .number {
-    font-size: 120px;
-    line-height: 0.6em;
-}
-
-.years-desc {
-    color: #2c90cf;
-    text-align: center;
-    font-size: 44px;
-    font-weight: 300;
-    line-height: 1em;
-}
-
-.laptop {
-    height: 475px;
-    width: 855px;
-    position: relative;
-    z-index: 0;
-    background: url('../img/laptop.png') center;
-    background-size: contain;
-    padding: 27px 112px 20px 125px;
-}
-
-.shine {
-    background: url('../img/shine.png') no-repeat right top;
-    background-size: contain;
-    height: 100%;
-    width: 296px;
-    position: absolute;
-    top: 0;
-    right: 93px;
-    z-index: 1;
-}
-
 .site-production section,
 .site-contacts section,
 .site-news section,
@@ -358,15 +365,10 @@ section.about .notice {
     background: #e9eeef;
 }
 
-.site-production section .icon,
-.site-contacts section .icon,
-.site-news section .icon,
-.site-index section .icon {
-    width: 64px;
-    height: 50px;
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-position: center;
+section .icon {
+    font-size: 50px;
+    color: #cd150c;
+    text-align: center;
 }
 
 .chat {
@@ -383,10 +385,6 @@ section.about .notice {
 
 .people {
     background-image: url('../img/people.png');
-}
-
-.news {
-    background-image: url('../img/news.png');
 }
 
 .book {
@@ -529,12 +527,12 @@ section h2 {
     margin: 0;
     padding: 10px;
     border-top: 1px solid #e0e1e1;
-    color: #2c90cf;
+    color: #c51116;
     transition: 0.5s;
 }
 
 .card-footer button:hover {
-    background: #2c90cf;
+    background: #c51116;
     color: #ffffff;
 }
 
@@ -563,12 +561,12 @@ a.read-all {
 }
 
 .read-all.blue {
-    border: 2px solid #2c90cf;
-    color: #2c90cf;
+    border: 2px solid #c51116;
+    color: #c51116;
 }
 
 .read-all.blue:hover {
-    background: #2c90cf;
+    background: #c51116;
     color: #ffffff;
 }
 
@@ -589,11 +587,11 @@ a.read-all {
 
 .institutes input.form-control {
     border: none;
-    border-bottom: 1px solid #4499d2;
+    border-bottom: 1px solid #c51116;
 }
 
 .institutes textarea.form-control {
-    border: 1px solid #4499d2;
+    border: 1px solid #c51116;
 }
 
 .institutes .form-control,
@@ -603,21 +601,21 @@ a.read-all {
 }
 
 .institutes .form-control::-webkit-input-placeholder {
-    color: #4499d2;
+    color: #c51116;
 }
 
 .institutes .form-control::-moz-placeholder {
-    color: #4499d2;
+    color: #c51116;
 }
 
 /* Firefox 19+ */
 .institutes .form-control:-moz-placeholder {
-    color: #4499d2;
+    color: #c51116;
 }
 
 /* Firefox 18- */
 .institutes .form-control:-ms-input-placeholder {
-    color: #4499d2;
+    color: #c51116;
 }
 
 .history-box {
@@ -641,7 +639,7 @@ a.read-all {
     line-height: 120px;
     font-size: 70px;
     font-weight: bold;
-    color: #2C90CF;
+    color: #c51116;
 }
 
 .history-title {
@@ -824,7 +822,7 @@ a.read-all {
 }
 
 .site-production .table > tbody > tr > th {
-    background: #0091D2;
+    background: #c51116;
     color: #fff;
     text-align: center;
     vertical-align: middle;

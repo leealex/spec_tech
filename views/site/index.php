@@ -1,190 +1,187 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $model \app\modules\admin\models\Feedback */
+/**
+ * @var $this yii\web\View
+ * @var $model \app\modules\admin\models\Feedback
+ * @var $news Article[]
+ */
 
 use app\modules\admin\models\Article;
-use app\modules\admin\models\GraphItem;
 use app\modules\admin\models\Partner;
 use app\modules\admin\models\Settings;
 use app\modules\admin\widgets\Text;
 use app\widgets\Slick;
+use rmrevin\yii\fontawesome\FA;
 use yii\bootstrap\Modal;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\widgets\Pjax;
 
+$path = Yii::getAlias('@app/web/uploads/slider');
+$slides = \yii\helpers\FileHelper::findFiles($path);
+array_walk($slides, function (&$item) use ($path) {
+    $item = str_replace($path, '/uploads/slider', $item);
+});
+shuffle($slides);
+
 ?>
-    <div class="site-index">
-        <section class="intro">
-            <div class="crest-l"></div>
-            <div class="crest-r"></div>
-            <div class="container">
-                <div class="about-us">
-                    <h2 class="wow bounceInLeft">Чем занимаемся</h2>
-                    <div class="subtitle wow bounceInLeft" data-wow-delay="0.1s">
-                        Осуществляем изготовление и поставки продукции для нужд предприятий нефтегазовой отрасли
-                    </div>
-                    <div class="years wow flipInX" data-wow-delay="0.8s">
-                        <div class="number"><?= date('Y') - Settings::getValue('foundationYear') ?></div>
-                        лет
-                    </div>
-                    <div class="years-desc wow bounceInLeft" data-wow-delay="0.2s">
-                        Успешной работы
-                    </div>
-                </div>
-                <div class="laptop wow bounceInRight">
-                    <div class="shine"></div>
-                    <?= Slick::widget([
-                        'items' => [
-                            '<img src="/img/slide01.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide02.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide03.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide04.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide05.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide06.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide07.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide08.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide09.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide10.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide11.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                            '<img src="/img/slide12.jpg" alt="ООО НПП Спецтех" class="img-responsive">',
-                        ],
-                        'numberToShow' => 1,
-                        'numberToScroll' => 1,
-                        'autoPlay' => true,
-                    ]) ?>
-                </div>
-            </div>
-        </section>
+  <div class="site-index">
 
-        <section class="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="icon news wow bounceInLeft"></div>
-                        <h2 class="wow bounceInLeft">Новости</h2>
-                        <table class="table table-condensed wow bounceInRight">
-                            <?php foreach ($news as $new) { ?>
-                                <tr>
-                                    <td><?= date('d.m.Y', $new->created_at) ?></td>
-                                    <td><?= Html::a($new->title, ['site/news', 'id' => $new->id]) ?></td>
-                                </tr>
-                            <?php } ?>
-                        </table>
-                        <p class="text-right wow bounceInLeft">
-                            <?= Html::a('<i class="fa fa-archive" aria-hidden="true"></i> Архив новостей', ['site/news']) ?>
-                        </p>
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+          <?php foreach ($slides as $i => $slide) { ?>
+            <li data-target="#carousel" data-slide-to="<?= $i ?>"<?= $i === 0 ? ' class="active"' : '' ?>></li>
+          <?php } ?>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+          <?php foreach ($slides as $i => $slide) { ?>
+            <div class="item<?= $i === 0 ? ' active' : '' ?>"><img src="<?= $slide ?>" alt="<?= $this->title ?>"></div>
+          <?php } ?>
+      </div>
 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="icon chat wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">О нашей компании</h2>
-                        <div class="text-justify wow fadeInUp">
-                            <?= Text::widget(['key' => 'about']) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="carousel-overlay"></div>
 
-        <section class="gray">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="icon branches wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Предприятия-партнеры</h2>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-1">
-                        <div class="wow bounceInLeft">
-                            <?= Slick::widget([
-                                'items' => Article::slideBranches(),
-                                'numberToShow' => 1,
-                                'numberToScroll' => 1,
-                                'variableWidth' => true,
-                                'autoPlay' => true,
-                                'centerMode' => true,
-                            ]) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="icon people wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Наши клиенты</h2>
-                        <div class="partners">
-                            <?= Slick::widget([
-                                'items' => Partner::getSlides(),
-                                'numberToShow' => 5,
-                                'numberToScroll' => 1,
-                                'variableWidth' => true,
-                                'autoPlay' => true,
-                            ]) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="gray">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
-                        <div class="icon news wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">История</h2>
-                        <div>
-                            <?= Slick::widget([
-                                'items' => Article::slideHistory(),
-                                'numberToShow' => 1,
-                                'numberToScroll' => 1,
-                                'autoPlay' => true,
-                            ]) ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="icon book wow fadeInDown"></div>
-                        <h2 class="wow fadeInDown">Проектным институтам, организациям, потребителям</h2>
-
-                        <?php
-                        Pjax::begin();
-                        $form = ActiveForm::begin(['options' => ['class' => 'institutes wow fadeInDown', 'data' => ['pjax' => true]]]);
-                        ?>
-
-                        <?= $form->field($model, 'title')->textInput(['placeholder' => $model->getAttributeLabel('title')])->label(false) ?>
-                        <?= $form->field($model, 'user')->textInput(['placeholder' => $model->getAttributeLabel('user')])->label(false) ?>
-                        <?= $form->field($model, 'phone')->textInput(['placeholder' => $model->getAttributeLabel('phone')])->label(false) ?>
-                        <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
-                        <?= $form->field($model, 'body')->textarea(['placeholder' => $model->getAttributeLabel('body'), 'rows' => 5])->label(false) ?>
-
-                        <div class="form-group">
-                            <?= Html::submitButton('Отправить сообщение', ['class' => 'read-all blue']) ?>
-                        </div>
-
-                        <?php
-                        ActiveForm::end();
-                        Pjax::end();
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="carousel-text">
+        <p class="subtitle">Общество с Ограниченной Ответственностью</p>
+        <span class="title">НПП "СПЕЦТЕХ"</span>
+        <p class="description">Осуществляем изготовление<br>
+          и поставки продукции для нужд<br>
+          предприятий нефтегазовой отрасли</p>
+        <p></p>
+        <div class="years">
+            <?= date('Y') - Settings::getValue('foundationYear') ?> лет успешной работы
+        </div>
+      </div>
     </div>
+
+
+    <section class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="icon wow bounceInLeft"><?= FA::i('newspaper-o') ?></div>
+            <h2 class="wow bounceInLeft">Новости</h2>
+            <table class="table table-condensed wow bounceInRight">
+                <?php foreach ($news as $new) { ?>
+                  <tr>
+                    <td><?= date('d.m.Y', $new->created_at) ?></td>
+                    <td><?= Html::a($new->title, ['site/news', 'id' => $new->id]) ?></td>
+                  </tr>
+                <?php } ?>
+            </table>
+            <p class="text-right wow bounceInLeft">
+                <?= Html::a('<i class="fa fa-archive" aria-hidden="true"></i> Архив новостей', ['site/news']) ?>
+            </p>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="icon wow bounceInLeft"><?= FA::i('info-circle') ?></div>
+            <h2 class="wow fadeInDown">О нашей компании</h2>
+            <div class="text-justify wow fadeInUp">
+                <?= Text::widget(['key' => 'about']) ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="icon wow bounceInLeft"><?= FA::i('sitemap') ?></div>
+            <h2 class="wow fadeInDown">Предприятия-партнеры</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 col-lg-offset-0 col-md-10 col-md-offset-1">
+            <div class="wow bounceInLeft">
+                <?= Slick::widget([
+                    'items' => Article::slideBranches(),
+                    'numberToShow' => 1,
+                    'numberToScroll' => 1,
+                    'variableWidth' => true,
+                    'autoPlay' => true,
+                    'centerMode' => true,
+                ]) ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="icon wow bounceInLeft"><?= FA::i('users') ?></div>
+            <h2 class="wow fadeInDown">Наши клиенты</h2>
+            <div class="partners">
+                <?= Slick::widget([
+                    'items' => Partner::getSlides(),
+                    'numberToShow' => 5,
+                    'numberToScroll' => 1,
+                    'variableWidth' => true,
+                    'autoPlay' => true,
+                ]) ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="icon news wow fadeInDown"></div>
+            <h2 class="wow fadeInDown">История</h2>
+            <div>
+                <?= Slick::widget([
+                    'items' => Article::slideHistory(),
+                    'numberToShow' => 1,
+                    'numberToScroll' => 1,
+                    'autoPlay' => true,
+                ]) ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="icon wow bounceInLeft"><?= FA::i('envelope-o') ?></div>
+            <h2 class="wow fadeInDown">Проектным институтам, организациям, потребителям</h2>
+
+              <?php
+              Pjax::begin();
+              $form = ActiveForm::begin(['options' => ['class' => 'institutes wow fadeInDown', 'data' => ['pjax' => true]]]);
+              ?>
+
+              <?= $form->field($model, 'title')->textInput(['placeholder' => $model->getAttributeLabel('title')])->label(false) ?>
+              <?= $form->field($model, 'user')->textInput(['placeholder' => $model->getAttributeLabel('user')])->label(false) ?>
+              <?= $form->field($model, 'phone')->textInput(['placeholder' => $model->getAttributeLabel('phone')])->label(false) ?>
+              <?= $form->field($model, 'email')->textInput(['placeholder' => $model->getAttributeLabel('email')])->label(false) ?>
+              <?= $form->field($model, 'body')->textarea(['placeholder' => $model->getAttributeLabel('body'), 'rows' => 5])->label(false) ?>
+
+            <div class="form-group">
+                <?= Html::submitButton('Отправить сообщение', ['class' => 'read-all blue']) ?>
+            </div>
+
+              <?php
+              ActiveForm::end();
+              Pjax::end();
+              ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
 <?php Modal::begin([
     'id' => 'modalCard',

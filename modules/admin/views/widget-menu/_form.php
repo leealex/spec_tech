@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <div class="col-md-2"><?= $form->field($model, 'key')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
-        <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::className(), [
+        <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::class, [
                 'default' => 1,
                 'items' => [
                     ['label' => 'Да', 'value' => 1],
@@ -39,7 +39,7 @@ use yii\widgets\ActiveForm;
             <div class="col-md-2"><?= $form->field($item, "[$index]title") ?></div>
             <div class="col-md-2"><?= $form->field($item, "[$index]url") ?></div>
             <div class="col-md-3"><?= $form->field($item, "[$index]options") ?></div>
-            <div class="col-md-1"><?= $form->field($item, "[$index]status")->widget(ButtonGroup::className(), [
+            <div class="col-md-1"><?= $form->field($item, "[$index]status")->widget(ButtonGroup::class, [
                     'default' => 1,
                     'items' => [
                         ['label' => 'Да', 'value' => 1],
