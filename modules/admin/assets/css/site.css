@@ -1,7 +1,48 @@
-.btn-form {
+.login-page {
+    background-color: #ffffff;
+    background-image: url('../images/bg-light.jpg');
+    background-size: cover;
+}
+
+.login-box-body, .register-box-body {
+    background: none;
+}
+
+.login-box .form-control {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #f4f4f4;
+}
+
+.login-box .btn-form {
     margin-top: 25px;
+}
+
+.login-box .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
 }
 
 .content-wrapper {
     overflow: hidden;
+}
+
+.sidebar-footer {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    width: 230px;
+    padding: 15px 5px;
+    text-align: center;
+    background: #1a2226;
+    color: #95a3a9;
+}
+
+.sidebar-collapse .sidebar-footer {
+    display: none;
+}
+
+.text-light {
+    color: #b3b3b3;
 }

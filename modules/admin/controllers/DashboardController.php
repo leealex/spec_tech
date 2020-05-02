@@ -4,8 +4,8 @@ namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\LoginForm;
 use app\modules\admin\models\SystemLog;
+use app\modules\admin\models\User;
 use Yii;
-use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
@@ -46,18 +46,12 @@ class DashboardController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => SystemLog::find(),
-            'pagination' => [
-                'pageSize' => 5,
-            ],
-            'sort' => [
-                'defaultOrder' => ['log_time' => SORT_DESC]
-            ]
-        ]);
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+        $log = SystemLog::find()->where(['read' => false])->andWhere(['not', ['level' => 4]])->all();
+        $counters = [
+            'users' => User::find()->count()
+        ];
+
+        return $this->render('index', ['log' => $log, 'counters' => $counters]);
     }
 
     /**
@@ -66,7 +60,8 @@ class DashboardController extends Controller
      */
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
+        $this->layout = 'main-login';
+        if (!Yii::$app->user->isGuest) {
             return $this->redirect('/admin');
         }
 
@@ -74,9 +69,7 @@ class DashboardController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->redirect('/admin');
         }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
+        return $this->render('login', ['model' => $model,]);
     }
 
     /**
@@ -98,16 +91,5 @@ class DashboardController extends Controller
             'name' => 'Ошибка доступа',
             'message' => 'У вас нет прав на просмотр содержимого этого раздела.',
         ]);
-    }
-
-    /**
-     * @return \yii\web\Response
-     */
-    public function actionGitStatus()
-    {
-        $r = shell_exec('cd ' . Yii::getAlias('@app') . ' && git status');
-        Yii::$app->session->setFlash('success', '<pre>' . $r . '</pre>');
-
-        return $this->redirect('/admin');
     }
 }

@@ -24,6 +24,7 @@ class AdminAsset extends AssetBundle
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset'
+        'yii\bootstrap\BootstrapAsset',
+        'rmrevin\yii\fontawesome\AssetBundle'
     ];
 }

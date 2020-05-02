@@ -67,11 +67,9 @@ class ArticleController extends Controller
     public function actionCreate()
     {
         $model = new Article();
-        $model->slug = time();
         $categories = ArticleCategory::find()->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->link('author', Yii::$app->user->identity);
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -93,7 +91,6 @@ class ArticleController extends Controller
         $categories = ArticleCategory::find()->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->link('updater', Yii::$app->user->identity);
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [

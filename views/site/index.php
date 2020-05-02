@@ -54,40 +54,7 @@ shuffle($slides);
       </div>
     </div>
 
-
-    <section class="about">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="icon wow bounceInLeft"><?= FA::i('newspaper-o') ?></div>
-            <h2 class="wow bounceInLeft">Новости</h2>
-            <table class="table table-condensed wow bounceInRight">
-                <?php foreach ($news as $new) { ?>
-                  <tr>
-                    <td><?= date('d.m.Y', $new->created_at) ?></td>
-                    <td><?= Html::a($new->title, ['site/news', 'id' => $new->id]) ?></td>
-                  </tr>
-                <?php } ?>
-            </table>
-            <p class="text-right wow bounceInLeft">
-                <?= Html::a('<i class="fa fa-archive" aria-hidden="true"></i> Архив новостей', ['site/news']) ?>
-            </p>
-
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="icon wow bounceInLeft"><?= FA::i('info-circle') ?></div>
-            <h2 class="wow fadeInDown">О нашей компании</h2>
-            <div class="text-justify wow fadeInUp">
-                <?= Text::widget(['key' => 'about']) ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gray">
+    <section>
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -112,7 +79,7 @@ shuffle($slides);
       </div>
     </section>
 
-    <section>
+    <section class="gray">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -124,25 +91,6 @@ shuffle($slides);
                     'numberToShow' => 5,
                     'numberToScroll' => 1,
                     'variableWidth' => true,
-                    'autoPlay' => true,
-                ]) ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="gray">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <div class="icon news wow fadeInDown"></div>
-            <h2 class="wow fadeInDown">История</h2>
-            <div>
-                <?= Slick::widget([
-                    'items' => Article::slideHistory(),
-                    'numberToShow' => 1,
-                    'numberToScroll' => 1,
                     'autoPlay' => true,
                 ]) ?>
             </div>

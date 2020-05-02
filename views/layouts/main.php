@@ -63,6 +63,7 @@ AppAsset::register($this);
              aria-expanded="false">О компании <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/page/o-kompanii">О компании</a></li>
+            <li><a href="/news">Новости</a></li>
             <li><a href="/page/istoria">История</a></li>
             <li><a href="/page/rukovodstvo">Руководство</a></li>
             <li><a href="/page/korporativnaa-kultura">Корпоративная культура</a></li>
@@ -73,7 +74,8 @@ AppAsset::register($this);
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
              aria-expanded="false">Наши услуги <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="/page/">sss</a></li>
+            <li><a href="/page/">Услуга 1</a></li>
+            <li><a href="/page/">Услуга 2</a></li>
           </ul>
         </li>
         <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
@@ -82,7 +84,7 @@ AppAsset::register($this);
              aria-expanded="false">Качество <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/page/sistema-kacestva">Система качества</a></li>
-            <li><a href="/page/kacestvo">Контроль качества</a></li>
+            <li><a href="/page/kontrol-kacestva">Контроль качества</a></li>
           </ul>
         </li>
         <li><a href="/page/opyt-raboty">Опыт работы</a></li>
@@ -91,7 +93,7 @@ AppAsset::register($this);
              aria-expanded="false">Контакты <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/page/kontakty">Контакты</a></li>
-            <li><a href="/page/rekvizity">Наши реквизиты</a></li>
+            <li><a href="/page/nasi-rekvizity">Наши реквизиты</a></li>
           </ul>
         </li>
       </ul>
@@ -127,17 +129,26 @@ Modal::end();
         </ul>
       </div>
       <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="footer-time">
-          <p>Работаем в будние дни</p>
-          <p>с 9:00 до 18:00 (MSK)</p>
+        <div>
+          <div class="pull-left"><i class="fa fa-clock-o"></i></div>
+          <div class="footer-contacts">
+            <p>Работаем в будние дни</p>
+            <p>с 9:00 до 18:00 (MSK)</p>
+          </div>
         </div>
-        <div class="footer-phone">
-          <p><?= Settings::getValue('phoneHeader1') ?></p>
+        <div>
+          <div class="pull-left"><i class="fa fa-phone"></i></div>
+          <div class="footer-contacts">
+            <p><?= Settings::getValue('phoneHeader1') ?></p>
+          </div>
         </div>
-        <div class="footer-email">
-          <p>
-            <a href="mailto:<?= Settings::getValue('adminEmail') ?>"><?= Settings::getValue('adminEmail') ?></a>
-          </p>
+        <div>
+          <div class="pull-left"><i class="fa fa-envelope-o"></i></div>
+          <div class="footer-contacts">
+            <p>
+              <a href="mailto:<?= Settings::getValue('adminEmail') ?>"><?= Settings::getValue('adminEmail') ?></a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

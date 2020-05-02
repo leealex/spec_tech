@@ -1,58 +1,42 @@
 <?php
+
+use admin\AdminAsset;
+use dmstr\web\AdminLteAsset;
 use yii\helpers\Html;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-$user = Yii::$app->user->identity;
-if (Yii::$app->controller->action->id === 'login') { 
 /**
- * Do not use this code in your template. Remove it. 
- * Instead, use the code  $this->layout = '//main-login'; in your controller.
+ * @var $this \yii\web\View
+ * @var $content string
  */
-    echo $this->render(
-        'main-login',
-        ['content' => $content]
-    );
-} else {
-//    app\assets\AppAsset::register($this);
-    dmstr\web\AdminLteAsset::register($this);
-    $bundle = admin\AdminAsset::register($this);
-    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+
+$user = Yii::$app->user->identity;
+
+AdminLteAsset::register($this);
+AdminAsset::register($this);
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+  <meta charset="<?= Yii::$app->charset ?>"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+  <title><?= Html::encode($this->title) ?></title>
+  <link rel="shortcut icon" href="/images/cp/favicon.ico"/>
+    <?php $this->head() ?>
+</head>
+<body class="hold-transition skin-green sidebar-mini">
+<?php $this->beginBody() ?>
+<div class="wrapper">
+    <?php
+    echo $this->render('header', ['user' => $user]);
+    echo $this->render('left');
+    echo $this->render('content', ['content' => $content]);
     ?>
-    <?php $this->beginPage() ?>
-    <!DOCTYPE html>
-    <html lang="<?= Yii::$app->language ?>">
-    <head>
-        <meta charset="<?= Yii::$app->charset ?>"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <?= Html::csrfMetaTags() ?>
-        <title><?= Html::encode($this->title) ?></title>
-        <?php $this->head() ?>
-    </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-    <?php $this->beginBody() ?>
-    <div class="wrapper">
+</div>
 
-        <?= $this->render(
-            'header.php',
-            ['directoryAsset' => $directoryAsset, 'user' => $user, 'adminImg' => $bundle->baseUrl]
-        ) ?>
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
 
-        <?= $this->render(
-            'left.php',
-            ['directoryAsset' => $directoryAsset, 'user' => $user, 'adminImg' => $bundle->baseUrl]
-        )
-        ?>
-
-        <?= $this->render(
-            'content.php',
-            ['content' => $content, 'directoryAsset' => $directoryAsset, 'adminImg' => $bundle->baseUrl]
-        ) ?>
-
-    </div>
-
-    <?php $this->endBody() ?>
-    </body>
-    </html>
-    <?php $this->endPage() ?>
-<?php } ?>

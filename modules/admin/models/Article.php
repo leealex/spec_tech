@@ -4,6 +4,8 @@ namespace app\modules\admin\models;
 
 use app\modules\admin\Module;
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
@@ -52,7 +54,18 @@ class Article extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::class,
+            [
+                'class' => SluggableBehavior::class,
+                'attribute' => 'title',
+                'immutable' => true,
+                'ensureUnique' => true
+            ],
+            [
+                'class' => BlameableBehavior::class,
+                'createdByAttribute' => 'author_id',
+                'updatedByAttribute' => 'author_id'
+
+            ]
         ];
     }
 
@@ -62,11 +75,12 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slug', 'title', 'body', 'category_id'], 'required'],
+            [['title', 'body'], 'required'],
             [['body', 'createdAt'], 'string'],
             [['category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/', 'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
+            ['slug', 'match', 'pattern' => '/^[0-9a-zA-Z_-]+$/',
+                'message' => 'Допускаются только буквы латинского алфавита, тире и нижнее подчеркивание'],
             [['title'], 'string', 'max' => 512],
             [['view'], 'string', 'max' => 255]
         ];
@@ -94,6 +108,25 @@ class Article extends \yii\db\ActiveRecord
             'createdAt' => Module::t('app', 'Created At'),
             'updated_at' => Module::t('app', 'Updated At'),
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function beforeSave($insert)
+    {
+        if (!parent::beforeSave($insert)) {
+            return false;
+        }
+        if ($insert) {
+            $this->created_at = $this->createdAt ? strtotime($this->createdAt) : time();
+        } else {
+            if ($this->createdAt) {
+                $this->created_at = strtotime($this->createdAt);
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -209,20 +242,5 @@ class Article extends \yii\db\ActiveRecord
             $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm ' . $item->view]);
         }
         return $slides;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if ($this->createdAt) {
-                $this->created_at = strtotime($this->createdAt);
-            }
-            return true;
-        } else {
-            return false;
-        }
     }
 }

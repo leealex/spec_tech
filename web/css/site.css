@@ -90,8 +90,33 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #c61117;
+    border-color: #a71114;
+}
+
+.pagination > li > a, .pagination > li > span {
+    color: #c61418;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    color: #b91216;
+}
+
 button.bars {
     display: none;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+    font-weight: 300;
+    font-size: 48px;
+}
+
+.page-view {
+    font-size: 18px;
+    padding: 30px;
 }
 
 .header-wrapper {
@@ -699,7 +724,7 @@ a.read-all {
 }
 
 .footer p {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .footer-logo {
@@ -717,33 +742,28 @@ a.read-all {
     border: none;
 }
 
-.footer-time,
-.footer-phone,
-.footer-email {
+.footer .nav > li > a:hover,
+.footer .nav > li > a:focus {
+    background: none;
+}
+
+.footer-contacts {
     padding-left: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
-.footer-time {
-    background: url('../img/icon-footer-clock.png') no-repeat;
+.footer .fa {
+    color: #c51418;
 }
 
-.footer-phone {
-    background: url('../img/icon-footer-phone.png') no-repeat;
-}
-
-.footer-email {
-    background: url('../img/icon-footer-plane.png') no-repeat;
-}
-
-.footer-email a {
-    color: #d2d2d2;
+.footer a {
+    color: #fff;
     text-decoration: none;
 }
 
-.footer-email a:hover {
-    color: #ffffff;
-    text-decoration: none;
+.footer a:hover {
+    color: #999999;
 }
 
 .plum {
@@ -754,11 +774,6 @@ a.read-all {
     background: url('../img/logo-plum.png') no-repeat;
     color: #555;
     text-decoration: none;
-}
-
-.plum:hover {
-    text-decoration: none;
-    color: #999999;
 }
 
 .site-production table {
@@ -1142,16 +1157,16 @@ li.news-item {
 }
 
 /*.header {*/
-    /*background: url(/img/ny2018-1.jpg);*/
-    /*color: #fff;*/
+/*background: url(/img/ny2018-1.jpg);*/
+/*color: #fff;*/
 /*}*/
 
 /*.footer:before {*/
-    /*content: '';*/
-    /*background: url(/img/newyear.png);*/
-    /*width: 100%;*/
-    /*height: 78px;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
+/*content: '';*/
+/*background: url(/img/newyear.png);*/
+/*width: 100%;*/
+/*height: 78px;*/
+/*position: absolute;*/
+/*top: 0;*/
+/*left: 0;*/
 /*}*/

@@ -3,47 +3,42 @@
  * @var $user \app\modules\admin\models\User
  * @var $adminImg string
  */
-use yii\helpers\Html;
 
-$counter = Yii::$app->params['countersHtml'];
 ?>
 <aside class="main-sidebar">
-    <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?= $adminImg ?>/img/avatar.png" class="img-circle" alt="User Image"/>
-            </div>
-            <div class="pull-left info">
-                <p><?= $user->username ?></p>
-                <p><?= Html::a('Выход', ['/admin/dashboard/logout'], ['data-method' => 'post']) ?></p>
-            </div>
-        </div>
-        <?= dmstr\widgets\Menu::widget([
-            'items' => [
-                ['label' => 'Главная', 'icon' => 'home', 'url' => ['/admin/dashboard']],
-                ['label' => 'Разделы сайта' . $counter['menu'], 'encode' => false, 'icon' => 'sitemap', 'url' => ['/admin/widget-menu']],
-                ['label' => 'Материалы', 'icon' => 'file-text', 'url' => '#', 'items' => [
-                    ['label' => 'Категории' . $counter['category'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/article-category']],
-                    ['label' => 'Страницы' . $counter['page'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/page']],
-                    ['label' => 'Статьи и Новости' . $counter['article'], 'encode' => false, 'icon' => 'file-text', 'url' => ['/admin/article']],
-                    ['label' => 'Текстовые блоки' . $counter['text'], 'encode' => false, 'icon' => 'file-text-o', 'url' => ['/admin/widget-text']],
-                    ['label' => 'Инфографика', 'encode' => false, 'icon' => 'pie-chart', 'url' => ['/admin/graph-item']],
-                    ['label' => 'Партнеры', 'encode' => false, 'icon' => 'users', 'url' => ['/admin/partner']],
-                ]],
-                ['label' => 'Менеджер файлов' . $counter['file'], 'encode' => false, 'icon' => 'file-image-o', 'url' => ['/admin/file-manager']],
-                ['label' => 'Пользователи', 'icon' => 'users', 'url' => '#', 'items' => [
-                    ['label' => 'Список' . $counter['user'], 'encode' => false, 'icon' => 'list', 'url' => ['/admin/user/index']],
-                    ['label' => 'Права', 'encode' => false, 'icon' => 'unlock', 'url' => ['/admin/user/permission']],
-                ]],
-                ['label' => 'Настройки' . $counter['settings'], 'encode' => false, 'icon' => 'wrench', 'url' => ['/admin/settings']],
-                ['label' => 'Система', 'icon' => 'cogs', 'url' => '#', 'items' => [
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Журнал событий' . $counter['log'], 'encode' => false, 'icon' => 'tasks', 'url' => ['/admin/log']],
-                    ['label' => 'CLI Commands', 'encode' => false, 'icon' => 'terminal', 'url' => ['/admin/cli']],
-                ]]
-            ]
-        ]) ?>
-    </section>
+  <section class="sidebar">
+      <?= dmstr\widgets\Menu::widget([
+          'options' => ['class' => 'sidebar-menu', 'data-widget' => 'tree'],
+          'items' => [
+              ['label' => 'Главная', 'icon' => 'home', 'url' => ['/admin/dashboard']],
+              ['label' => 'Разделы сайта', 'icon' => 'sitemap', 'url' => ['/admin/widget-menu']],
+              ['label' => 'Контент', 'icon' => 'file-text', 'url' => '#', 'items' => [
+                  ['label' => 'Категории', 'icon' => 'list', 'url' => ['article-category/index'],
+                      'active' => $this->context->id === 'article-category'],
+                  ['label' => 'Статьи', 'icon' => 'file-text', 'url' => ['article/index'],
+                      'active' => $this->context->id === 'article'],
+                  ['label' => 'Новости', 'icon' => 'file-text', 'url' => ['news/index'],
+                      'active' => $this->context->id === 'news'],
+                  ['label' => 'Текстовые блоки', 'icon' => 'file-text-o', 'url' => ['text-block/index'],
+                      'active' => $this->context->id === 'text-block'],
+                  ['label' => 'Инфографика', 'icon' => 'pie-chart', 'url' => ['graph-item/index'],
+                      'active' => $this->context->id === 'graph-item'],
+                  ['label' => 'Партнеры', 'icon' => 'users', 'url' => ['partner/index'],
+                      'active' => $this->context->id === 'partner'],
+              ]],
+              ['label' => 'Менеджер файлов', 'icon' => 'file-image-o', 'url' => ['/admin/file-manager']],
+              ['label' => 'Пользователи', 'icon' => 'users', 'url' => '#', 'items' => [
+                  ['label' => 'Список', 'icon' => 'list', 'url' => ['/admin/user/index']],
+                  ['label' => 'Права', 'icon' => 'unlock', 'url' => ['/admin/user/permission']],
+              ]],
+              ['label' => 'Настройки', 'icon' => 'wrench', 'url' => ['/admin/settings']],
+              ['label' => 'Система', 'icon' => 'cogs', 'url' => '#', 'items' => [
+                  ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                  ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                  ['label' => 'Журнал событий', 'icon' => 'tasks', 'url' => ['/admin/log']],
+                  ['label' => 'CLI Commands', 'icon' => 'terminal', 'url' => ['/admin/cli']],
+              ]]
+          ]
+      ]) ?>
+  </section>
 </aside>
