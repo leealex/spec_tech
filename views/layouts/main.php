@@ -157,7 +157,7 @@ Modal::end();
         <p class="text-center">
           &copy; <?= Yii::$app->name . ' ' . Settings::getValue('foundationYear') . ' - ' . date('Y') ?></p>
         <p class="text-center"><a href="http://plumy.ru" class="plum" target="_blank"
-                                  title="Разработка и сопровождение сайтов">Разработка сайта</a></p>
+                                  title="Разработка и сопровождение сайтов"></a></p>
       </div>
     </div>
   </div>
