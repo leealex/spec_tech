@@ -18,7 +18,7 @@ class ArticleCategorySearch extends ArticleCategory
     public function rules()
     {
         return [
-            [['id', 'parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'title', 'body'], 'safe'],
         ];
     }
