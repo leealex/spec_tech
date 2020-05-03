@@ -231,7 +231,7 @@ class Article extends \yii\db\ActiveRecord
             ]);
             $footer = Html::tag('div', $button, ['class' => 'card-footer']);
 
-            $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm ' . $item->view]);
+            $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm']);
         }
         return $slides;
     }

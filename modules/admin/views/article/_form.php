@@ -27,17 +27,9 @@ use yii\widgets\MaskedInput;
       <div class="row">
         <div class="col-md-2"><?= $form->field($model, 'createdAt')
                 ->widget(MaskedInput::class, ['mask' => '99.99.9999', 'options' => ['placeholder' => 'ДД.ММ.ГГГГ']]) ?></div>
-        <div
-            class="col-md-2"><?= $form->field($model, 'category_id')->dropDownList($categories, ['prompt' => '']) ?></div>
-        <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
+        <div class="col-md-2"><?= $form->field($model, 'category_id')->dropDownList($categories, ['prompt' => '']) ?></div>
         <div class="col-md-4"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
-        <div class="col-md-2"><?= $form->field($model, 'view')->dropDownList([
-                'card-style-1' => 'Стиль 1',
-                'card-style-2' => 'Стиль 2',
-                'card-style-3' => 'Стиль 3',
-                'card-style-4' => 'Стиль 4',
-                'card-style-5' => 'Стиль 5',
-            ]) ?></div>
+        <div class="col-md-4"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
       </div>
       <div class="row">
         <div class="col-md-12">
