@@ -18,7 +18,7 @@ class GraphItemSearch extends GraphItem
     public function rules()
     {
         return [
-            [['id', 'number', 'width'], 'integer'],
+            [['number', 'width'], 'integer'],
             [['text', 'color'], 'safe'],
         ];
     }

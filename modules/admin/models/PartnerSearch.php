@@ -18,7 +18,6 @@ class PartnerSearch extends Partner
     public function rules()
     {
         return [
-            [['id'], 'integer'],
             [['title', 'image', 'text'], 'safe'],
         ];
     }
