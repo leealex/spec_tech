@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use app\modules\admin\widgets\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\PartnerSearch */
@@ -11,22 +11,20 @@ $this->title = Yii::t('app', 'Partners');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="partner-index">
-
-  <p>
-      <?= Html::a(Yii::t('app', 'Create Partner'), ['create'], ['class' => 'btn btn-success']) ?>
-  </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'title',
-            'image:image',
-            'text:ntext',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <?= Html::a('Доавить партнера', ['create'], ['class' => 'btn btn-success']) ?>
+    </div>
+    <div class="panel-body">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                'title',
+                'image:image',
+                'text:ntext'
+            ],
+        ]); ?>
+    </div>
+  </div>
 </div>

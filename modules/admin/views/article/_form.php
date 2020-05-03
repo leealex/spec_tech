@@ -6,6 +6,7 @@ use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\elfinder\ElFinder;
+use yii\widgets\MaskedInput;
 
 /**
  * @var $this yii\web\View
@@ -24,8 +25,8 @@ use mihaildev\elfinder\ElFinder;
     </div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-2"><?= $form->field($model, 'createdAt')->textInput([
-                'placeholder' => $model->created_at ? date('d.m.Y', $model->created_at) : date('d.m.Y', time())]) ?></div>
+        <div class="col-md-2"><?= $form->field($model, 'createdAt')
+                ->widget(MaskedInput::class, ['mask' => '99.99.9999', 'options' => ['placeholder' => 'ДД.ММ.ГГГГ']]) ?></div>
         <div
             class="col-md-2"><?= $form->field($model, 'category_id')->dropDownList($categories, ['prompt' => '']) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>

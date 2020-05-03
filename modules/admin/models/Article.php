@@ -36,11 +36,6 @@ use yii\helpers\StringHelper;
 class Article extends \yii\db\ActiveRecord
 {
     /**
-     * @var
-     */
-    public $createdAt;
-
-    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -75,7 +70,7 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'body'], 'required'],
+            [['title', 'body', 'createdAt'], 'required'],
             [['body', 'createdAt'], 'string'],
             [['category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
@@ -93,7 +88,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => Module::t('app', 'ID'),
-            'slug' => Module::t('app', 'Slug'),
+            'slug' => 'Псевдоним',
             'title' => Module::t('app', 'Title'),
             'body' => Module::t('app', 'Body'),
             'view' => Module::t('app', 'View'),
@@ -105,28 +100,25 @@ class Article extends \yii\db\ActiveRecord
             'status' => Module::t('app', 'Status'),
             'published_at' => Module::t('app', 'Published At'),
             'created_at' => Module::t('app', 'Created At'),
-            'createdAt' => Module::t('app', 'Created At'),
+            'createdAt' => 'Дата публикации',
             'updated_at' => Module::t('app', 'Updated At'),
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @return false|string
      */
-    public function beforeSave($insert)
+    public function getCreatedAt()
     {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-        if ($insert) {
-            $this->created_at = $this->createdAt ? strtotime($this->createdAt) : time();
-        } else {
-            if ($this->createdAt) {
-                $this->created_at = strtotime($this->createdAt);
-            }
-        }
+        return $this->created_at ? date('d.m.Y', $this->created_at) : date('d.m.Y');
+    }
 
-        return true;
+    /**
+     * @param $date
+     */
+    public function setCreatedAt($date)
+    {
+        $this->created_at = strtotime($date);
     }
 
     /**

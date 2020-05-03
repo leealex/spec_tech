@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use app\modules\admin\widgets\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\GraphItemSearch */
@@ -11,23 +11,21 @@ $this->title = 'Инфографика';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="graph-item-index">
-
-    <p>
+  <div class="panel panel-default">
+    <div class="panel-heading">
         <?= Html::a('Создать', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'number',
-            'color',
-            'width',
-            'text',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+    </div>
+    <div class="panel-body">
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+            'columns' => [
+                'number',
+                'color',
+                'width',
+                'text'
+            ],
+        ]); ?>
+    </div>
+  </div>
 </div>

@@ -4,7 +4,6 @@ namespace app\modules\admin\models;
 
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -24,11 +23,6 @@ use yii\db\ActiveRecord;
 class News extends ActiveRecord
 {
     /**
-     * @var
-     */
-    public $createdAt;
-
-    /**
      * {@inheritdoc}
      */
     public static function tableName()
@@ -42,7 +36,7 @@ class News extends ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'text'], 'required'],
+            [['title', 'text', 'createdAt'], 'required'],
             [['user_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['text', 'createdAt'], 'string'],
             [['title', 'slug'], 'string', 'max' => 255]
@@ -80,30 +74,28 @@ class News extends ActiveRecord
             'user_id' => 'Автор',
             'title' => 'Заголовок',
             'text' => 'Текст',
-            'slug' => 'Slug',
+            'slug' => 'Псевдоним',
             'status' => 'Активно',
             'created_at' => 'Создано',
             'updated_at' => 'Изменено',
+            'createdAt' => 'Дата публикации',
         ];
     }
 
     /**
-     * {@inheritdoc}
+     * @return false|string
      */
-    public function beforeSave($insert)
+    public function getCreatedAt()
     {
-        if (!parent::beforeSave($insert)) {
-            return false;
-        }
-        if ($insert) {
-            $this->created_at = $this->createdAt ? strtotime($this->createdAt) : time();
-        } else {
-            if ($this->createdAt) {
-                $this->created_at = strtotime($this->createdAt);
-            }
-        }
+        return $this->created_at ? date('d.m.Y', $this->created_at) : date('d.m.Y');
+    }
 
-        return true;
+    /**
+     * @param $date
+     */
+    public function setCreatedAt($date)
+    {
+        $this->created_at = strtotime($date);
     }
 
     /**

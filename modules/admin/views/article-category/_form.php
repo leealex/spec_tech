@@ -12,9 +12,14 @@ use mihaildev\elfinder\ElFinder;
 ?>
 
 <div class="article-category-form">
-
     <?php $form = ActiveForm::begin(); ?>
-    <div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <?= Html::submitButton('Применить', ['class' => 'btn btn-primary', 'name' => 'action', 'value' => 'apply']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success', 'name' => 'action', 'value' => 'save']) ?>
+    </div>
+    <div class="panel-body">
+      <div class="row">
         <div class="col-md-2"><?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-8"><?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?></div>
         <div class="col-md-2"><?= $form->field($model, 'status')->widget(ButtonGroup::class, [
@@ -24,20 +29,16 @@ use mihaildev\elfinder\ElFinder;
                     ['label' => 'Нет', 'value' => 0],
                 ]
             ])->label(null, ['style' => 'display: block']) ?></div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-12">
-            <?= $form->field($model, 'text')->widget(CKEditor::class, [
+            <?= $form->field($model, 'body')->widget(CKEditor::class, [
                 'editorOptions' => ElFinder::ckeditorOptions('admin/elfinder',
                     ['preset' => 'full', 'extraAllowedContent' => ['p[*]', 'a[*]', 'video[*]', 'source[*]', '*(*){*}']]),
             ]) ?>
         </div>
+      </div>
     </div>
-
-    <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
-    </div>
-
+  </div>
     <?php ActiveForm::end(); ?>
-
 </div>
