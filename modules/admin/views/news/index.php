@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a($model->title, ['news/update', 'id' => $model->id]);
                     }
                 ],
-                'slug',
                 'user.username:text:Автор',
                 [
                     'format' => 'raw',
