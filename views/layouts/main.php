@@ -119,16 +119,7 @@ Modal::end();
       <div class="col-md-3 col-sm-12 col-xs-12">
         <div class="footer-logo"></div>
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
-        <ul class="nav text-center">
-          <li><a href="/">О партнерстве</a></li>
-          <li><a href="/production">Продукция</a></li>
-          <li><a href="/news">Новости</a></li>
-          <li><a href="/contacts">Контакты</a></li>
-          <li><a href="/testimonials">Отзывы</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3 col-sm-12 col-xs-12">
+      <div class="col-md-3 col-md-offset-6">
         <div>
           <div class="pull-left"><i class="fa fa-clock-o"></i></div>
           <div class="footer-contacts">
@@ -156,8 +147,11 @@ Modal::end();
       <div class="col-md-12">
         <p class="text-center">
           &copy; <?= Yii::$app->name . ' ' . Settings::getValue('foundationYear') . ' - ' . date('Y') ?></p>
-        <p class="text-center"><a href="http://plumy.ru" class="plum" target="_blank"
-                                  title="Разработка и сопровождение сайтов"></a></p>
+        <p class="text-center">
+          <small>
+            <span class="text-muted">Разработка сайта - </span><a href="https://plumy.ru" target="_blank">Plum</a>
+          </small>
+        </p>
       </div>
     </div>
   </div>
