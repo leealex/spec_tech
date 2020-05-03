@@ -1,11 +1,15 @@
 <?php
 
+use app\modules\admin\models\Category;
 use app\modules\admin\widgets\GridView;
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules\admin\models\ArticleSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+/**
+ * @var $this yii\web\View
+ * @var $searchModel \app\modules\admin\models\ArticleSearch
+ * @var $dataProvider yii\data\ActiveDataProvider
+ * @var $categories array
+ */
 
 $this->title = 'Статьи';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,29 +24,40 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel' => $searchModel,
             'columns' => [
-                'slug',
                 [
+                    'format' => 'raw',
                     'attribute' => 'title',
                     'value' => function ($model) {
-                        return Html::a($model->title, ['update', 'id' => $model->id]);
+                        return Html::a($model->title, ['article/update', 'id' => $model->id]);
+                    }
+                ],
+                [
+                    'format' => 'raw',
+                    'attribute' => 'slug',
+                    'value' => function ($model) {
+                        return '<span class="text-light">/page/</span>' . $model->slug;
+                    }
+                ],
+                [
+                    'attribute' => 'category_id',
+                    'value' => function ($model) {
+                        return $model->category ? $model->category->title : '';
                     },
-                    'format' => 'raw'
+                    'filter' => $categories
                 ],
+                'author.username:text:Автор',
                 [
-                    'label' => 'Категория',
-                    'value' => 'category.title',
-                    'filter' => Html::activeDropDownList($searchModel, 'category_id', $categories,
-                        ['class' => 'form-control', 'prompt' => ''])
+                    'format' => 'raw',
+                    'attribute' => 'status',
+                    'headerOptions' => ['width' => 50],
+                    'contentOptions' => ['class' => 'text-center'],
+                    'value' => function ($model) {
+                        return $model->status
+                            ? '<span class="label label-success">Да</span>'
+                            : '<span class="label label-danger">Нет</span>';
+                    },
+                    'filter' => ['Нет', 'Да']
                 ],
-                [
-                    'label' => 'Автор',
-                    'value' => 'author.username',
-                ],
-                [
-                    'label' => 'Редактор',
-                    'value' => 'updater.username',
-                ],
-                'status:boolean',
                 [
                     'headerOptions' => ['width' => 150],
                     'attribute' => 'created_at',
@@ -50,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return date('d.m.Y H:i', $model->created_at);
                     }
                 ]
-            ],
+            ]
         ]); ?>
     </div>
   </div>
