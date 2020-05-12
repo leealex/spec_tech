@@ -62,32 +62,20 @@ AppAsset::register($this);
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
              aria-expanded="false">О компании <span class="caret"></span></a>
           <ul class="dropdown-menu">
-<!--            <li><a href="/page/o-kompanii">О компании</a></li>-->
             <li><a href="/news">Новости</a></li>
             <li><a href="/page/istoria">История</a></li>
             <li><a href="/page/rukovodstvo">Руководство</a></li>
-<!--            <li><a href="/page/korporativnaa-kultura">Корпоративная культура</a></li>-->
-<!--            <li><a href="/page/foto">Фото</a></li>-->
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-             aria-expanded="false">Наши услуги <span class="caret"></span></a>
+             aria-expanded="false">Продукция <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/page/">Услуга 1</a></li>
             <li><a href="/page/">Услуга 2</a></li>
           </ul>
         </li>
         <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-             aria-expanded="false">Качество <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/page/sistema-kacestva">Система качества</a></li>
-            <li><a href="/page/kontrol-kacestva">Контроль качества</a></li>
-          </ul>
-        </li>
-        <li><a href="/page/opyt-raboty">Опыт работы</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
              aria-expanded="false">Контакты <span class="caret"></span></a>
