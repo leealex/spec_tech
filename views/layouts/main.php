@@ -75,7 +75,7 @@ AppAsset::register($this);
             <li><a href="/page/">Услуга 2</a></li>
           </ul>
         </li>
-        <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
+        <li><a href="/page/produkcia">Технические условия</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
              aria-expanded="false">Контакты <span class="caret"></span></a>
