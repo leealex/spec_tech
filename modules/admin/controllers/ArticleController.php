@@ -70,7 +70,12 @@ class ArticleController extends Controller
         $categories = ArticleCategory::find()->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
+            $action = Yii::$app->request->post('action', 'save');
+            if ($action === 'save') {
+                return $this->redirect(['index']);
+            } else {
+                return $this->redirect(['update', 'id' => $model->id]);
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
