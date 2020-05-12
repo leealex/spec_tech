@@ -9,7 +9,7 @@ use yii\widgets\ListView;
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-10 col-md-offset-1">
                     <div class="icon news wow bounceInLeft"></div>
                     <h2 class="wow bounceInLeft">Новости</h2>
                     <ul class="news-wrapper wow bounceInRight">
