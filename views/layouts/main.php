@@ -81,7 +81,7 @@ AppAsset::register($this);
              aria-expanded="false">Контакты <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="/page/kontakty">Контакты</a></li>
-            <li><a href="/page/nasi-rekvizity">Наши реквизиты</a></li>
+            <li><a href="/page/nasi-rekvizity">Карточка предприятия</a></li>
           </ul>
         </li>
       </ul>
