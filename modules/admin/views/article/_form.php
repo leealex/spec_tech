@@ -35,8 +35,10 @@ use yii\widgets\MaskedInput;
       <div class="row">
         <div class="col-md-12">
             <?= $form->field($model, 'body')->widget(CKEditor::class, [
-                'editorOptions' => ElFinder::ckeditorOptions('admin/elfinder',
-                    ['preset' => 'full', 'extraAllowedContent' => ['p[*]', 'a[*]', 'video[*]', 'source[*]', '*(*){*}']]),
+                'editorOptions' => ElFinder::ckeditorOptions('admin/elfinder', [
+                    'preset' => 'full',
+                    'extraAllowedContent' => ['p[*]', 'a[*]', 'i[*]', 'video[*]', 'source[*]', '*(*){*}']
+                ]),
             ]) ?>
         </div>
       </div>

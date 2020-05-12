@@ -114,6 +114,10 @@ h1 {
     font-size: 48px;
 }
 
+.production {
+    font-size: 14px;
+}
+
 .page-view {
     font-size: 18px;
     padding: 30px;

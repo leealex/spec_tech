@@ -20,7 +20,7 @@ $text = str_replace('{history}', $this->render('_history'), $text);
   <div class="container">
     <div class="page-view">
       <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12">
           <h1><?= $model->title ?></h1>
             <?= $text ?>
         </div>
