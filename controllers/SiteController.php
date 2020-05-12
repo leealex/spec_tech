@@ -74,10 +74,7 @@ class SiteController extends Controller
                 ['class' => 'feedback-result wow fadeInDown']);
         }
 
-        return $this->render('index', [
-            'model' => $model,
-            'news' => Article::getByCategory('news', 3)
-        ]);
+        return $this->render('index', ['model' => $model]);
     }
 
     /**
