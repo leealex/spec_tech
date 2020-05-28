@@ -19,7 +19,9 @@ a:hover, a:focus {
     border-color: #a43e35;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
     color: #fff;
     background-color: #a8100b;
     border-color: #a43e35;
