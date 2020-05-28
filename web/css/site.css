@@ -19,6 +19,12 @@ a:hover, a:focus {
     border-color: #a43e35;
 }
 
+.btn-primary:hover {
+    color: #fff;
+    background-color: #a8100b;
+    border-color: #a43e35;
+}
+
 .page-view h3 {
     background: #c61117;
     color: #fff;
