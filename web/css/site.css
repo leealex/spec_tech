@@ -19,6 +19,14 @@ a:hover, a:focus {
     border-color: #a43e35;
 }
 
+.page-view h3 {
+    background: #c61117;
+    color: #fff;
+    font-weight: normal;
+    font-size: 18px;
+    padding: 10px;
+}
+
 .site-index,
 .site-production,
 .site-contacts,
