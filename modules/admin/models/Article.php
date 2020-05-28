@@ -221,8 +221,8 @@ class Article extends \yii\db\ActiveRecord
         $slides = [];
         foreach ($items as $item) {
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
-            $header = Html::tag('div', $title . Html::img($item->thumbnail_path), ['class' => 'card-header']);
-            $body = Html::tag('div', StringHelper::truncateWords(strip_tags($item->body), 20), ['class' => 'card-body']);
+            $header = Html::tag('div', $title, ['class' => 'card-header']);
+            $body = Html::tag('div', StringHelper::truncateWords(strip_tags($item->body), 100), ['class' => 'card-body']);
             $button = Html::button('Подробнее', [
                 'data-toggle' => 'modal',
                 'data-target' => '#modalCard',

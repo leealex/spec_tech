@@ -70,7 +70,7 @@ shuffle($slides);
                     'numberToShow' => 1,
                     'numberToScroll' => 1,
                     'variableWidth' => true,
-                    'autoPlay' => true,
+                    'autoPlay' => false,
                     'centerMode' => true,
                 ]) ?>
             </div>
