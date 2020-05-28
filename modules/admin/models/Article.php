@@ -222,7 +222,7 @@ class Article extends \yii\db\ActiveRecord
         foreach ($items as $item) {
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
             $header = Html::tag('div', $title, ['class' => 'card-header']);
-            $body = Html::tag('div', StringHelper::truncateWords(strip_tags($item->body), 100), ['class' => 'card-body']);
+            $body = Html::tag('div', $item->body, ['class' => 'card-body']);
             $button = Html::button('Подробнее', [
                 'data-toggle' => 'modal',
                 'data-target' => '#modalCard',
