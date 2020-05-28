@@ -544,7 +544,7 @@ section h2 {
     overflow: hidden;
 }
 
-.card-footer button {
+.card-footer a {
     background: none;
     border: none;
     text-align: center;
@@ -554,9 +554,11 @@ section h2 {
     border-top: 1px solid #e0e1e1;
     color: #c51116;
     transition: 0.5s;
+    display: block;
+    text-decoration: none;
 }
 
-.card-footer button:hover {
+.card-footer a:hover {
     background: #c51116;
     color: #ffffff;
 }

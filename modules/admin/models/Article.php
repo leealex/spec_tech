@@ -7,6 +7,7 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
 
@@ -217,18 +218,24 @@ class Article extends \yii\db\ActiveRecord
      */
     public static function slideBranches()
     {
+        $urls = [
+            'itc' => '#',
+            'baks' => '#',
+            'promyslennye-tehnologii' => '#',
+            'gazfleksizol' => '#',
+            'centr-ekspertizy' => '#',
+            'specstrojlogistika' => '#',
+            'specpromizolacia' => 'http://spi-omsk.com',
+            'nppspecteh' => '#'
+        ];
         $items = self::getByCategory('branches');
         $slides = [];
+        /** @var Article $item */
         foreach ($items as $item) {
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
             $header = Html::tag('div', $title, ['class' => 'card-header']);
             $body = Html::tag('div', $item->body, ['class' => 'card-body']);
-            $button = Html::button('Подробнее', [
-                'data-toggle' => 'modal',
-                'data-target' => '#modalCard',
-                'data-id' => $item->id,
-                'data-title' => $item->title
-            ]);
+            $button = Html::a('Подробнее', ArrayHelper::getValue($urls, $item->slug, '#'), ['target' => '_blank']);
             $footer = Html::tag('div', $button, ['class' => 'card-footer']);
 
             $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm']);
