@@ -40,9 +40,8 @@ $config = [
             'rules' => [
                 'production' => 'site/production',
                 'contacts' => 'site/contacts',
-//                'news' => 'site/news',
                 'testimonials' => 'site/testimonials',
-                'page/<slug:[a-z-]+>' => 'page/view',
+                'page/<slug:[a-z-0-9]+>' => 'page/view',
                 '<controller>/<action>/<id:\d+>' => '<controller>/<action>',
             ]
         ],
@@ -53,21 +52,6 @@ $config = [
     ],
     'params' => $params,
 ];
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-//    $config['bootstrap'][] = 'debug';
-//    $config['modules']['debug'] = [
-//        'class' => 'yii\debug\Module',
-//        'allowedIPs' => ['*,*,*,*']
-//    ];
-//
-//    $config['bootstrap'][] = 'gii';
-//    $config['modules']['gii'] = [
-//        'class' => 'yii\gii\Module',
-//        'allowedIPs' => ['*,*,*,*']
-//    ];
-}
 
 $config['bootstrap'][] = 'admin';
 $config['modules']['admin'] = [
