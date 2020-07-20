@@ -78,6 +78,7 @@ AppAsset::register($this);
             <li><a href="/page/luk-lazy">Люк-лазы</a></li>
             <li><a href="/page/mufty-remontnye">Муфты ремонтные</a></li>
             <li><a href="/page/opory-truboprovodov">Опоры трубопроводов</a></li>
+            <li><a href="/page/pozicioner-vrasatel-klesevoj">Позиционер-вращатель</a></li>
           </ul>
         </li>
         <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
