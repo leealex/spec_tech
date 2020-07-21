@@ -57,12 +57,22 @@ a:hover, a:focus {
     flex-wrap: wrap;
     width: 700px;
     margin: 20px auto;
+    justify-content: center;
 }
 
-a.product {
+.product {
     display: block;
     overflow: hidden;
     width: 300px;
+    margin: 20px;
+}
+
+.product span {
+    background: #c71118;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    padding: 10px;
 }
 
 /* add sorting icons to gridview sort links */
