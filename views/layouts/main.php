@@ -67,20 +67,7 @@ AppAsset::register($this);
             <li><a href="/page/rukovodstvo">Руководство</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-             aria-expanded="false">Продукция <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/page/otvody-og">Отводы ОГ</a></li>
-            <li><a href="/page/otvody-og-15-dn-2dn">Отводы ОГ (1,5 DN; 2DN)</a></li>
-            <li><a href="/page/otvody-2-og">Отводы 2 ОГ</a></li>
-            <li><a href="/page/montaznye-uzly">Монтажные узлы</a></li>
-            <li><a href="/page/luk-lazy">Люк-лазы</a></li>
-            <li><a href="/page/mufty-remontnye">Муфты ремонтные</a></li>
-            <li><a href="/page/opory-truboprovodov">Опоры трубопроводов</a></li>
-            <li><a href="/page/pozicioner-vrasatel-klesevoj">Позиционер-вращатель</a></li>
-          </ul>
-        </li>
+        <li class="dropdown"><a href="/page/produkcia">Продукция</a></li>
         <li><a href="/page/tehniceskie-uslovia">Технические условия</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
