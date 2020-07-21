@@ -52,6 +52,18 @@ a:hover, a:focus {
     padding: 70px 15px 20px;
 }
 
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+}
+
+a.product {
+    display: block;
+    overflow: hidden;
+    width: 300px;
+}
+
 /* add sorting icons to gridview sort links */
 a.asc:after, a.desc:after {
     position: relative;
