@@ -67,6 +67,10 @@ a:hover, a:focus {
     margin: 20px;
 }
 
+.product:hover {
+    opacity: 0.5;
+}
+
 .product span {
     background: #c71118;
     color: #ffffff;
