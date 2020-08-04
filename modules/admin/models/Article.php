@@ -220,13 +220,13 @@ class Article extends \yii\db\ActiveRecord
     {
         $urls = [
             'itc' => '#',
-            'baks' => '#',
-            'promyslennye-tehnologii' => '#',
+            'baks' => 'https://bacs-tech.ru',
+            'promyslennye-tehnologii' => 'http://www.pmtn.ru',
             'gazfleksizol' => '#',
-            'centr-ekspertizy' => '#',
-            'specstrojlogistika' => '#',
-            'specpromizolacia' => 'http://spi-omsk.com',
-            'nppspecteh' => '#'
+            'centr-ekspertizy' => 'http://expertiza-omsk.ru',
+            'specstrojlogistika' => 'https://specsl.pulscen.ru',
+            'specpromizolacia' => 'http://спи-омск.рф',
+            'nppspecteh' => 'http://спецтехомск.рф'
         ];
         $items = self::getByCategory('branches');
         $slides = [];
