@@ -576,11 +576,13 @@ section h2 {
 .card-md .card-body {
     padding: 90px 10px 10px;
     max-height: 300px;
+    min-height: 300px;
 }
 
 .card-sm .card-body {
     padding: 10px;
     max-height: 300px;
+    min-height: 300px;
 }
 
 .card-footer {
