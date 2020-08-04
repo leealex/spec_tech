@@ -235,7 +235,8 @@ class Article extends \yii\db\ActiveRecord
             $title = Html::tag('div', $item->title, ['class' => 'card-title']);
             $header = Html::tag('div', $title, ['class' => 'card-header']);
             $body = Html::tag('div', $item->body, ['class' => 'card-body']);
-            $button = Html::a('Подробнее', ArrayHelper::getValue($urls, $item->slug, '#'), ['target' => '_blank']);
+            $button = Html::a('<i class="fa fa-external-link"></i> Подробнее',
+                ArrayHelper::getValue($urls, $item->slug, '#'), ['target' => '_blank']);
             $footer = Html::tag('div', $button, ['class' => 'card-footer']);
 
             $slides[] = Html::tag('div', $header . $body . $footer, ['class' => 'card-sm']);
