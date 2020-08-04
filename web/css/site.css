@@ -575,12 +575,12 @@ section h2 {
 
 .card-md .card-body {
     padding: 90px 10px 10px;
-    height: 200px;
+    max-height: 300px;
 }
 
 .card-sm .card-body {
     padding: 10px;
-    height: 400px;
+    max-height: 300px;
 }
 
 .card-footer {
@@ -646,6 +646,14 @@ a.read-all {
 
 .partners .slick-slide {
     margin: 0 20px;
+}
+
+.slick-slide .card-body {
+    transition: 0.5s;
+}
+
+.slick-slide .card-body:hover {
+    max-height: 800px;
 }
 
 .institutes .form-control {
