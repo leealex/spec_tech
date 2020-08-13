@@ -95,45 +95,43 @@ Modal::end();
 ?>
 
 <footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-sm-12 col-xs-12">
-        <div class="footer-logo"></div>
-      </div>
-      <div class="col-md-3 col-md-offset-6">
-        <div>
-          <div class="pull-left"><i class="fa fa-clock-o"></i></div>
-          <div class="footer-contacts">
-            <p>Работаем в будние дни</p>
-            <p>с 9:00 до 18:00 (MSK)</p>
-          </div>
+  <div class="contacts">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-12">
+          <div class="footer-logo"></div>
         </div>
-        <div>
-          <div class="pull-left"><i class="fa fa-phone"></i></div>
-          <div class="footer-contacts">
-            <p><?= Settings::getValue('phoneHeader1') ?></p>
+        <div class="col-md-3 col-md-offset-6">
+          <div>
+            <div class="pull-left"><i class="fa fa-clock-o"></i></div>
+            <div class="footer-contacts">
+              <p>Работаем в будние дни</p>
+              <p>с 9:00 до 18:00 (MSK)</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <div class="pull-left"><i class="fa fa-envelope-o"></i></div>
-          <div class="footer-contacts">
-            <p>
-              <a href="mailto:<?= Settings::getValue('adminEmail') ?>"><?= Settings::getValue('adminEmail') ?></a>
-            </p>
+          <div>
+            <div class="pull-left"><i class="fa fa-phone"></i></div>
+            <div class="footer-contacts">
+              <p><?= Settings::getValue('phoneHeader1') ?></p>
+            </div>
+          </div>
+          <div>
+            <div class="pull-left"><i class="fa fa-envelope-o"></i></div>
+            <div class="footer-contacts">
+              <p>
+                <a href="mailto:<?= Settings::getValue('adminEmail') ?>"><?= Settings::getValue('adminEmail') ?></a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <p class="text-center">
-          &copy; <?= Yii::$app->name . ' ' . Settings::getValue('foundationYear') . ' - ' . date('Y') ?></p>
-        <p class="text-center">
-          <small>
-            <span class="text-muted">Разработка сайта - </span><a href="https://plumy.ru" target="_blank">Plum</a>
-          </small>
-        </p>
-      </div>
+  </div>
+  <div class="copyrights">
+    <div class="container text-center">
+      <p class="text-center">
+        &copy; <?= Yii::$app->name . ' ' . Settings::getValue('foundationYear') . ' - ' . date('Y') ?></p>
+      <p><small class="text-muted">Разработка сайта - <a href="https://plumy.ru" target="_blank">Plum</a></small></p>
     </div>
   </div>
 </footer>

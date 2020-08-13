@@ -771,11 +771,24 @@ a.read-all {
 }
 
 .footer {
-    color: #777777;
+    color: #ffffff;
     min-height: 260px;
     background: url('../img/pattern-black.jpg');
-    padding: 40px 0 10px;
+    padding: 0;
     font-size: 16px;
+}
+
+.footer .contacts {
+    padding: 50px 0;
+    background: #c61217;
+    color: #fff;
+    min-height: 150px;
+}
+
+.footer .copyrights {
+    padding: 20px 0;
+    background: #242526;
+    color: #fff;
 }
 
 .footer p {
@@ -809,7 +822,7 @@ a.read-all {
 }
 
 .footer .fa {
-    color: #c51418;
+    color: #ffffff;
 }
 
 .footer a {
