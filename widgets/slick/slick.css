@@ -85,7 +85,7 @@
 .slick-slide img {
     display: block;
     margin: 0 auto;
-    max-width: 100%;
+    width: 100%;
 }
 
 .card-body .slick-slide img {
