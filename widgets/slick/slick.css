@@ -88,7 +88,7 @@
     width: 100%;
 }
 
-.card-body .slick-slide img {
+.slick-slide .card-body img {
     display: block;
     margin: 0 auto;
     max-width: 280px;
