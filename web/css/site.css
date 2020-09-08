@@ -186,6 +186,7 @@ h1 {
 .header .certificates {
     height: 110px;
     width: 200px;
+    margin-left: 20px;
 }
 
 .header .certificates .esr,
